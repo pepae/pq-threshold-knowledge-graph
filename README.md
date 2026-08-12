@@ -121,6 +121,9 @@ isolate a node and its neighbours, click a legend entry to show or hide a type.
 `person` nodes are hidden by default because they are 63 of the 178; re-enable them
 from the legend.
 
+**Drag the divider** between the two panes to rebalance them; the width is
+remembered, and double-clicking the divider resets it.
+
 Keyboard: `/` focuses search, `g` toggles the whole graph, `e` expands.
 
 Labels are drawn most-important-first and any that would collide is dropped, so the

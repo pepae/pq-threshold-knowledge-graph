@@ -51,22 +51,18 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 #shell{display:grid;grid-template-rows:auto 1fr;height:100%}
 header{
   display:flex;gap:.6rem;align-items:center;padding:.5rem .85rem;flex-wrap:wrap;
-  background:linear-gradient(180deg,var(--panel),var(--panel-2));
+  background:var(--panel);
   border-bottom:1px solid var(--rule);
   font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Inter,Roboto,sans-serif;
   position:relative;z-index:30;
 }
 #brand{display:flex;align-items:baseline;gap:.45rem;white-space:nowrap}
-#brand b{
-  font-weight:680;font-size:.92rem;letter-spacing:-.015em;
-  background:linear-gradient(92deg,var(--ink),var(--accent) 130%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
+#brand b{font-weight:680;font-size:.92rem;letter-spacing:-.015em;color:var(--ink)}
 #counts{color:var(--ink-faint);font-size:.72rem;font-variant-numeric:tabular-nums}
 #searchwrap{position:relative;flex:1 1 13rem;min-width:8.5rem;max-width:24rem}
 #search{
   width:100%;padding:.42rem .7rem .42rem 1.9rem;border:1px solid var(--rule);
-  border-radius:9px;background:var(--bg-deep);font-size:.84rem;transition:.15s;
+  border-radius:0;background:var(--bg-deep);font-size:.84rem;transition:.15s;
 }
 #searchwrap::before{
   content:"";position:absolute;left:.62rem;top:50%;width:.72rem;height:.72rem;
@@ -79,13 +75,13 @@ header{
 #results{
   position:absolute;z-index:60;top:calc(100% + 5px);left:0;right:0;max-height:62vh;
   overflow:auto;background:var(--panel);border:1px solid var(--rule);
-  border-radius:11px;box-shadow:var(--glow);display:none;padding:.25rem;
+  border-radius:0;box-shadow:var(--glow);display:none;padding:.25rem;
 }
 #results.on{display:block}
 #results button{
   display:flex;gap:.5rem;align-items:center;width:100%;text-align:left;
   padding:.38rem .5rem;background:none;border:0;cursor:pointer;font-size:.82rem;
-  border-radius:7px;
+  border-radius:0;
 }
 #results button:hover,#results button.sel{background:var(--accent-soft)}
 #results .dot{width:.5rem;height:.5rem;border-radius:50%;flex:none}
@@ -93,17 +89,23 @@ header{
   letter-spacing:.05em;margin-left:auto;flex:none}
 .hbtn{
   display:inline-flex;align-items:center;gap:.3rem;padding:.36rem .62rem;
-  border:1px solid var(--rule);border-radius:9px;background:var(--bg-deep);
+  border:1px solid var(--rule);border-radius:0;background:var(--bg-deep);
   cursor:pointer;font-size:.79rem;white-space:nowrap;transition:.14s;
 }
 .hbtn:hover{border-color:var(--accent);color:var(--accent)}
-.hbtn.on{
-  background:linear-gradient(180deg,var(--accent),color-mix(in srgb,var(--accent) 78%,#000));
-  color:#fff;border-color:transparent;
-}
+.hbtn.on{background:var(--accent);color:var(--bg-deep);border-color:var(--accent);font-weight:600}
 select.hbtn{padding-right:.4rem}
 
-#panes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,clamp(21rem,40%,36rem));min-height:0}
+#panes{display:grid;grid-template-columns:minmax(0,1fr) 5px minmax(0,var(--gw,34rem));min-height:0}
+#gutter{
+  cursor:col-resize;background:var(--rule);position:relative;
+  transition:background .12s;touch-action:none;
+}
+#gutter:hover,#gutter.dragging{background:var(--accent)}
+#gutter::after{
+  content:"";position:absolute;inset:0 -4px;
+}
+body.resizing{cursor:col-resize;user-select:none}
 #note{overflow-y:auto;padding:1.7rem clamp(1rem,4vw,3.2rem) 6rem;scroll-behavior:smooth}
 #gpane{
   border-left:1px solid var(--rule);display:grid;grid-template-rows:auto 1fr;
@@ -126,9 +128,9 @@ article blockquote{
 }
 article blockquote p{margin:.3rem 0}
 article code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.84em;
-  background:var(--code-bg);padding:.12em .38em;border-radius:5px;
+  background:var(--code-bg);padding:.12em .38em;border-radius:0;
   border:1px solid var(--rule-soft)}
-article pre{background:var(--code-bg);padding:.85rem 1.05rem;border-radius:11px;
+article pre{background:var(--code-bg);padding:.85rem 1.05rem;border-radius:0;
   overflow-x:auto;border:1px solid var(--rule);font-size:.86rem}
 article pre code{background:none;padding:0;border:0}
 article table{display:block;overflow-x:auto;max-width:100%;border-collapse:collapse;
@@ -144,14 +146,14 @@ a.wikilink:hover{background:var(--accent-soft);text-decoration:none}
 
 .chips{display:flex;flex-wrap:wrap;gap:.32rem;margin:.7rem 0 1.35rem}
 .chip{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.7rem;padding:.2rem .55rem;
-  border-radius:999px;border:1px solid var(--rule);color:var(--ink-dim);white-space:nowrap;
+  border-radius:0;border:1px solid var(--rule);color:var(--ink-dim);white-space:nowrap;
   background:var(--panel)}
 .chip b{font-weight:640;color:var(--ink)}
 .chip.warn{border-color:color-mix(in srgb,var(--warn) 50%,transparent);color:var(--warn);
   background:color-mix(in srgb,var(--warn) 10%,transparent)}
 .chip.type{color:#080b11;border:0;font-weight:680}
 
-.meta{margin:1.5rem 0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--panel)}
+.meta{margin:1.5rem 0;border:1px solid var(--rule);border-radius:0;overflow:hidden;background:var(--panel)}
 .meta summary{cursor:pointer;padding:.5rem .8rem;background:var(--code-bg);
   font-family:ui-sans-serif,system-ui,sans-serif;font-size:.77rem;color:var(--ink-dim)}
 .meta table{margin:0;font-size:.81rem;width:100%;display:table}
@@ -160,7 +162,7 @@ a.wikilink:hover{background:var(--accent-soft);text-decoration:none}
 .meta th,.meta td{border-bottom:1px solid var(--rule-soft)}
 .ctx{display:flex;flex-wrap:wrap;gap:.4rem;align-items:baseline;font-size:.79rem;
   color:var(--ink-dim);margin:0 0 1.5rem;padding:.5rem .8rem;background:var(--panel);
-  border:1px solid var(--rule);border-radius:11px;
+  border:1px solid var(--rule);border-radius:0;
   font-family:ui-sans-serif,system-ui,sans-serif}
 .ctx b{text-transform:uppercase;letter-spacing:.07em;font-size:.66rem;
   color:var(--ink-faint);font-weight:650}
@@ -174,7 +176,7 @@ a.wikilink:hover{background:var(--accent-soft);text-decoration:none}
   letter-spacing:.1em;color:var(--ink-faint);font-family:ui-sans-serif,system-ui,sans-serif}
 .egroup{margin-bottom:.55rem;font-size:.88rem}
 .egroup .lbl{font-family:ui-monospace,Menlo,monospace;font-size:.71rem;color:var(--accent-2);
-  background:var(--code-bg);padding:.1em .4em;border-radius:5px;margin-right:.3rem}
+  background:var(--code-bg);padding:.1em .4em;border-radius:0;margin-right:.3rem}
 .foot{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.74rem;
   color:var(--ink-faint);margin-top:2.2rem}
 
@@ -183,11 +185,10 @@ a.wikilink:hover{background:var(--accent-soft);text-decoration:none}
   border-bottom:1px solid var(--rule);background:var(--panel);
   font-family:ui-sans-serif,system-ui,sans-serif}
 #gbar label{font-size:.71rem;color:var(--ink-faint);display:flex;align-items:center;gap:.25rem}
-#gbar select{padding:.25rem .35rem;border:1px solid var(--rule);border-radius:7px;
+#gbar select{padding:.25rem .35rem;border:1px solid var(--rule);border-radius:0;
   background:var(--bg-deep);font-size:.74rem}
 #gwrap{position:relative;min-height:0;overflow:hidden;
   background:
-    radial-gradient(1200px 600px at 70% -10%, color-mix(in srgb,var(--accent) 7%,transparent), transparent 70%),
     linear-gradient(var(--grid) 1px, transparent 1px) 0 0/26px 26px,
     linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/26px 26px,
     var(--bg-deep);
@@ -197,20 +198,20 @@ a.wikilink:hover{background:var(--accent-soft);text-decoration:none}
 #cv.hot{cursor:pointer}
 #tip{position:absolute;pointer-events:none;display:none;z-index:20;max-width:17rem;
   background:var(--panel);color:var(--ink);border:1px solid var(--rule);
-  box-shadow:var(--glow);border-radius:9px;padding:.4rem .55rem;
+  box-shadow:var(--glow);border-radius:0;padding:.4rem .55rem;
   font-family:ui-sans-serif,system-ui,sans-serif;font-size:.75rem;line-height:1.4}
 #tip .tt{font-weight:650}
 #tip .ts{color:var(--ink-faint);font-size:.68rem;text-transform:uppercase;letter-spacing:.05em}
 #ghint{position:absolute;top:.55rem;right:.7rem;font-family:ui-sans-serif,system-ui,sans-serif;
   font-size:.68rem;color:var(--ink-faint);background:color-mix(in srgb,var(--panel) 75%,transparent);
-  padding:.15rem .45rem;border-radius:6px;backdrop-filter:blur(6px);pointer-events:none}
+  padding:.15rem .45rem;border-radius:0;backdrop-filter:blur(6px);pointer-events:none}
 #legend{position:absolute;bottom:.5rem;left:.6rem;display:flex;flex-wrap:wrap;gap:.1rem .45rem;
   font-family:ui-sans-serif,system-ui,sans-serif;font-size:.68rem;
   background:color-mix(in srgb,var(--panel) 82%,transparent);backdrop-filter:blur(8px);
-  padding:.3rem .5rem;border-radius:9px;border:1px solid var(--rule);
+  padding:.3rem .5rem;border-radius:0;border:1px solid var(--rule);
   max-width:calc(100% - 1.2rem)}
 #legend button{background:none;border:0;padding:.05rem .1rem;cursor:pointer;color:var(--ink-dim);
-  font:inherit;display:flex;align-items:center;gap:.25rem;border-radius:4px}
+  font:inherit;display:flex;align-items:center;gap:.25rem;border-radius:0}
 #legend button:hover{color:var(--ink)}
 #legend button.off{opacity:.32;text-decoration:line-through}
 #legend .sw{width:.52rem;height:.52rem;border-radius:50%;flex:none}
@@ -222,11 +223,13 @@ a.wikilink:hover{background:var(--accent-soft);text-decoration:none}
    overlaying, so the header controls remain reachable. */
 body.expanded #note{display:none}
 body.expanded #panes{grid-template-columns:1fr}
+body.expanded #gutter{display:none}
 body.expanded #gpane{border-left:0;height:auto}
 
 #tabs{display:none}
 @media (max-width:900px){
   #panes{grid-template-columns:1fr}
+  #gutter{display:none}
   #gpane{border-left:0;border-top:1px solid var(--rule);height:68vh}
   #note{padding:1.15rem 1rem 3.5rem}
   #tabs{display:flex;gap:.25rem}
@@ -258,6 +261,7 @@ body.expanded #gpane{border-left:0;height:auto}
 </header>
 <div id="panes" class="m-note">
   <main id="note"><article><p>Loading…</p></article></main>
+  <div id="gutter" title="Drag to resize"></div>
   <section id="gpane">
     <div id="gbar">
       <label>hops
@@ -478,6 +482,43 @@ function buildLegend(){
   });
 }
 
+/* --------------------------------------------------------------- splitter */
+(()=>{
+  const panes=$("#panes"),gut=$("#gutter");
+  try{const w=localStorage.getItem("kbgw");if(w)panes.style.setProperty("--gw",w);}catch(e){}
+  let raf=null;
+  const apply=w=>{
+    panes.style.setProperty("--gw",w+"px");
+    if(raf)return;
+    raf=requestAnimationFrame(()=>{raf=null;resize();fit();paint();});
+  };
+  gut.addEventListener("pointerdown",ev=>{
+    gut.setPointerCapture(ev.pointerId);
+    gut.classList.add("dragging");document.body.classList.add("resizing");
+    const move=e=>{
+      const r=panes.getBoundingClientRect();
+      apply(Math.round(Math.max(260,Math.min(r.width-320,r.right-e.clientX))));
+    };
+    const up=()=>{
+      gut.classList.remove("dragging");document.body.classList.remove("resizing");
+      gut.removeEventListener("pointermove",move);
+      gut.removeEventListener("pointerup",up);
+      gut.removeEventListener("pointercancel",up);
+      try{localStorage.setItem("kbgw",panes.style.getPropertyValue("--gw"));}catch(e){}
+      resize();fit();paint();
+    };
+    gut.addEventListener("pointermove",move);
+    gut.addEventListener("pointerup",up);
+    gut.addEventListener("pointercancel",up);
+  });
+  // double-click resets to the default split
+  gut.addEventListener("dblclick",()=>{
+    panes.style.removeProperty("--gw");
+    try{localStorage.removeItem("kbgw");}catch(e){}
+    resize();fit();paint();
+  });
+})();
+
 /* ------------------------------------------------------------------ graph */
 const cv=$("#cv"),ctx=cv.getContext("2d"),tip=$("#tip");
 let W=0,H=0,DPR=1;
@@ -693,7 +734,16 @@ function fit(){
     x0=Math.min(x0,c.cx-c.r);x1=Math.max(x1,c.cx+c.r);
     y0=Math.min(y0,c.cy-c.r-22);y1=Math.max(y1,c.cy+c.r);
   }
-  const pad=26, right=nodes.length>34?142:104;
+  // reserve the width the widest label will actually need, measured rather than
+  // guessed, so nothing clips at any pane width
+  ctx.font='600 11.5px ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif';
+  let maxw=0;
+  for(const n of nodes){
+    let t=n.title;if(t.length>32)t=t.slice(0,31)+"…";
+    const w=ctx.measureText(t).width;
+    if(w>maxw)maxw=w;
+  }
+  const pad=26, right=Math.min(W*0.42,maxw+30);
   const k=Math.min((W-pad-right)/Math.max(1,x1-x0),(H-pad*2)/Math.max(1,y1-y0));
   view.k=Math.max(.05,Math.min(2.2,k));
   view.x=(W-right+pad)/2-((x0+x1)/2)*view.k;
