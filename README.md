@@ -101,8 +101,11 @@ python3 scripts/build_webapp.py          # -> dist/
 python3 -m http.server 8000 -d dist      # then open http://localhost:8000
 ```
 
-Deployed to GitHub Pages automatically on every push to `main`. To enable it on a
-fork: **Settings > Pages > Source: GitHub Actions**.
+Live at **<https://pepae.github.io/pq-threshold-knowledge-graph/>**.
+
+CI deploys on every push to the repository's **default branch**, whatever it is
+named, so renaming the default branch later will not silently stop deployments. To
+enable it on a fork: **Settings > Pages > Source: GitHub Actions**.
 
 Graph controls: click a node to navigate, drag to pan, scroll to zoom, hover to
 isolate a node's edges, click a legend entry to show or hide a type. `person`
