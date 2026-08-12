@@ -11,6 +11,9 @@
       "aliases": "list[str]",
       "tags": "list[str]",
       "summary": "str",
+      "url": "str",
+      "doi": "str",
+      "source_depth": "str",
       "unverified": "bool",
       "disputes": "list[str]",
       "notes": "str"
@@ -39,7 +42,8 @@
         "timings": "str",
         "peer_reviewed": "bool",
         "maturity": "str",
-        "self_assessed": "bool"
+        "self_assessed": "bool",
+        "assumptions_pending": "bool"
       }
     },
     "paper": {
@@ -135,6 +139,7 @@
 
   "enums": {
     "status": ["published", "preprint", "draft", "broken"],
+    "source_depth": ["full-text", "abstract", "repo", "mixed"],
     "state": ["open", "partially-resolved", "resolved"],
     "maturity": ["experimental", "prototype", "mature"]
   },

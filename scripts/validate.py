@@ -75,9 +75,13 @@ def check_quality_bar(
         if note.type != "scheme":
             continue
         kinds = outgoing[note.id]
-        if "assumes" not in kinds:
+        if "assumes" not in kinds and not note.fields.get("assumptions_pending"):
             issues.append(
-                Issue(note.rel, "scheme has no assumption edge (set `assumptions:`)")
+                Issue(
+                    note.rel,
+                    "scheme has no assumption edge (set `assumptions:`, or "
+                    "`assumptions_pending: true` if the source text is not yet available)",
+                )
             )
         if not kinds & set(DESIDERATUM_EDGES):
             issues.append(
@@ -119,6 +123,16 @@ def check_citations(notes: dict[str, Note]) -> tuple[list[Issue], list[Issue]]:
                 )
             )
     return errors, warnings
+
+
+def check_pending_assumptions(notes: dict[str, Note]) -> list[Issue]:
+    """Schemes whose assumptions are not yet sourced. This is the backfill queue:
+    each one needs the paper's full text before its `assumes` edges are real."""
+    return [
+        Issue(note.rel, f"{note.id!r} has assumptions_pending: needs the source text")
+        for note in sorted(notes.values(), key=lambda n: n.id)
+        if note.fields.get("assumptions_pending")
+    ]
 
 
 def check_orphans(notes: dict[str, Note], edges: list[dict]) -> list[Issue]:
@@ -187,6 +201,7 @@ def main() -> int:
     citation_errors, citation_warnings = check_citations(notes)
     errors.extend(citation_errors)
     warnings.extend(citation_warnings)
+    warnings.extend(check_pending_assumptions(notes))
     warnings.extend(check_orphans(notes, edges))
     warnings.extend(check_unreferenced_desiderata(notes, edges))
 

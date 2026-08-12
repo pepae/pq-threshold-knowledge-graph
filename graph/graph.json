@@ -2,10 +2,18 @@
   "metadata": {
     "schema_version": "1.0.0",
     "generator": "scripts/build_graph.py",
-    "node_count": 0,
-    "edge_count": 0,
-    "node_counts": {},
-    "edge_counts": {},
+    "node_count": 57,
+    "edge_count": 13,
+    "node_counts": {
+      "assumption": 16,
+      "desideratum": 15,
+      "technique": 26
+    },
+    "edge_counts": {
+      "assumes": 4,
+      "reduces_to": 5,
+      "uses": 4
+    },
     "node_type_colors": {
       "assumption": "#2e8b57",
       "attack": "#a83232",
@@ -18,6 +26,815 @@
       "technique": "#3aa8a8"
     }
   },
-  "nodes": [],
-  "edges": []
+  "nodes": [
+    {
+      "id": "D1",
+      "type": "desideratum",
+      "title": "D1: No trusted setup",
+      "path": "vault/desiderata/D1.md",
+      "attrs": {
+        "short_name": "No trusted setup",
+        "wagner_bullet": "trusted setup (want to avoid)",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D10",
+      "type": "desideratum",
+      "title": "D10: Small public key",
+      "path": "vault/desiderata/D10.md",
+      "attrs": {
+        "short_name": "Small public key",
+        "wagner_bullet": "public key size (individual for silent setup)",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D11",
+      "type": "desideratum",
+      "title": "D11: Small ciphertext",
+      "path": "vault/desiderata/D11.md",
+      "attrs": {
+        "short_name": "Small ciphertext",
+        "wagner_bullet": "ciphertext size / overhead",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D12",
+      "type": "desideratum",
+      "title": "D12: Short decryption keys",
+      "path": "vault/desiderata/D12.md",
+      "attrs": {
+        "short_name": "Short decryption keys",
+        "wagner_bullet": "short decryption keys; can use hybrid encryption, but need to be careful; threshold IBE solutions ideal for that setting",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D13",
+      "type": "desideratum",
+      "title": "D13: Small decryption shares",
+      "path": "vault/desiderata/D13.md",
+      "attrs": {
+        "short_name": "Small decryption shares",
+        "wagner_bullet": "decryption share size",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D14",
+      "type": "desideratum",
+      "title": "D14: Epoch-free batching",
+      "path": "vault/desiderata/D14.md",
+      "attrs": {
+        "short_name": "Epoch-free batching",
+        "wagner_bullet": "batch decryption; release one short decryption key for a large number of ciphertexts; with or without slot number, or epoch-based vs. epoch-free (ideally: without)",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D15",
+      "type": "desideratum",
+      "title": "D15: Fast decryption",
+      "path": "vault/desiderata/D15.md",
+      "attrs": {
+        "short_name": "Fast decryption",
+        "wagner_bullet": "computationally efficient decryption (this is on critical path)",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D2",
+      "type": "desideratum",
+      "title": "D2: Silent setup",
+      "path": "vault/desiderata/D2.md",
+      "attrs": {
+        "short_name": "Silent setup",
+        "wagner_bullet": "silent setup vs. DKG (if number of parties large, avoid DKG)",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D3",
+      "type": "desideratum",
+      "title": "D3: Non-interactive decryption",
+      "path": "vault/desiderata/D3.md",
+      "attrs": {
+        "short_name": "Non-interactive decryption",
+        "wagner_bullet": "non-interactive decryption protocol",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D4",
+      "type": "desideratum",
+      "title": "D4: CCA2 and associated data",
+      "path": "vault/desiderata/D4.md",
+      "attrs": {
+        "short_name": "CCA2 and associated data",
+        "wagner_bullet": "CPA vs. CCA1 vs. CCA2 security (want CCA2); need thrKEM with associated data, as otherwise CCA2 not preserved",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D5",
+      "type": "desideratum",
+      "title": "D5: Ciphertext-adaptive security",
+      "path": "vault/desiderata/D5.md",
+      "attrs": {
+        "short_name": "Ciphertext-adaptive security",
+        "wagner_bullet": "selective vs. adaptive wrt ciphertext (want adaptive)",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D6",
+      "type": "desideratum",
+      "title": "D6: Corruption-adaptive security",
+      "path": "vault/desiderata/D6.md",
+      "attrs": {
+        "short_name": "Corruption-adaptive security",
+        "wagner_bullet": "static vs. adaptive wrt corruptions (both seems fine, adaptive preferred)",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D7",
+      "type": "desideratum",
+      "title": "D7: Rogue-ciphertext security",
+      "path": "vault/desiderata/D7.md",
+      "attrs": {
+        "short_name": "Rogue-ciphertext security",
+        "wagner_bullet": "for batched: security against rogue ciphertext attacks",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D8",
+      "type": "desideratum",
+      "title": "D8: Post-quantum",
+      "path": "vault/desiderata/D8.md",
+      "attrs": {
+        "short_name": "Post-quantum",
+        "wagner_bullet": "plausible PQ or not (want PQ)",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "D9",
+      "type": "desideratum",
+      "title": "D9: Context-dependent decryption shares",
+      "path": "vault/desiderata/D9.md",
+      "attrs": {
+        "short_name": "Context-dependent decryption shares",
+        "wagner_bullet": "context-dependent decryption shares",
+        "wagner_section": "Criteria / Properties that we care about"
+      }
+    },
+    {
+      "id": "agm",
+      "type": "assumption",
+      "title": "Algebraic Group Model",
+      "path": "vault/concepts/agm.md",
+      "attrs": {
+        "aliases": [
+          "AGM"
+        ],
+        "falsifiable": false,
+        "family": "idealization",
+        "pq": false
+      }
+    },
+    {
+      "id": "batched-threshold-encryption",
+      "type": "technique",
+      "title": "Batched threshold encryption",
+      "path": "vault/concepts/batched-threshold-encryption.md",
+      "attrs": {
+        "aliases": [
+          "BTE"
+        ],
+        "family": "primitive"
+      }
+    },
+    {
+      "id": "dcr",
+      "type": "assumption",
+      "title": "Decision Composite Residuosity",
+      "path": "vault/concepts/dcr.md",
+      "attrs": {
+        "aliases": [
+          "DCR"
+        ],
+        "falsifiable": true,
+        "family": "factoring",
+        "pq": false
+      }
+    },
+    {
+      "id": "ddh",
+      "type": "assumption",
+      "title": "Decisional Diffie-Hellman",
+      "path": "vault/concepts/ddh.md",
+      "attrs": {
+        "aliases": [
+          "DDH"
+        ],
+        "falsifiable": true,
+        "family": "discrete log",
+        "pq": false
+      }
+    },
+    {
+      "id": "decomposed-lwe",
+      "type": "assumption",
+      "title": "Decomposed LWE",
+      "path": "vault/concepts/decomposed-lwe.md",
+      "attrs": {
+        "aliases": [
+          "decomposed LWE",
+          "l-decomposed LWE"
+        ],
+        "falsifiable": true,
+        "family": "lattice",
+        "pq": true,
+        "source_depth": "abstract"
+      }
+    },
+    {
+      "id": "distributed-broadcast-encryption",
+      "type": "technique",
+      "title": "Distributed broadcast encryption",
+      "path": "vault/concepts/distributed-broadcast-encryption.md",
+      "attrs": {
+        "aliases": [
+          "DBE"
+        ],
+        "family": "primitive"
+      }
+    },
+    {
+      "id": "fiat-shamir-nizk",
+      "type": "technique",
+      "title": "Fiat-Shamir NIZKs",
+      "path": "vault/concepts/fiat-shamir-nizk.md",
+      "attrs": {
+        "aliases": [
+          "Fiat-Shamir"
+        ],
+        "family": "proof"
+      }
+    },
+    {
+      "id": "gapsvp",
+      "type": "assumption",
+      "title": "GapSVP",
+      "path": "vault/concepts/gapsvp.md",
+      "attrs": {
+        "aliases": [
+          "GapSVP"
+        ],
+        "falsifiable": true,
+        "family": "lattice",
+        "pq": true
+      }
+    },
+    {
+      "id": "gaussian-preimage-sampling",
+      "type": "technique",
+      "title": "Gaussian preimage sampling",
+      "path": "vault/concepts/gaussian-preimage-sampling.md",
+      "attrs": {
+        "aliases": [
+          "preimage sampling",
+          "SamplePre"
+        ],
+        "family": "lattice",
+        "pq": true
+      }
+    },
+    {
+      "id": "ggm",
+      "type": "assumption",
+      "title": "Generic Group Model",
+      "path": "vault/concepts/ggm.md",
+      "attrs": {
+        "aliases": [
+          "GGM"
+        ],
+        "falsifiable": false,
+        "family": "idealization",
+        "pq": false
+      }
+    },
+    {
+      "id": "hint-mlwe",
+      "type": "assumption",
+      "title": "Hint-MLWE",
+      "path": "vault/concepts/hint-mlwe.md",
+      "attrs": {
+        "aliases": [
+          "Hint-MLWE",
+          "Adaptive Hint-MLWE"
+        ],
+        "falsifiable": true,
+        "family": "lattice",
+        "pq": true,
+        "source_depth": "abstract"
+      }
+    },
+    {
+      "id": "hybrid-encryption-associated-data",
+      "type": "technique",
+      "title": "Threshold KEM with associated data",
+      "path": "vault/concepts/hybrid-encryption-associated-data.md",
+      "attrs": {
+        "aliases": [
+          "thrKEM with AD"
+        ],
+        "family": "primitive"
+      }
+    },
+    {
+      "id": "katsumata-transform",
+      "type": "technique",
+      "title": "Katsumata transform",
+      "path": "vault/concepts/katsumata-transform.md",
+      "attrs": {
+        "aliases": [
+          "Katsumata"
+        ],
+        "family": "proof",
+        "pq": true
+      }
+    },
+    {
+      "id": "kh-pprf",
+      "type": "technique",
+      "title": "Key-homomorphic puncturable PRF",
+      "path": "vault/concepts/kh-pprf.md",
+      "attrs": {
+        "aliases": [
+          "KH-PPRF",
+          "key-homomorphic PPRF"
+        ],
+        "family": "prf",
+        "pq": true
+      }
+    },
+    {
+      "id": "klein-sampler",
+      "type": "technique",
+      "title": "Klein/GPV sampler",
+      "path": "vault/concepts/klein-sampler.md",
+      "attrs": {
+        "aliases": [
+          "Klein sampler",
+          "GPV sampler"
+        ],
+        "family": "lattice",
+        "pq": true
+      }
+    },
+    {
+      "id": "kzg-commitments",
+      "type": "technique",
+      "title": "KZG polynomial commitments",
+      "path": "vault/concepts/kzg-commitments.md",
+      "attrs": {
+        "aliases": [
+          "KZG"
+        ],
+        "family": "commitment",
+        "pq": false
+      }
+    },
+    {
+      "id": "l-succinct-lwe",
+      "type": "assumption",
+      "title": "l-succinct LWE",
+      "path": "vault/concepts/l-succinct-lwe.md",
+      "attrs": {
+        "aliases": [
+          "ell-succinct LWE"
+        ],
+        "falsifiable": true,
+        "family": "lattice",
+        "pq": true,
+        "source_depth": "abstract"
+      }
+    },
+    {
+      "id": "labrador",
+      "type": "technique",
+      "title": "LaBRADOR",
+      "path": "vault/concepts/labrador.md",
+      "attrs": {
+        "aliases": [
+          "LaBRADOR"
+        ],
+        "family": "proof",
+        "pq": true
+      }
+    },
+    {
+      "id": "lnp-proofs",
+      "type": "technique",
+      "title": "Lyubashevsky-Nguyen-Plancon proofs",
+      "path": "vault/concepts/lnp-proofs.md",
+      "attrs": {
+        "aliases": [
+          "LNP",
+          "Lyubashevsky-Nguyen-Plancon"
+        ],
+        "family": "proof",
+        "pq": true
+      }
+    },
+    {
+      "id": "low-norm-secret-sharing",
+      "type": "technique",
+      "title": "Low-norm secret sharing",
+      "path": "vault/concepts/low-norm-secret-sharing.md",
+      "attrs": {
+        "aliases": [
+          "small-norm sharing"
+        ],
+        "family": "sharing",
+        "pq": true
+      }
+    },
+    {
+      "id": "lwe",
+      "type": "assumption",
+      "title": "Learning With Errors",
+      "path": "vault/concepts/lwe.md",
+      "attrs": {
+        "aliases": [
+          "LWE"
+        ],
+        "falsifiable": true,
+        "family": "lattice",
+        "pq": true
+      }
+    },
+    {
+      "id": "matrix-hint-lwe",
+      "type": "assumption",
+      "title": "Matrix-Hint LWE",
+      "path": "vault/concepts/matrix-hint-lwe.md",
+      "attrs": {
+        "aliases": [
+          "Matrix-Hint LWE"
+        ],
+        "falsifiable": true,
+        "family": "lattice",
+        "pq": true,
+        "source_depth": "abstract"
+      }
+    },
+    {
+      "id": "mlwe",
+      "type": "assumption",
+      "title": "Module-LWE",
+      "path": "vault/concepts/mlwe.md",
+      "attrs": {
+        "aliases": [
+          "MLWE",
+          "Module Learning With Errors"
+        ],
+        "falsifiable": true,
+        "family": "lattice",
+        "pq": true
+      }
+    },
+    {
+      "id": "module-sis",
+      "type": "assumption",
+      "title": "Module-SIS",
+      "path": "vault/concepts/module-sis.md",
+      "attrs": {
+        "aliases": [
+          "MSIS"
+        ],
+        "falsifiable": true,
+        "family": "lattice",
+        "pq": true
+      }
+    },
+    {
+      "id": "monotone-policy-encryption",
+      "type": "technique",
+      "title": "Distributed monotone-policy encryption",
+      "path": "vault/concepts/monotone-policy-encryption.md",
+      "attrs": {
+        "aliases": [
+          "DME"
+        ],
+        "family": "primitive"
+      }
+    },
+    {
+      "id": "naive-threshold-baseline",
+      "type": "technique",
+      "title": "Naive threshold baseline",
+      "path": "vault/concepts/naive-threshold-baseline.md",
+      "attrs": {
+        "aliases": [
+          "folklore baseline",
+          "naive scheme"
+        ],
+        "family": "baseline"
+      }
+    },
+    {
+      "id": "noise-flooding",
+      "type": "technique",
+      "title": "Noise flooding",
+      "path": "vault/concepts/noise-flooding.md",
+      "attrs": {
+        "aliases": [
+          "smudging",
+          "noise smudging"
+        ],
+        "family": "lattice",
+        "pq": true
+      }
+    },
+    {
+      "id": "polynomial-noise-flooding",
+      "type": "technique",
+      "title": "Polynomial noise flooding",
+      "path": "vault/concepts/polynomial-noise-flooding.md",
+      "attrs": {
+        "aliases": [
+          "polynomial modulus flooding"
+        ],
+        "family": "lattice",
+        "pq": true
+      }
+    },
+    {
+      "id": "q-type-pairing",
+      "type": "assumption",
+      "title": "q-type pairing assumption",
+      "path": "vault/concepts/q-type-pairing.md",
+      "attrs": {
+        "aliases": [
+          "q-type assumption"
+        ],
+        "falsifiable": true,
+        "family": "pairing",
+        "pq": false
+      }
+    },
+    {
+      "id": "qrom",
+      "type": "assumption",
+      "title": "Quantum Random Oracle Model",
+      "path": "vault/concepts/qrom.md",
+      "attrs": {
+        "aliases": [
+          "QROM"
+        ],
+        "falsifiable": false,
+        "family": "idealization",
+        "pq": true
+      }
+    },
+    {
+      "id": "renyi-divergence-analysis",
+      "type": "technique",
+      "title": "Renyi divergence analysis",
+      "path": "vault/concepts/renyi-divergence-analysis.md",
+      "attrs": {
+        "family": "proof",
+        "pq": true
+      }
+    },
+    {
+      "id": "replicated-secret-sharing",
+      "type": "technique",
+      "title": "Replicated secret sharing",
+      "path": "vault/concepts/replicated-secret-sharing.md",
+      "attrs": {
+        "aliases": [
+          "RSS"
+        ],
+        "family": "sharing"
+      }
+    },
+    {
+      "id": "rom",
+      "type": "assumption",
+      "title": "Random Oracle Model",
+      "path": "vault/concepts/rom.md",
+      "attrs": {
+        "aliases": [
+          "ROM"
+        ],
+        "falsifiable": false,
+        "family": "idealization",
+        "pq": false
+      }
+    },
+    {
+      "id": "shamir-secret-sharing",
+      "type": "technique",
+      "title": "Shamir secret sharing",
+      "path": "vault/concepts/shamir-secret-sharing.md",
+      "attrs": {
+        "aliases": [
+          "Shamir"
+        ],
+        "family": "sharing"
+      }
+    },
+    {
+      "id": "silent-setup",
+      "type": "technique",
+      "title": "Silent setup",
+      "path": "vault/concepts/silent-setup.md",
+      "attrs": {
+        "aliases": [
+          "dealerless setup"
+        ],
+        "family": "setup"
+      }
+    },
+    {
+      "id": "threshold-ibe",
+      "type": "technique",
+      "title": "Threshold batch IBE",
+      "path": "vault/concepts/threshold-ibe.md",
+      "attrs": {
+        "aliases": [
+          "thrIBE",
+          "batched threshold IBE"
+        ],
+        "family": "primitive"
+      }
+    },
+    {
+      "id": "threshold-lwe",
+      "type": "assumption",
+      "title": "Threshold-LWE",
+      "path": "vault/concepts/threshold-lwe.md",
+      "attrs": {
+        "aliases": [
+          "threshold-LWE"
+        ],
+        "falsifiable": true,
+        "family": "lattice",
+        "pq": true,
+        "source_depth": "abstract"
+      }
+    },
+    {
+      "id": "universal-thresholdizer",
+      "type": "technique",
+      "title": "Universal thresholdizer",
+      "path": "vault/concepts/universal-thresholdizer.md",
+      "attrs": {
+        "aliases": [
+          "universal thresholdizer"
+        ],
+        "family": "primitive",
+        "pq": true
+      }
+    },
+    {
+      "id": "vector-commitments",
+      "type": "technique",
+      "title": "Vector commitments",
+      "path": "vault/concepts/vector-commitments.md",
+      "attrs": {
+        "aliases": [
+          "VC"
+        ],
+        "family": "commitment"
+      }
+    },
+    {
+      "id": "wee-matrix-commitment",
+      "type": "technique",
+      "title": "Wee succinct matrix commitment",
+      "path": "vault/concepts/wee-matrix-commitment.md",
+      "attrs": {
+        "aliases": [
+          "WW25 commitment",
+          "Wee commitment"
+        ],
+        "family": "commitment",
+        "pq": true
+      }
+    },
+    {
+      "id": "witness-encryption",
+      "type": "technique",
+      "title": "Witness encryption",
+      "path": "vault/concepts/witness-encryption.md",
+      "attrs": {
+        "aliases": [
+          "WE"
+        ],
+        "family": "primitive"
+      }
+    },
+    {
+      "id": "zero-sharing-masks",
+      "type": "technique",
+      "title": "Pseudorandom zero-sharing masks",
+      "path": "vault/concepts/zero-sharing-masks.md",
+      "attrs": {
+        "aliases": [
+          "ZeroShare",
+          "zero-mask"
+        ],
+        "family": "threshold",
+        "pq": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "hint-mlwe",
+      "type": "reduces_to",
+      "target": "mlwe",
+      "declared_in": "hint-mlwe"
+    },
+    {
+      "source": "katsumata-transform",
+      "type": "assumes",
+      "target": "qrom",
+      "declared_in": "katsumata-transform"
+    },
+    {
+      "source": "klein-sampler",
+      "type": "uses",
+      "target": "gaussian-preimage-sampling",
+      "declared_in": "klein-sampler"
+    },
+    {
+      "source": "labrador",
+      "type": "assumes",
+      "target": "module-sis",
+      "declared_in": "labrador"
+    },
+    {
+      "source": "lnp-proofs",
+      "type": "assumes",
+      "target": "module-sis",
+      "declared_in": "lnp-proofs"
+    },
+    {
+      "source": "matrix-hint-lwe",
+      "type": "reduces_to",
+      "target": "lwe",
+      "declared_in": "matrix-hint-lwe"
+    },
+    {
+      "source": "mlwe",
+      "type": "reduces_to",
+      "target": "lwe",
+      "declared_in": "mlwe"
+    },
+    {
+      "source": "monotone-policy-encryption",
+      "type": "uses",
+      "target": "distributed-broadcast-encryption",
+      "declared_in": "monotone-policy-encryption"
+    },
+    {
+      "source": "polynomial-noise-flooding",
+      "type": "uses",
+      "target": "noise-flooding",
+      "declared_in": "polynomial-noise-flooding"
+    },
+    {
+      "source": "qrom",
+      "type": "reduces_to",
+      "target": "rom",
+      "declared_in": "qrom"
+    },
+    {
+      "source": "replicated-secret-sharing",
+      "type": "uses",
+      "target": "low-norm-secret-sharing",
+      "declared_in": "replicated-secret-sharing"
+    },
+    {
+      "source": "threshold-lwe",
+      "type": "reduces_to",
+      "target": "lwe",
+      "declared_in": "threshold-lwe"
+    },
+    {
+      "source": "wee-matrix-commitment",
+      "type": "assumes",
+      "target": "l-succinct-lwe",
+      "declared_in": "wee-matrix-commitment"
+    }
+  ]
 }
