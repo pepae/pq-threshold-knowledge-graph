@@ -423,6 +423,56 @@ class TestValidateChecks(VaultCase):
         )
 
 
+class TestDocsMatchGraph(unittest.TestCase):
+    """SKILL.md and README.md quote node and edge counts. They are read by agents
+    and by people deciding whether to trust the KB, so a stale number is a real
+    defect. Compare them against the committed graph."""
+
+    def setUp(self):
+        import json
+
+        path = REPO_ROOT / "graph" / "graph.json"
+        if not path.exists():
+            self.skipTest("graph.json not built")
+        self.meta = json.loads(path.read_text(encoding="utf-8"))["metadata"]
+
+    def _doc(self, rel):
+        return (REPO_ROOT / rel).read_text(encoding="utf-8")
+
+    def test_totals(self):
+        for rel, pattern in (
+            ("skill/SKILL.md", r"(\d[\d,]*) nodes, (\d[\d,]*) typed edges"),
+            ("README.md", r"(\d[\d,]*) nodes, (\d[\d,]*) typed edges"),
+        ):
+            m = re.search(pattern, self._doc(rel))
+            self.assertIsNotNone(m, f"{rel} does not state node/edge totals")
+            self.assertEqual(
+                (int(m.group(1).replace(",", "")), int(m.group(2).replace(",", ""))),
+                (self.meta["node_count"], self.meta["edge_count"]),
+                f"{rel} states stale totals; regenerate the docs",
+            )
+
+    def test_per_type_counts(self):
+        for rel in ("skill/SKILL.md", "README.md"):
+            doc = self._doc(rel)
+            for node_type, count in self.meta["node_counts"].items():
+                m = re.search(rf"\| `{re.escape(node_type)}` \| (\d+) \|", doc)
+                self.assertIsNotNone(m, f"{rel} has no row for type {node_type!r}")
+                self.assertEqual(
+                    int(m.group(1)), count,
+                    f"{rel} says {node_type} is {m.group(1)}, graph says {count}",
+                )
+
+    def test_every_edge_type_is_documented(self):
+        doc = self._doc("skill/SKILL.md")
+        for edge_type in self.meta["edge_counts"]:
+            self.assertIn(
+                f"`{edge_type}`", doc,
+                f"edge type {edge_type!r} exists in the graph but SKILL.md never "
+                "mentions it, so an agent will not know to query it",
+            )
+
+
 class TestPackaging(unittest.TestCase):
     """requirements.txt must cover every third-party import under scripts/ and
     skill/. CI is the only clean environment, so a missing dependency otherwise

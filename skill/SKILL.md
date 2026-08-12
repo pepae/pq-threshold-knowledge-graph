@@ -15,6 +15,9 @@ description: >-
 A knowledge graph plus wiki covering threshold encryption schemes evaluated
 against the requirements of an Ethereum-style encrypted mempool.
 
+Browsable at <https://pepae.github.io/pq-threshold-knowledge-graph/> if the user
+would rather look than query.
+
 ## What is in here
 
 178 nodes, 566 typed edges.
@@ -131,11 +134,19 @@ way only; reverse-direction frontmatter keys are normalized at build time.
 python3 skill/scripts/query.py filter --type scheme --pq true --satisfies D14
 ```
 
-Returns `blt-batch-ibe` and TACET. Then read `vault/schemes/blt-batch-ibe.md`,
-because the interesting part is not the list: BLT achieves succinctness in theory
-while `blt25-implementation` records that its secure parameters need matrices with
-about 10^9 columns and do not run. The honest answer is "one published candidate,
-not runnable yet, plus one unreviewed draft".
+Returns three: `blt-batch-ibe`, `tacet` and `tacet-silent`. Do not stop at the
+list, because it overstates the position badly.
+
+`blt-batch-ibe` is a **preprint**, not a published result, and
+`blt25-implementation` records that its provably secure parameters need matrices
+with about 10^9 columns at lambda 128, so it runs only at toy parameters with no
+security. `tacet` and `tacet-silent` are both `status: draft`,
+`self_assessed: true`, by this repository's owner, and unreviewed.
+
+So the honest answer is "one preprint that cannot be run at secure parameters, plus
+two unreviewed drafts by the same author". Nothing here is deployable. To see only
+peer-reviewed work, add `--status published`, which returns nothing for this query,
+and that empty result is the real finding.
 
 ### 2. What is actually blocking a post-quantum encrypted mempool?
 
@@ -177,6 +188,24 @@ python3 skill/scripts/query.py filter --type scheme --pq true --satisfies D2 --s
 An empty result is the finding: post-quantum, silent setup, and batching together
 is [silent-pq-threshold-t-of-n](../vault/open-problems/silent-pq-threshold-t-of-n.md).
 
+## The sources are in the repo
+
+`papers/pdf/` holds **27 source PDFs**, named by eprint id with the slash replaced
+by a hyphen (`2025-1254.pdf`). So when a note is not specific enough, read the paper
+itself rather than guessing or going to the network:
+
+```bash
+python3 skill/scripts/query.py node blt-batch-ibe   # gives eprint 2025/1254
+# then read papers/pdf/2025-1254.pdf
+```
+
+Note that eprint.iacr.org serves PDFs behind a bot challenge, so fetching one over
+HTTP will usually fail where the committed copy works. `papers/SOURCES.md` lists
+provenance and licence per file, and README.md carries the full source table.
+
+Current verification depth across the 36 scheme, paper and attack notes:
+20 `full-text`, 7 `mixed`, 7 `abstract`, 2 `repo`.
+
 ## Reading a note correctly
 
 Frontmatter fields that change how much weight a claim carries:
@@ -188,7 +217,10 @@ Frontmatter fields that change how much weight a claim carries:
 - `self_assessed: true`: the evaluation is by the authors of the thing evaluated
 - `unverified: true`: the record itself is not confirmed, do not cite it
 - `assumptions_pending: true`: assumptions are not recorded because the source
-  text was unavailable, rather than because the scheme has none
+  text was unavailable, rather than because the scheme has none. **Currently zero
+  nodes carry this**, since every paper's PDF is committed; if you ever see it,
+  the paper is listed in `papers/WANTED.md` and the scheme's `assumes` edges are
+  incomplete rather than absent
 - `disputes`: sources disagree, and the note says how, instead of picking a side
 
 **TACET is a special case.** It is an unpublished, unreviewed working draft
