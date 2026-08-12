@@ -120,6 +120,10 @@ a.wikilink:hover{border-bottom-color:var(--accent);background:var(--accent-soft)
 .meta table{margin:0;font-size:.82rem;width:100%}
 .meta th{width:11rem;color:var(--ink-dim);font-weight:500;background:transparent}
 .meta th,.meta td{border:0;border-top:1px solid var(--rule-soft)}
+.ctx{font-size:.78rem;color:var(--ink-dim);margin:0 0 1.4rem;padding:.4rem .7rem;
+  border:1px dashed var(--rule);border-radius:7px}
+.ctx b{text-transform:uppercase;letter-spacing:.06em;font-size:.68rem;
+  color:var(--ink-faint);margin-right:.4rem;font-weight:600}
 .disputes{border-left:3px solid #c9762a;background:#c9762a14;padding:.6rem .9rem;
   border-radius:0 7px 7px 0;margin:1.1rem 0;font-size:.92rem}
 .disputes b{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;
@@ -178,6 +182,7 @@ a.wikilink:hover{border-bottom-color:var(--accent);background:var(--accent-soft)
     <input id="search" type="search" placeholder="Search notes, ids, aliases..." autocomplete="off" spellcheck="false">
     <div id="results"></div>
   </div>
+  <select id="guides" class="hbtn" title="Narrative guides"><option value="">Guides...</option></select>
   <div id="tabs">
     <button class="hbtn on" data-tab="note">Note</button>
     <button class="hbtn" data-tab="graph">Graph</button>
@@ -226,13 +231,13 @@ Promise.all([
     adj.get(e.target).push({o:e.source,t:e.type,dir:"in"});
   }
   $("#counts").textContent=`${g.nodes.length} nodes / ${g.edges.length} edges`;
-  buildDesFilter(); buildLegend();
+  buildGuideNav(); buildDesFilter(); buildLegend();
   window.addEventListener("hashchange",route);
   route();
 }).catch(e=>{$("#note").innerHTML=`<article><h1>Could not load data</h1><p>${e}</p>
   <p class="sans">Build it with <code>python3 scripts/build_webapp.py</code> and serve <code>dist/</code>.</p></article>`;});
 
-const START="D14";
+const START="start-here";
 function route(){
   const m=location.hash.match(/^#\/n\/(.+)$/);
   const id=m?decodeURIComponent(m[1]):(G.byId.has(START)?START:G.nodes[0].id);
@@ -259,6 +264,9 @@ function show(id){
   if(a.pq===false) chips.push(`<span class="chip">not PQ</span>`);
   if(a.state) chips.push(`<span class="chip">state <b>${a.state}</b></span>`);
   if(a.short_name) chips.push(`<span class="chip"><b>${esc(a.short_name)}</b></span>`);
+  if(a.angle) chips.push(`<span class="chip">angle <b>${esc(a.angle)}</b></span>`);
+  if(a.reading_time) chips.push(`<span class="chip">${esc(a.reading_time)}</span>`);
+  if(a.audience) chips.push(`<span class="chip">for ${esc(a.audience)}</span>`);
   if(a.peer_reviewed===false) chips.push(`<span class="chip warn">not peer reviewed</span>`);
   if(a.self_assessed) chips.push(`<span class="chip warn">self-assessed</span>`);
   if(a.unverified) chips.push(`<span class="chip warn">unverified</span>`);
@@ -269,6 +277,11 @@ function show(id){
   if(Array.isArray(a.disputes)&&a.disputes.length)
     parts.push(`<div class="disputes"><b>Disputes</b>${a.disputes.map(d=>`<div>${esc(d)}</div>`).join("")}</div>`);
 
+  if(nd.type!=="guide"){
+    const gs=(adj.get(id)||[]).filter(l=>l.t==="covers"&&l.dir==="in").map(l=>l.o);
+    if(gs.length) parts.push(`<div class="ctx sans"><b>Read this in context</b> `+
+      gs.sort().map(o=>`<a href="#/n/${o}">${esc(G.byId.get(o).title.split(":")[0])}</a>`).join(" &middot; ")+`</div>`);
+  }
   parts.push(note.html||"<p><em>No prose yet for this node.</em></p>");
 
   const skip=new Set(["disputes","status","eprint","venue","pq","state","short_name",
@@ -367,6 +380,14 @@ document.querySelectorAll("#tabs .hbtn").forEach(b=>b.addEventListener("click",(
   $("#panes").className=b.dataset.tab==="note"?"m-note":"m-graph";
   if(b.dataset.tab==="graph") draw(true);
 }));
+function buildGuideNav(){
+  const gs=G.nodes.filter(d=>d.type==="guide")
+    .sort((a,b)=>(a.attrs.order||99)-(b.attrs.order||99));
+  const sel=$("#guides");
+  sel.insertAdjacentHTML("beforeend", gs.map(d=>
+    `<option value="${d.id}">${esc(d.attrs.angle||"")} - ${esc(d.title.split(":")[0])}</option>`).join(""));
+  sel.addEventListener("change",e=>{ if(e.target.value){go(e.target.value); e.target.value="";} });
+}
 function buildDesFilter(){
   const ds=G.nodes.filter(d=>d.type==="desideratum").sort((a,b)=>+a.id.slice(1)-+b.id.slice(1));
   $("#dfilter").insertAdjacentHTML("beforeend",
@@ -420,7 +441,7 @@ function draw(fit){
   if(state.global){ ids=new Set(G.nodes.filter(passes).map(d=>d.id)); ids.add(CUR); }
   else{
     const nb=neighborhood(CUR,state.hops);
-    const RANK={scheme:0,desideratum:1,"open-problem":1,attack:1,implementation:2,
+    const RANK={guide:0,scheme:0,desideratum:1,"open-problem":1,attack:1,implementation:2,
                 paper:2,assumption:3,technique:3,person:5};
     const cand=[...nb.entries()]
       .filter(([i])=>i===CUR||passes(G.byId.get(i)))

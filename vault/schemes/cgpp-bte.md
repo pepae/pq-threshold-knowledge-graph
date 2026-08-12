@@ -8,13 +8,13 @@ venue: USENIX Security 2024
 year: 2024
 status: published
 peer_reviewed: true
-source_depth: abstract
+source_depth: mixed
 pq: false
 batched: true
 epoch_free: false
 share_size: 80 bytes per party per batch, independent of batch size
 timings: enc under 6 ms; about 2.8 s per committee member for roughly 500 transactions
-assumptions_pending: true
+assumptions: [q-sbdht, rom]
 techniques: [batched-threshold-encryption, kzg-commitments, witness-encryption]
 presented_in: [choudhuri-garg-piet-policharla-2024]
 satisfies: [D3, D13]
@@ -54,8 +54,17 @@ Partially [[D15]]. Fails [[D2]], [[D8]] and [[D14]].
 
 ## Assumptions
 
-Recorded as pending: the abstract does not state the underlying pairing assumption
-and the KB will not guess it. See `papers/WANTED.md`.
+Proven in the [[rom]] under a new q-type assumption the authors introduce,
+[[q-sbdht]] (q-strong Bilinear Diffie-Hellman Triple). The paper is explicit that
+the standard "KZG assumption", [[q-sdh]], does **not** suffice here: q-SDH gives
+evaluation binding for polynomial commitments, which is not the property the
+batched threshold setting needs.
+
+The construction also assumes a *straight-line extractor*, because the folklore
+ElGamal proof via the Schnorr protocol is problematic even in the random oracle
+model: Schnorr needs rewinding for extraction, which is incompatible with the
+setting. That is the same requirement [[beat-mev]] states as straight-line
+simulation-extractable NIZKs; see [[fiat-shamir-nizk]].
 
 ## Relevance to encrypted mempools
 

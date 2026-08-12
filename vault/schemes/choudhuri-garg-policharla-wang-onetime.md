@@ -7,13 +7,13 @@ eprint: "2024/1516"
 year: 2024
 status: preprint
 peer_reviewed: false
-source_depth: abstract
+source_depth: mixed
 pq: false
 batched: true
 epoch_free: false
 share_size: 48 bytes per party for batch decryption
 timings: enc about 8.5 ms; about 3.2 s per committee member for 500 transactions
-assumptions_pending: true
+assumptions: [shifted-bls-assumption, agm, rom]
 techniques: [batched-threshold-encryption]
 builds_on: [cgpp-bte]
 satisfies: [D3, D13]
@@ -27,10 +27,15 @@ Choudhuri, Garg, Policharla and Wang remove the per-epoch setup from
 
 ## Key mechanism
 
-Per Wagner's survey: shifted BLS plus witness encryption for polynomial
-commitments. Communication is O(1) per epoch once the batch is selected. Wagner
-also records that the proof needs a *new interactive assumption*, which is why this
-note's assumption edges are pending rather than guessed.
+*Shifted BLS*: the committee signs not the commitment `com` but `com` shifted by a
+public random group element, which is what removes the per-epoch setup. Combined
+with witness encryption for polynomial commitments. Communication is O(1) per epoch
+once the batch is selected.
+
+The proof rests on a new assumption ([[shifted-bls-assumption]], Definition 1 in
+the paper) which the authors reduce to more standard assumptions in the [[agm]],
+plus the [[rom]]. This is what Wagner's survey means by "needs new interactive
+assumption for security proof".
 
 ## Concrete numbers
 

@@ -17,14 +17,15 @@ against the requirements of an Ethereum-style encrypted mempool.
 
 ## What is in here
 
-166 nodes, 449 typed edges.
+178 nodes, 566 typed edges.
 
 | type | count | what it is |
 |---|---|---|
+| `guide` | 6 | narrative explainers, one per angle: orientation, goals, problems, history, decisions, vocabulary |
 | `scheme` | 27 | named constructions, from Bendlin-Damgard 2010 to 2026 preprints |
 | `person` | 63 | authors, public information only |
-| `technique` | 26 | building blocks: noise flooding, KH-PPRF, zero-sharing masks, vector commitments |
-| `assumption` | 16 | LWE, Module-LWE, decomposed LWE, l-succinct LWE, q-type pairing, GGM, ROM, QROM |
+| `technique` | 27 | building blocks: noise flooding, KH-PPRF, zero-sharing masks, vector commitments |
+| `assumption` | 21 | LWE, Module-LWE, decomposed LWE, l-succinct LWE, q-SDH, q-SBDHT, DBDH, LOMDH, GGM, AGM, ROM, QROM |
 | `desideratum` | 15 | D1-D15, the encrypted-mempool requirements |
 | `open-problem` | 7 | with explicit "where we stand" and "what needs solving" |
 | `attack` | 5 | concrete attacks and impossibility results |
@@ -35,6 +36,37 @@ against the requirements of an Ethereum-style encrypted mempool.
 That note has no numbered list; the numbering here is a documented flattening.
 Read `vault/desiderata/_wagner-mapping.md` before relying on a specific number,
 and note that D14 means *epoch-free batching* and D8 means *post-quantum*.
+
+## Answering a broad question: read a guide
+
+For open-ended questions ("what is this field about", "what should I build on",
+"what is still unsolved", "how did we get here"), the guides already contain the
+synthesis and are cheaper and more accurate than assembling one from the graph:
+
+| guide | use it for |
+|---|---|
+| `start-here` | the problem in plain language, and the honest state of the art |
+| `the-goals` | D1-D15 explained, plus the five real tensions between them |
+| `the-problems` | attacks, the two impossibility results, all 7 open problems |
+| `the-history` | why the schemes look the way they do, 2010 to 2026 |
+| `choosing-a-scheme` | comparison tables and a recommendation per deployment shape |
+| `glossary` | one-line definitions, for explaining a term to a non-specialist |
+
+```bash
+python3 skill/scripts/query.py filter --type guide      # list them
+python3 skill/scripts/query.py node start-here          # then read vault/guides/start-here.md
+```
+
+Every non-guide node has incoming `covers` edges naming the guides that explain it,
+so you can always find the narrative a deep node belongs to:
+
+```bash
+python3 skill/scripts/query.py neighbors beat-mev --edge-type covers --direction in
+```
+
+If the user asks a plain-language question, prefer the guides' framing over
+inventing your own: they are written to be correct about the caveats, especially
+around what is post-quantum and what only looks it.
 
 ## Two ways in, and when to use each
 
@@ -48,8 +80,9 @@ BEAT-MEV partially satisfies D4; only the note says the evaluated variant is the
 CPA one. Every non-obvious rating is explained in prose, and the notes carry the
 concrete numbers, the caveats, and the disagreements.
 
-Rule of thumb: query first to find the right two or three nodes, then read those
-notes in full. Do not try to answer a "why" question from `graph.json` alone.
+Rule of thumb: for a broad question read the relevant guide; for a specific
+structural question query the graph; for a "why" question read the scheme note.
+Do not try to answer a "why" question from `graph.json` alone.
 
 ## Running queries
 
@@ -78,7 +111,7 @@ conditions.
 Loading `graph/graph.json` directly is also fine. Its shape:
 
 ```json
-{"metadata": {"node_count": 166, "edge_count": 449, "node_counts": {...}},
+{"metadata": {"node_count": 178, "edge_count": 566, "node_counts": {...}},
  "nodes": [{"id": "beat-mev", "type": "scheme", "title": "BEAT-MEV",
             "path": "vault/schemes/beat-mev.md", "attrs": {"pq": false, ...}}],
  "edges": [{"source": "beat-mev", "type": "satisfies", "target": "D14",
@@ -87,7 +120,7 @@ Loading `graph/graph.json` directly is also fine. Its shape:
 
 Edge types: `builds_on`, `supersedes`, `presented_in`, `satisfies`,
 `partially_satisfies`, `fails`, `assumes`, `uses`, `reduces_to`, `attacks`,
-`breaks`, `implements`, `authored`, `resolves`, `opens`. Every edge points one
+`breaks`, `implements`, `authored`, `resolves`, `opens`, `covers`. Every edge points one
 way only; reverse-direction frontmatter keys are normalized at build time.
 
 ## Worked examples

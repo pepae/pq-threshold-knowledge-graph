@@ -123,6 +123,18 @@
         "license": "str"
       }
     },
+    "guide": {
+      "dir": "guides",
+      "description": "A narrative explainer that reads top to bottom. Guides are the way in: they start at plain language and descend into the graph. Each takes one angle (orientation, goals, problems, history, decisions, vocabulary) so the same material can be entered from whichever direction the reader arrives from.",
+      "color": "#5c6bc0",
+      "required": ["angle", "order"],
+      "optional": {
+        "angle": "str",
+        "order": "int",
+        "audience": "str",
+        "reading_time": "str"
+      }
+    },
     "attack": {
       "dir": "attacks",
       "description": "A concrete attack or impossibility result against a scheme or a class of schemes.",
@@ -139,6 +151,7 @@
 
   "enums": {
     "status": ["published", "preprint", "draft", "broken"],
+    "angle": ["orientation", "goals", "problems", "history", "decisions", "vocabulary"],
     "source_depth": ["full-text", "abstract", "repo", "mixed"],
     "state": ["open", "partially-resolved", "resolved"],
     "maturity": ["experimental", "prototype", "mature"]
@@ -249,6 +262,12 @@
         { "key": "resolves", "direction": "forward" },
         { "key": "resolved_by", "direction": "reverse" }
       ]
+    },
+    "covers": {
+      "description": "The guide explains this node. Gives every node a set of narrative entry points, so a reader who lands deep in the graph can find the story it belongs to.",
+      "domain": ["guide"],
+      "range": ["scheme", "paper", "person", "assumption", "technique", "desideratum", "open-problem", "implementation", "attack", "guide"],
+      "frontmatter_keys": [{ "key": "covers", "direction": "forward" }]
     },
     "opens": {
       "description": "Paper or scheme states the open problem.",

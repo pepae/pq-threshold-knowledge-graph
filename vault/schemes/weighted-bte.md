@@ -7,11 +7,11 @@ eprint: "2025/2115"
 year: 2025
 status: preprint
 peer_reviewed: false
-source_depth: abstract
+source_depth: mixed
 pq: false
 batched: true
 epoch_free: true
-assumptions_pending: true
+assumptions: [q-sdh, agm]
 techniques: [kh-pprf, batched-threshold-encryption]
 builds_on: [beat-mev]
 satisfies: [D3, D13, D14]
@@ -40,6 +40,14 @@ distributed per the Solana stake distribution.
 **Tunable collision handling.** A generalization of BEAT-MEV's sub-batch approach
 that trades ciphertext size against server communication for a target failure rate,
 rather than fixing one point on that curve.
+
+## Assumptions
+
+[[q-sdh]] and discrete log, in the [[agm]], with security holding under static
+corruption. Note the difference from [[beat-mev]], which it improves: BEAT-MEV
+rests on [[ddh]], a static assumption, while this scheme moves to a q-type one.
+That is a real cost paid for the efficiency gain, and it is invisible in the
+performance tables.
 
 ## Desiderata
 

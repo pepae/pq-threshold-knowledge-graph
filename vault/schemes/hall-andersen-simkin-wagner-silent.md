@@ -7,13 +7,13 @@ eprint: "2025/1384"
 year: 2025
 status: preprint
 peer_reviewed: false
-source_depth: abstract
+source_depth: mixed
 pq: true
 silent_setup: true
 batched: false
 ciphertext_size: 1 MB message gives 1.072 MB ciphertext, or 1.431 MB post-quantum, at t < n/3
-assumptions_pending: true
-techniques: [silent-setup, naive-threshold-baseline]
+assumptions: [rom]
+techniques: [silent-setup, naive-threshold-baseline, key-anonymous-pke]
 satisfies: [D2, D3, D10, D11]
 partially_satisfies: [D6, D8]
 fails: [D14]
@@ -40,6 +40,20 @@ usually operationally acceptable.
 **One-shot adaptive corruptions.** A corruption model strictly between static and
 fully adaptive. A genuine advance on [[D6]] without claiming full adaptivity, which
 is the honest framing.
+
+## Assumptions
+
+Generic: it needs no new hardness assumption of its own, only a
+[[key-anonymous-pke]], and it uses the [[rom]]. That genericity is the reason it is
+plausibly post-quantum, since a post-quantum PKE plugs straight in, and the reason
+it avoids strong tools such as indistinguishability obfuscation.
+
+The paper is candid about the trade against the pairing-based alternatives: the
+Waters-Wu line ([[waters-wu-silent]]) gets smaller ciphertexts and avoids random
+oracles, at the cost of a trusted setup, large individual keys and a large CRS. It
+also notes that the subsequent lattice constructions
+([[champion-wu-monotone-dnf]], [[rishab-dme]]) are plausibly post-quantum from
+[[decomposed-lwe]] with compact keys and a transparent setup, but in the [[rom]].
 
 ## Concrete numbers
 

@@ -2,24 +2,26 @@
   "metadata": {
     "schema_version": "1.0.0",
     "generator": "scripts/build_graph.py",
-    "node_count": 168,
-    "edge_count": 457,
+    "node_count": 178,
+    "edge_count": 566,
     "node_counts": {
-      "assumption": 18,
+      "assumption": 21,
       "attack": 5,
       "desideratum": 15,
+      "guide": 6,
       "implementation": 3,
       "open-problem": 7,
       "paper": 4,
       "person": 63,
       "scheme": 27,
-      "technique": 26
+      "technique": 27
     },
     "edge_counts": {
-      "assumes": 43,
+      "assumes": 53,
       "attacks": 5,
       "authored": 96,
       "builds_on": 25,
+      "covers": 98,
       "fails": 57,
       "implements": 4,
       "opens": 13,
@@ -29,12 +31,13 @@
       "resolves": 1,
       "satisfies": 85,
       "supersedes": 3,
-      "uses": 81
+      "uses": 82
     },
     "node_type_colors": {
       "assumption": "#2e8b57",
       "attack": "#a83232",
       "desideratum": "#d4a017",
+      "guide": "#5c6bc0",
       "implementation": "#6b8e23",
       "open-problem": "#c9457a",
       "paper": "#4a7c9e",
@@ -276,14 +279,12 @@
       "title": "APTOS batched threshold IBE",
       "path": "vault/schemes/aptos-batched-ibe.md",
       "attrs": {
-        "assumptions_pending": true,
         "batched": true,
         "eprint": "2024/1575",
         "peer_reviewed": false,
         "pq": false,
-        "source_depth": "abstract",
+        "source_depth": "mixed",
         "status": "preprint",
-        "unverified": true,
         "year": 2024
       }
     },
@@ -596,14 +597,13 @@
           "CGPP",
           "Berkeley24-1"
         ],
-        "assumptions_pending": true,
         "batched": true,
         "epoch_free": false,
         "eprint": "2024/669",
         "peer_reviewed": true,
         "pq": false,
         "share_size": "80 bytes per party per batch, independent of batch size",
-        "source_depth": "abstract",
+        "source_depth": "mixed",
         "status": "published",
         "timings": "enc under 6 ms; about 2.8 s per committee member for roughly 500 transactions",
         "venue": "USENIX Security 2024",
@@ -669,6 +669,23 @@
       }
     },
     {
+      "id": "choosing-a-scheme",
+      "type": "guide",
+      "title": "Choosing a scheme: what to build on today",
+      "path": "vault/guides/choosing-a-scheme.md",
+      "attrs": {
+        "aliases": [
+          "Choosing a scheme",
+          "Decision guide",
+          "Comparison"
+        ],
+        "angle": "decisions",
+        "audience": "engineers and protocol designers making a choice",
+        "order": 5,
+        "reading_time": "12 minutes"
+      }
+    },
+    {
       "id": "choudhuri-garg-piet-policharla-2024",
       "type": "paper",
       "title": "Mempool Privacy via Batched Threshold Encryption: Attacks and Defenses",
@@ -697,14 +714,13 @@
           "CGPW",
           "Berkeley24-2"
         ],
-        "assumptions_pending": true,
         "batched": true,
         "epoch_free": false,
         "eprint": "2024/1516",
         "peer_reviewed": false,
         "pq": false,
         "share_size": "48 bytes per party for batch decryption",
-        "source_depth": "abstract",
+        "source_depth": "mixed",
         "status": "preprint",
         "timings": "enc about 8.5 ms; about 3.2 s per committee member for 500 transactions",
         "year": 2024
@@ -964,6 +980,22 @@
       }
     },
     {
+      "id": "glossary",
+      "type": "guide",
+      "title": "Glossary",
+      "path": "vault/guides/glossary.md",
+      "attrs": {
+        "aliases": [
+          "Jargon",
+          "Terms"
+        ],
+        "angle": "vocabulary",
+        "audience": "anyone hitting an unfamiliar term",
+        "order": 6,
+        "reading_time": "skim"
+      }
+    },
+    {
       "id": "guru-vamsi-policharla",
       "type": "person",
       "title": "Guru-Vamsi Policharla",
@@ -982,14 +1014,13 @@
           "HSW25",
           "one-shot adaptive"
         ],
-        "assumptions_pending": true,
         "batched": false,
         "ciphertext_size": "1 MB message gives 1.072 MB ciphertext, or 1.431 MB post-quantum, at t < n/3",
         "eprint": "2025/1384",
         "peer_reviewed": false,
         "pq": true,
         "silent_setup": true,
-        "source_depth": "abstract",
+        "source_depth": "mixed",
         "status": "preprint",
         "year": 2025
       }
@@ -1156,6 +1187,19 @@
         ],
         "family": "proof",
         "pq": true
+      }
+    },
+    {
+      "id": "key-anonymous-pke",
+      "type": "technique",
+      "title": "Key-anonymous PKE",
+      "path": "vault/concepts/key-anonymous-pke.md",
+      "attrs": {
+        "aliases": [
+          "key anonymity"
+        ],
+        "family": "primitive",
+        "source_depth": "full-text"
       }
     },
     {
@@ -1594,6 +1638,36 @@
       }
     },
     {
+      "id": "q-sbdht",
+      "type": "assumption",
+      "title": "q-strong Bilinear Diffie-Hellman Triple",
+      "path": "vault/concepts/q-sbdht.md",
+      "attrs": {
+        "aliases": [
+          "q-SBDHT"
+        ],
+        "falsifiable": true,
+        "family": "pairing",
+        "pq": false,
+        "source_depth": "full-text"
+      }
+    },
+    {
+      "id": "q-sdh",
+      "type": "assumption",
+      "title": "q-strong Diffie-Hellman",
+      "path": "vault/concepts/q-sdh.md",
+      "attrs": {
+        "aliases": [
+          "q-SDH"
+        ],
+        "falsifiable": true,
+        "family": "pairing",
+        "pq": false,
+        "source_depth": "full-text"
+      }
+    },
+    {
       "id": "q-type-pairing",
       "type": "assumption",
       "title": "q-type pairing assumption",
@@ -1679,9 +1753,8 @@
         "peer_reviewed": false,
         "pq": true,
         "silent_setup": true,
-        "source_depth": "abstract",
+        "source_depth": "mixed",
         "status": "preprint",
-        "unverified": true,
         "year": 2026
       }
     },
@@ -1769,6 +1842,18 @@
       }
     },
     {
+      "id": "shifted-bls-assumption",
+      "type": "assumption",
+      "title": "Shifted BLS assumption",
+      "path": "vault/concepts/shifted-bls-assumption.md",
+      "attrs": {
+        "falsifiable": true,
+        "family": "pairing",
+        "pq": false,
+        "source_depth": "full-text"
+      }
+    },
+    {
       "id": "shuai-han",
       "type": "person",
       "title": "Shuai Han",
@@ -1833,6 +1918,23 @@
       "title": "Sriram Subramanian",
       "path": "vault/people/sriram-subramanian.md",
       "attrs": {}
+    },
+    {
+      "id": "start-here",
+      "type": "guide",
+      "title": "Start here: encrypted mempools in plain language",
+      "path": "vault/guides/start-here.md",
+      "attrs": {
+        "aliases": [
+          "Start here",
+          "Home",
+          "Overview"
+        ],
+        "angle": "orientation",
+        "audience": "anyone, no cryptography assumed",
+        "order": 1,
+        "reading_time": "10 minutes"
+      }
     },
     {
       "id": "steven-goldfeder",
@@ -1901,6 +2003,57 @@
         "source_depth": "full-text",
         "status": "draft",
         "url": "https://github.com/pepae/pq-threshold"
+      }
+    },
+    {
+      "id": "the-goals",
+      "type": "guide",
+      "title": "The goals: what a good scheme would look like",
+      "path": "vault/guides/the-goals.md",
+      "attrs": {
+        "aliases": [
+          "The goals",
+          "Requirements",
+          "D1-D15 explained"
+        ],
+        "angle": "goals",
+        "audience": "readers who want the evaluation framework",
+        "order": 2,
+        "reading_time": "15 minutes"
+      }
+    },
+    {
+      "id": "the-history",
+      "type": "guide",
+      "title": "The history: how the field got here, 2010 to 2026",
+      "path": "vault/guides/the-history.md",
+      "attrs": {
+        "aliases": [
+          "The history",
+          "Timeline",
+          "How we got here"
+        ],
+        "angle": "history",
+        "audience": "readers who want to know why the schemes look like this",
+        "order": 4,
+        "reading_time": "15 minutes"
+      }
+    },
+    {
+      "id": "the-problems",
+      "type": "guide",
+      "title": "The problems: what breaks, and what is still open",
+      "path": "vault/guides/the-problems.md",
+      "attrs": {
+        "aliases": [
+          "The problems",
+          "Open problems overview",
+          "What is broken"
+        ],
+        "angle": "problems",
+        "audience": "researchers looking for what to work on",
+        "order": 3,
+        "reading_time": "15 minutes"
       }
     },
     {
@@ -2045,13 +2198,12 @@
         "aliases": [
           "Weighted BTE"
         ],
-        "assumptions_pending": true,
         "batched": true,
         "epoch_free": true,
         "eprint": "2025/2115",
         "peer_reviewed": false,
         "pq": false,
-        "source_depth": "abstract",
+        "source_depth": "mixed",
         "status": "preprint",
         "year": 2025
       }
@@ -2153,6 +2305,12 @@
       "type": "authored",
       "target": "bgg-universal-thresholdizer",
       "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "aptos-batched-ibe",
+      "type": "assumes",
+      "target": "ggm",
+      "declared_in": "aptos-batched-ibe"
     },
     {
       "source": "aptos-batched-ibe",
@@ -2960,6 +3118,18 @@
     },
     {
       "source": "cgpp-bte",
+      "type": "assumes",
+      "target": "q-sbdht",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "cgpp-bte",
+      "type": "assumes",
+      "target": "rom",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "cgpp-bte",
       "type": "fails",
       "target": "D14",
       "declared_in": "cgpp-bte"
@@ -3229,6 +3399,138 @@
       "declared_in": "champion-wu-optimal-dnf"
     },
     {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "D14",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "D2",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "D8",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "bbnrs-context-dependent",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "beast-mev",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "beat-mev",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "beatmev-pq-implementation",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "blt-batch-ibe",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "btx",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "cgpp-bte",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "champion-wu-optimal-dnf",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "choudhuri-garg-policharla-wang-onetime",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "gkpw-silent-setup",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "hall-andersen-simkin-wagner-silent",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "micciancio-suhl",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "pilvi",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "tacet",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "waters-wu-silent",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choosing-a-scheme",
+      "type": "covers",
+      "target": "weighted-bte",
+      "declared_in": "choosing-a-scheme"
+    },
+    {
+      "source": "choudhuri-garg-policharla-wang-onetime",
+      "type": "assumes",
+      "target": "agm",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "choudhuri-garg-policharla-wang-onetime",
+      "type": "assumes",
+      "target": "rom",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "choudhuri-garg-policharla-wang-onetime",
+      "type": "assumes",
+      "target": "shifted-bls-assumption",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
       "source": "choudhuri-garg-policharla-wang-onetime",
       "type": "builds_on",
       "target": "cgpp-bte",
@@ -3481,6 +3783,102 @@
       "declared_in": "gkpw-silent-setup"
     },
     {
+      "source": "glossary",
+      "type": "covers",
+      "target": "batched-threshold-encryption",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "gaussian-preimage-sampling",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "ggm",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "key-anonymous-pke",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "kh-pprf",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "low-norm-secret-sharing",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "lwe",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "mlwe",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "naive-threshold-baseline",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "noise-flooding",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "qrom",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "rom",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "shamir-secret-sharing",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "silent-setup",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "threshold-ibe",
+      "declared_in": "glossary"
+    },
+    {
+      "source": "glossary",
+      "type": "covers",
+      "target": "vector-commitments",
+      "declared_in": "glossary"
+    },
+    {
       "source": "guru-vamsi-policharla",
       "type": "authored",
       "target": "beast-mev",
@@ -3509,6 +3907,12 @@
       "type": "authored",
       "target": "gkpw-silent-setup",
       "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "hall-andersen-simkin-wagner-silent",
+      "type": "assumes",
+      "target": "rom",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
     },
     {
       "source": "hall-andersen-simkin-wagner-silent",
@@ -3550,6 +3954,12 @@
       "source": "hall-andersen-simkin-wagner-silent",
       "type": "satisfies",
       "target": "D3",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
+      "source": "hall-andersen-simkin-wagner-silent",
+      "type": "uses",
+      "target": "key-anonymous-pke",
       "declared_in": "hall-andersen-simkin-wagner-silent"
     },
     {
@@ -4118,6 +4528,12 @@
     },
     {
       "source": "rishab-dme",
+      "type": "assumes",
+      "target": "rom",
+      "declared_in": "rishab-dme"
+    },
+    {
+      "source": "rishab-dme",
       "type": "fails",
       "target": "D14",
       "declared_in": "rishab-dme"
@@ -4355,6 +4771,72 @@
       "type": "authored",
       "target": "mevade",
       "declared_in": "mevade"
+    },
+    {
+      "source": "start-here",
+      "type": "covers",
+      "target": "D14",
+      "declared_in": "start-here"
+    },
+    {
+      "source": "start-here",
+      "type": "covers",
+      "target": "D8",
+      "declared_in": "start-here"
+    },
+    {
+      "source": "start-here",
+      "type": "covers",
+      "target": "beat-mev",
+      "declared_in": "start-here"
+    },
+    {
+      "source": "start-here",
+      "type": "covers",
+      "target": "beatmev-pq-implementation",
+      "declared_in": "start-here"
+    },
+    {
+      "source": "start-here",
+      "type": "covers",
+      "target": "blt-batch-ibe",
+      "declared_in": "start-here"
+    },
+    {
+      "source": "start-here",
+      "type": "covers",
+      "target": "choosing-a-scheme",
+      "declared_in": "start-here"
+    },
+    {
+      "source": "start-here",
+      "type": "covers",
+      "target": "glossary",
+      "declared_in": "start-here"
+    },
+    {
+      "source": "start-here",
+      "type": "covers",
+      "target": "the-goals",
+      "declared_in": "start-here"
+    },
+    {
+      "source": "start-here",
+      "type": "covers",
+      "target": "the-history",
+      "declared_in": "start-here"
+    },
+    {
+      "source": "start-here",
+      "type": "covers",
+      "target": "the-problems",
+      "declared_in": "start-here"
+    },
+    {
+      "source": "start-here",
+      "type": "covers",
+      "target": "wagner-desiderata",
+      "declared_in": "start-here"
     },
     {
       "source": "steven-goldfeder",
@@ -4633,6 +5115,318 @@
       "declared_in": "tacet-silent"
     },
     {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D1",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D10",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D11",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D12",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D13",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D14",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D15",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D2",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D3",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D4",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D5",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D6",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D7",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D8",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "D9",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "brzuska-klooss-woo",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "hybrid-encryption-associated-data",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-goals",
+      "type": "covers",
+      "target": "wagner-desiderata",
+      "declared_in": "the-goals"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "bbnrs-context-dependent",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "beast-mev",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "beat-mev",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "bendlin-damgard",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "bgg-universal-thresholdizer",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "blt-batch-ibe",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "boudgoust-scholl",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "cgpp-bte",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "champion-wu-dbe",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "champion-wu-monotone-dnf",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "champion-wu-optimal-dnf",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "choudhuri-garg-piet-policharla-2024",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "choudhuri-garg-policharla-wang-onetime",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "devevey-libert-nguyen-peters-yung",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "gkpw-silent-setup",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "hall-andersen-simkin-wagner-silent",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "micciancio-suhl",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "pilvi",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "sjtu-adaptive-threshold-decryption",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-history",
+      "type": "covers",
+      "target": "tacet",
+      "declared_in": "the-history"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "adaptive-corruptions-batched-lattice",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "beatmev-pq-implementation",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "blt25-implementation",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "devevey-adaptive-poly-modulus",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "flooding-underestimate-ring-setting",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "harvesting-attack",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "identity-tag-replication",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "index-collision-censorship",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "linear-route-opening-impossibility",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "low-norm-small-share-large-t",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "post-inclusion-ordering",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "remove-query-bound-poly-modulus",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "silent-pq-threshold-t-of-n",
+      "declared_in": "the-problems"
+    },
+    {
+      "source": "the-problems",
+      "type": "covers",
+      "target": "sublinear-pq-batch-decryption",
+      "declared_in": "the-problems"
+    },
+    {
       "source": "thomas-peters",
       "type": "authored",
       "target": "devevey-libert-nguyen-peters-yung",
@@ -4775,6 +5569,18 @@
       "type": "assumes",
       "target": "l-succinct-lwe",
       "declared_in": "wee-matrix-commitment"
+    },
+    {
+      "source": "weighted-bte",
+      "type": "assumes",
+      "target": "agm",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "weighted-bte",
+      "type": "assumes",
+      "target": "q-sdh",
+      "declared_in": "weighted-bte"
     },
     {
       "source": "weighted-bte",
