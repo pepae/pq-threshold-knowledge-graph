@@ -2,10 +2,10 @@
   "metadata": {
     "schema_version": "1.0.0",
     "generator": "scripts/build_graph.py",
-    "node_count": 166,
-    "edge_count": 449,
+    "node_count": 168,
+    "edge_count": 457,
     "node_counts": {
-      "assumption": 16,
+      "assumption": 18,
       "attack": 5,
       "desideratum": 15,
       "implementation": 3,
@@ -16,20 +16,20 @@
       "technique": 26
     },
     "edge_counts": {
-      "assumes": 39,
+      "assumes": 43,
       "attacks": 5,
       "authored": 96,
       "builds_on": 25,
-      "fails": 55,
+      "fails": 57,
       "implements": 4,
       "opens": 13,
-      "partially_satisfies": 37,
+      "partially_satisfies": 38,
       "presented_in": 1,
       "reduces_to": 5,
       "resolves": 1,
       "satisfies": 85,
       "supersedes": 3,
-      "uses": 80
+      "uses": 81
     },
     "node_type_colors": {
       "assumption": "#2e8b57",
@@ -314,12 +314,14 @@
       "title": "Batched attribute-based encryption from bilinear pairings",
       "path": "vault/schemes/batched-abe-pairings.md",
       "attrs": {
-        "assumptions_pending": true,
+        "aliases": [
+          "TB-ABE"
+        ],
         "batched": true,
         "eprint": "2026/1454",
         "peer_reviewed": false,
         "pq": false,
-        "source_depth": "abstract",
+        "source_depth": "full-text",
         "status": "preprint",
         "year": 2026
       }
@@ -346,7 +348,6 @@
           "BBNRS",
           "context-dependent threshold decryption"
         ],
-        "assumptions_pending": true,
         "eprint": "2025/279",
         "peer_reviewed": false,
         "pq": false,
@@ -743,6 +744,21 @@
       "path": "vault/people/david-wu.md",
       "attrs": {
         "affiliation": "UT Austin"
+      }
+    },
+    {
+      "id": "dbdh",
+      "type": "assumption",
+      "title": "Decisional Bilinear Diffie-Hellman",
+      "path": "vault/concepts/dbdh.md",
+      "attrs": {
+        "aliases": [
+          "DBDH"
+        ],
+        "falsifiable": true,
+        "family": "pairing",
+        "pq": false,
+        "source_depth": "full-text"
       }
     },
     {
@@ -1257,6 +1273,22 @@
         ],
         "family": "proof",
         "pq": true
+      }
+    },
+    {
+      "id": "lomdh",
+      "type": "assumption",
+      "title": "Linear one-more Diffie-Hellman",
+      "path": "vault/concepts/lomdh.md",
+      "attrs": {
+        "aliases": [
+          "LOMDH",
+          "linear one-more Diffie-Hellman"
+        ],
+        "falsifiable": true,
+        "family": "discrete log",
+        "pq": false,
+        "source_depth": "full-text"
       }
     },
     {
@@ -2202,8 +2234,38 @@
     },
     {
       "source": "batched-abe-pairings",
+      "type": "assumes",
+      "target": "dbdh",
+      "declared_in": "batched-abe-pairings"
+    },
+    {
+      "source": "batched-abe-pairings",
+      "type": "assumes",
+      "target": "rom",
+      "declared_in": "batched-abe-pairings"
+    },
+    {
+      "source": "batched-abe-pairings",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "batched-abe-pairings"
+    },
+    {
+      "source": "batched-abe-pairings",
+      "type": "fails",
+      "target": "D6",
+      "declared_in": "batched-abe-pairings"
+    },
+    {
+      "source": "batched-abe-pairings",
       "type": "fails",
       "target": "D8",
+      "declared_in": "batched-abe-pairings"
+    },
+    {
+      "source": "batched-abe-pairings",
+      "type": "partially_satisfies",
+      "target": "D5",
       "declared_in": "batched-abe-pairings"
     },
     {
@@ -2217,6 +2279,24 @@
       "type": "uses",
       "target": "batched-threshold-encryption",
       "declared_in": "batched-abe-pairings"
+    },
+    {
+      "source": "batched-abe-pairings",
+      "type": "uses",
+      "target": "shamir-secret-sharing",
+      "declared_in": "batched-abe-pairings"
+    },
+    {
+      "source": "bbnrs-context-dependent",
+      "type": "assumes",
+      "target": "lomdh",
+      "declared_in": "bbnrs-context-dependent"
+    },
+    {
+      "source": "bbnrs-context-dependent",
+      "type": "assumes",
+      "target": "rom",
+      "declared_in": "bbnrs-context-dependent"
     },
     {
       "source": "bbnrs-context-dependent",

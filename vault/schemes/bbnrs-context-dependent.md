@@ -9,7 +9,7 @@ status: preprint
 peer_reviewed: false
 source_depth: full-text
 pq: false
-assumptions_pending: true
+assumptions: [lomdh, rom]
 techniques: [hybrid-encryption-associated-data]
 satisfies: [D3, D4, D9]
 fails: [D8, D14]
@@ -47,9 +47,12 @@ Satisfies [[D3]], [[D4]] and [[D9]], the last of which it defines. Fails [[D8]] 
 
 ## Assumptions
 
-Pending. The paper gives an ElGamal-based construction, which points at a
-discrete-log style assumption, but the KB does not record an assumption edge it has
-not read.
+The ElGamal-based construction is proven in the [[rom]] under a falsifiable
+assumption the authors introduce and call the **linear one-more Diffie-Hellman**
+([[lomdh]]) assumption, essentially the same one used to analyse high-threshold BLS
+signatures. The generic construction is what to reach for if that assumption is
+unwelcome, since it adds context to any CCA-secure threshold scheme without
+touching encryption.
 
 ## Relevance to encrypted mempools
 
