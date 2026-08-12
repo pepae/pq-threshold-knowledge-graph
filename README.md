@@ -6,6 +6,9 @@ requirements each one meets, what has been measured, and what is still open.
 
 178 nodes, 566 typed edges, 27 source PDFs. It works three ways at once.
 
+<img width="1697" height="1314" alt="image" src="https://github.com/user-attachments/assets/4543ec6f-7f23-4675-9824-eccc248536be" />
+
+
 **New here? Read [`vault/guides/start-here.md`](vault/guides/start-here.md).** It
 explains the problem in plain language with no cryptography assumed, then hands you
 off to whichever angle you need.
