@@ -1,0 +1,258 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Node and edge type definitions for the post-quantum threshold encryption knowledge base. This file is the single source of truth: scripts/build_graph.py and scripts/validate.py read it, and adding a field or edge type here is what makes it legal in vault frontmatter.",
+
+  "id_pattern": "^[a-z0-9][a-z0-9-]*$",
+  "id_pattern_note": "Ids are lowercase-kebab, except desiderata, which use the canonical D1..D15 form via the per-type id_pattern override.",
+
+  "common_fields": {
+    "required": ["id", "type", "title"],
+    "optional": {
+      "aliases": "list[str]",
+      "tags": "list[str]",
+      "summary": "str",
+      "unverified": "bool",
+      "disputes": "list[str]",
+      "notes": "str"
+    }
+  },
+
+  "node_types": {
+    "scheme": {
+      "dir": "schemes",
+      "description": "A named cryptographic construction.",
+      "color": "#e4572e",
+      "required": ["status"],
+      "optional": {
+        "eprint": "str",
+        "venue": "str",
+        "year": "int",
+        "authors": "list[id]",
+        "pq": "bool",
+        "silent_setup": "bool",
+        "batched": "bool",
+        "epoch_free": "bool",
+        "modulus": "str",
+        "ciphertext_size": "str",
+        "share_size": "str",
+        "public_key_size": "str",
+        "timings": "str",
+        "peer_reviewed": "bool",
+        "maturity": "str",
+        "self_assessed": "bool"
+      }
+    },
+    "paper": {
+      "dir": "papers",
+      "description": "A bibliographic record. Used for artifacts cited as papers rather than as a single named scheme: definitional papers, attack papers, surveys, foundational work.",
+      "color": "#4a7c9e",
+      "required": ["status"],
+      "optional": {
+        "eprint": "str",
+        "venue": "str",
+        "year": "int",
+        "authors": "list[id]",
+        "pq": "bool",
+        "peer_reviewed": "bool"
+      }
+    },
+    "person": {
+      "dir": "people",
+      "description": "A researcher. Public information only: name, affiliation, papers.",
+      "color": "#8e6c9e",
+      "required": [],
+      "optional": {
+        "affiliation": "str",
+        "homepage": "str"
+      }
+    },
+    "assumption": {
+      "dir": "concepts",
+      "description": "A hardness assumption or idealized model.",
+      "color": "#2e8b57",
+      "required": [],
+      "optional": {
+        "pq": "bool",
+        "falsifiable": "bool",
+        "family": "str"
+      }
+    },
+    "technique": {
+      "dir": "concepts",
+      "description": "A building block, primitive, or proof technique.",
+      "color": "#3aa8a8",
+      "required": [],
+      "optional": {
+        "pq": "bool",
+        "family": "str"
+      }
+    },
+    "desideratum": {
+      "dir": "desiderata",
+      "description": "One requirement for an encrypted-mempool threshold encryption scheme, D1 through D15.",
+      "color": "#d4a017",
+      "id_pattern": "^D([1-9]|1[0-5])$",
+      "required": ["short_name"],
+      "optional": {
+        "wagner_bullet": "str",
+        "wagner_section": "str"
+      }
+    },
+    "open-problem": {
+      "dir": "open-problems",
+      "description": "A stated open problem.",
+      "color": "#c9457a",
+      "required": ["state"],
+      "optional": {
+        "pq": "bool"
+      }
+    },
+    "implementation": {
+      "dir": "implementations",
+      "description": "A codebase.",
+      "color": "#6b8e23",
+      "required": ["repo"],
+      "optional": {
+        "language": "list[str]",
+        "runnable": "bool",
+        "measured": "str",
+        "license": "str"
+      }
+    },
+    "attack": {
+      "dir": "attacks",
+      "description": "A concrete attack or impossibility result against a scheme or a class of schemes.",
+      "color": "#a83232",
+      "required": ["status"],
+      "optional": {
+        "eprint": "str",
+        "venue": "str",
+        "year": "int",
+        "authors": "list[id]"
+      }
+    }
+  },
+
+  "enums": {
+    "status": ["published", "preprint", "draft", "broken"],
+    "state": ["open", "partially-resolved", "resolved"],
+    "maturity": ["experimental", "prototype", "mature"]
+  },
+
+  "edge_types": {
+    "builds_on": {
+      "description": "Source builds directly on the target's construction or techniques.",
+      "domain": ["scheme", "paper", "attack"],
+      "range": ["scheme", "paper"],
+      "frontmatter_keys": [{ "key": "builds_on", "direction": "forward" }]
+    },
+    "supersedes": {
+      "description": "Source strictly improves on or replaces the target.",
+      "domain": ["scheme", "paper"],
+      "range": ["scheme", "paper"],
+      "frontmatter_keys": [
+        { "key": "supersedes", "direction": "forward" },
+        { "key": "superseded_by", "direction": "reverse" }
+      ]
+    },
+    "presented_in": {
+      "description": "The scheme is presented in this paper. Used when a scheme and its bibliographic record are separate notes.",
+      "domain": ["scheme"],
+      "range": ["paper"],
+      "frontmatter_keys": [{ "key": "presented_in", "direction": "forward" }]
+    },
+    "satisfies": {
+      "description": "Scheme fully satisfies the desideratum.",
+      "domain": ["scheme"],
+      "range": ["desideratum"],
+      "frontmatter_keys": [{ "key": "satisfies", "direction": "forward" }]
+    },
+    "partially_satisfies": {
+      "description": "Scheme satisfies the desideratum with caveats. The note body must say which.",
+      "domain": ["scheme"],
+      "range": ["desideratum"],
+      "frontmatter_keys": [{ "key": "partially_satisfies", "direction": "forward" }]
+    },
+    "fails": {
+      "description": "Scheme does not satisfy the desideratum.",
+      "domain": ["scheme"],
+      "range": ["desideratum"],
+      "frontmatter_keys": [{ "key": "fails", "direction": "forward" }]
+    },
+    "assumes": {
+      "description": "Scheme's security rests on this assumption or idealized model.",
+      "domain": ["scheme", "technique", "paper"],
+      "range": ["assumption"],
+      "frontmatter_keys": [
+        { "key": "assumptions", "direction": "forward" },
+        { "key": "assumes", "direction": "forward" }
+      ]
+    },
+    "uses": {
+      "description": "Scheme or implementation uses this technique or primitive.",
+      "domain": ["scheme", "implementation", "technique", "paper"],
+      "range": ["technique"],
+      "frontmatter_keys": [
+        { "key": "techniques", "direction": "forward" },
+        { "key": "uses", "direction": "forward" }
+      ]
+    },
+    "reduces_to": {
+      "description": "Source assumption reduces to the target assumption, so the target is no stronger.",
+      "domain": ["assumption"],
+      "range": ["assumption"],
+      "frontmatter_keys": [{ "key": "reduces_to", "direction": "forward" }]
+    },
+    "attacks": {
+      "description": "Attack weakens or exposes a limitation of the target.",
+      "domain": ["attack"],
+      "range": ["scheme"],
+      "frontmatter_keys": [
+        { "key": "attacks", "direction": "forward" },
+        { "key": "attacked_by", "direction": "reverse" }
+      ]
+    },
+    "breaks": {
+      "description": "Attack fully breaks a claimed security property of the target.",
+      "domain": ["attack"],
+      "range": ["scheme"],
+      "frontmatter_keys": [
+        { "key": "breaks", "direction": "forward" },
+        { "key": "broken_by", "direction": "reverse" }
+      ]
+    },
+    "implements": {
+      "description": "Codebase implements the scheme.",
+      "domain": ["implementation"],
+      "range": ["scheme"],
+      "frontmatter_keys": [
+        { "key": "implements", "direction": "forward" },
+        { "key": "implemented_by", "direction": "reverse" }
+      ]
+    },
+    "authored": {
+      "description": "Person authored the paper, scheme, or attack.",
+      "domain": ["person"],
+      "range": ["paper", "scheme", "attack"],
+      "frontmatter_keys": [{ "key": "authors", "direction": "reverse" }]
+    },
+    "resolves": {
+      "description": "Paper or scheme resolves the open problem.",
+      "domain": ["paper", "scheme"],
+      "range": ["open-problem"],
+      "frontmatter_keys": [
+        { "key": "resolves", "direction": "forward" },
+        { "key": "resolved_by", "direction": "reverse" }
+      ]
+    },
+    "opens": {
+      "description": "Paper or scheme states the open problem.",
+      "domain": ["paper", "scheme", "attack", "implementation"],
+      "range": ["open-problem"],
+      "frontmatter_keys": [
+        { "key": "opens", "direction": "forward" },
+        { "key": "opened_by", "direction": "reverse" }
+      ]
+    }
+  }
+}

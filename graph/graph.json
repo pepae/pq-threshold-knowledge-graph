@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "generator": "scripts/build_graph.py",
+    "node_count": 0,
+    "edge_count": 0,
+    "node_counts": {},
+    "edge_counts": {},
+    "node_type_colors": {
+      "assumption": "#2e8b57",
+      "attack": "#a83232",
+      "desideratum": "#d4a017",
+      "implementation": "#6b8e23",
+      "open-problem": "#c9457a",
+      "paper": "#4a7c9e",
+      "person": "#8e6c9e",
+      "scheme": "#e4572e",
+      "technique": "#3aa8a8"
+    }
+  },
+  "nodes": [],
+  "edges": []
+}
