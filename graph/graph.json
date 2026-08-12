@@ -34,16 +34,16 @@
       "uses": 82
     },
     "node_type_colors": {
-      "assumption": "#2e8b57",
-      "attack": "#a83232",
-      "desideratum": "#d4a017",
-      "guide": "#5c6bc0",
-      "implementation": "#6b8e23",
-      "open-problem": "#c9457a",
-      "paper": "#4a7c9e",
-      "person": "#8e6c9e",
-      "scheme": "#e4572e",
-      "technique": "#3aa8a8"
+      "assumption": "#20d59b",
+      "attack": "#ff4d4d",
+      "desideratum": "#ffc247",
+      "guide": "#7c8cff",
+      "implementation": "#93e03c",
+      "open-problem": "#ff5d8f",
+      "paper": "#3fa9ff",
+      "person": "#b478ff",
+      "scheme": "#ff6a45",
+      "technique": "#2fd0e6"
     }
   },
   "nodes": [

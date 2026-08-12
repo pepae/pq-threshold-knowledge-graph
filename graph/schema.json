@@ -1,12 +1,14 @@
 {
   "schema_version": "1.0.0",
   "description": "Node and edge type definitions for the post-quantum threshold encryption knowledge base. This file is the single source of truth: scripts/build_graph.py and scripts/validate.py read it, and adding a field or edge type here is what makes it legal in vault frontmatter.",
-
   "id_pattern": "^[a-z0-9][a-z0-9-]*$",
   "id_pattern_note": "Ids are lowercase-kebab, except desiderata, which use the canonical D1..D15 form via the per-type id_pattern override.",
-
   "common_fields": {
-    "required": ["id", "type", "title"],
+    "required": [
+      "id",
+      "type",
+      "title"
+    ],
     "optional": {
       "aliases": "list[str]",
       "tags": "list[str]",
@@ -19,13 +21,14 @@
       "notes": "str"
     }
   },
-
   "node_types": {
     "scheme": {
       "dir": "schemes",
       "description": "A named cryptographic construction.",
-      "color": "#e4572e",
-      "required": ["status"],
+      "color": "#ff6a45",
+      "required": [
+        "status"
+      ],
       "optional": {
         "eprint": "str",
         "venue": "str",
@@ -49,8 +52,10 @@
     "paper": {
       "dir": "papers",
       "description": "A bibliographic record. Used for artifacts cited as papers rather than as a single named scheme: definitional papers, attack papers, surveys, foundational work.",
-      "color": "#4a7c9e",
-      "required": ["status"],
+      "color": "#3fa9ff",
+      "required": [
+        "status"
+      ],
       "optional": {
         "eprint": "str",
         "venue": "str",
@@ -63,7 +68,7 @@
     "person": {
       "dir": "people",
       "description": "A researcher. Public information only: name, affiliation, papers.",
-      "color": "#8e6c9e",
+      "color": "#b478ff",
       "required": [],
       "optional": {
         "affiliation": "str",
@@ -73,7 +78,7 @@
     "assumption": {
       "dir": "concepts",
       "description": "A hardness assumption or idealized model.",
-      "color": "#2e8b57",
+      "color": "#20d59b",
       "required": [],
       "optional": {
         "pq": "bool",
@@ -84,7 +89,7 @@
     "technique": {
       "dir": "concepts",
       "description": "A building block, primitive, or proof technique.",
-      "color": "#3aa8a8",
+      "color": "#2fd0e6",
       "required": [],
       "optional": {
         "pq": "bool",
@@ -94,9 +99,11 @@
     "desideratum": {
       "dir": "desiderata",
       "description": "One requirement for an encrypted-mempool threshold encryption scheme, D1 through D15.",
-      "color": "#d4a017",
+      "color": "#ffc247",
       "id_pattern": "^D([1-9]|1[0-5])$",
-      "required": ["short_name"],
+      "required": [
+        "short_name"
+      ],
       "optional": {
         "wagner_bullet": "str",
         "wagner_section": "str"
@@ -105,8 +112,10 @@
     "open-problem": {
       "dir": "open-problems",
       "description": "A stated open problem.",
-      "color": "#c9457a",
-      "required": ["state"],
+      "color": "#ff5d8f",
+      "required": [
+        "state"
+      ],
       "optional": {
         "pq": "bool"
       }
@@ -114,8 +123,10 @@
     "implementation": {
       "dir": "implementations",
       "description": "A codebase.",
-      "color": "#6b8e23",
-      "required": ["repo"],
+      "color": "#93e03c",
+      "required": [
+        "repo"
+      ],
       "optional": {
         "language": "list[str]",
         "runnable": "bool",
@@ -126,8 +137,11 @@
     "guide": {
       "dir": "guides",
       "description": "A narrative explainer that reads top to bottom. Guides are the way in: they start at plain language and descend into the graph. Each takes one angle (orientation, goals, problems, history, decisions, vocabulary) so the same material can be entered from whichever direction the reader arrives from.",
-      "color": "#5c6bc0",
-      "required": ["angle", "order"],
+      "color": "#7c8cff",
+      "required": [
+        "angle",
+        "order"
+      ],
       "optional": {
         "angle": "str",
         "order": "int",
@@ -138,8 +152,10 @@
     "attack": {
       "dir": "attacks",
       "description": "A concrete attack or impossibility result against a scheme or a class of schemes.",
-      "color": "#a83232",
-      "required": ["status"],
+      "color": "#ff4d4d",
+      "required": [
+        "status"
+      ],
       "optional": {
         "eprint": "str",
         "venue": "str",
@@ -148,134 +164,334 @@
       }
     }
   },
-
   "enums": {
-    "status": ["published", "preprint", "draft", "broken"],
-    "angle": ["orientation", "goals", "problems", "history", "decisions", "vocabulary"],
-    "source_depth": ["full-text", "abstract", "repo", "mixed"],
-    "state": ["open", "partially-resolved", "resolved"],
-    "maturity": ["experimental", "prototype", "mature"]
+    "status": [
+      "published",
+      "preprint",
+      "draft",
+      "broken"
+    ],
+    "angle": [
+      "orientation",
+      "goals",
+      "problems",
+      "history",
+      "decisions",
+      "vocabulary"
+    ],
+    "source_depth": [
+      "full-text",
+      "abstract",
+      "repo",
+      "mixed"
+    ],
+    "state": [
+      "open",
+      "partially-resolved",
+      "resolved"
+    ],
+    "maturity": [
+      "experimental",
+      "prototype",
+      "mature"
+    ]
   },
-
   "edge_types": {
     "builds_on": {
       "description": "Source builds directly on the target's construction or techniques.",
-      "domain": ["scheme", "paper", "attack"],
-      "range": ["scheme", "paper"],
-      "frontmatter_keys": [{ "key": "builds_on", "direction": "forward" }]
+      "domain": [
+        "scheme",
+        "paper",
+        "attack"
+      ],
+      "range": [
+        "scheme",
+        "paper"
+      ],
+      "frontmatter_keys": [
+        {
+          "key": "builds_on",
+          "direction": "forward"
+        }
+      ]
     },
     "supersedes": {
       "description": "Source strictly improves on or replaces the target.",
-      "domain": ["scheme", "paper"],
-      "range": ["scheme", "paper"],
+      "domain": [
+        "scheme",
+        "paper"
+      ],
+      "range": [
+        "scheme",
+        "paper"
+      ],
       "frontmatter_keys": [
-        { "key": "supersedes", "direction": "forward" },
-        { "key": "superseded_by", "direction": "reverse" }
+        {
+          "key": "supersedes",
+          "direction": "forward"
+        },
+        {
+          "key": "superseded_by",
+          "direction": "reverse"
+        }
       ]
     },
     "presented_in": {
       "description": "The scheme is presented in this paper. Used when a scheme and its bibliographic record are separate notes.",
-      "domain": ["scheme"],
-      "range": ["paper"],
-      "frontmatter_keys": [{ "key": "presented_in", "direction": "forward" }]
+      "domain": [
+        "scheme"
+      ],
+      "range": [
+        "paper"
+      ],
+      "frontmatter_keys": [
+        {
+          "key": "presented_in",
+          "direction": "forward"
+        }
+      ]
     },
     "satisfies": {
       "description": "Scheme fully satisfies the desideratum.",
-      "domain": ["scheme"],
-      "range": ["desideratum"],
-      "frontmatter_keys": [{ "key": "satisfies", "direction": "forward" }]
+      "domain": [
+        "scheme"
+      ],
+      "range": [
+        "desideratum"
+      ],
+      "frontmatter_keys": [
+        {
+          "key": "satisfies",
+          "direction": "forward"
+        }
+      ]
     },
     "partially_satisfies": {
       "description": "Scheme satisfies the desideratum with caveats. The note body must say which.",
-      "domain": ["scheme"],
-      "range": ["desideratum"],
-      "frontmatter_keys": [{ "key": "partially_satisfies", "direction": "forward" }]
+      "domain": [
+        "scheme"
+      ],
+      "range": [
+        "desideratum"
+      ],
+      "frontmatter_keys": [
+        {
+          "key": "partially_satisfies",
+          "direction": "forward"
+        }
+      ]
     },
     "fails": {
       "description": "Scheme does not satisfy the desideratum.",
-      "domain": ["scheme"],
-      "range": ["desideratum"],
-      "frontmatter_keys": [{ "key": "fails", "direction": "forward" }]
+      "domain": [
+        "scheme"
+      ],
+      "range": [
+        "desideratum"
+      ],
+      "frontmatter_keys": [
+        {
+          "key": "fails",
+          "direction": "forward"
+        }
+      ]
     },
     "assumes": {
       "description": "Scheme's security rests on this assumption or idealized model.",
-      "domain": ["scheme", "technique", "paper"],
-      "range": ["assumption"],
+      "domain": [
+        "scheme",
+        "technique",
+        "paper"
+      ],
+      "range": [
+        "assumption"
+      ],
       "frontmatter_keys": [
-        { "key": "assumptions", "direction": "forward" },
-        { "key": "assumes", "direction": "forward" }
+        {
+          "key": "assumptions",
+          "direction": "forward"
+        },
+        {
+          "key": "assumes",
+          "direction": "forward"
+        }
       ]
     },
     "uses": {
       "description": "Scheme or implementation uses this technique or primitive.",
-      "domain": ["scheme", "implementation", "technique", "paper"],
-      "range": ["technique"],
+      "domain": [
+        "scheme",
+        "implementation",
+        "technique",
+        "paper"
+      ],
+      "range": [
+        "technique"
+      ],
       "frontmatter_keys": [
-        { "key": "techniques", "direction": "forward" },
-        { "key": "uses", "direction": "forward" }
+        {
+          "key": "techniques",
+          "direction": "forward"
+        },
+        {
+          "key": "uses",
+          "direction": "forward"
+        }
       ]
     },
     "reduces_to": {
       "description": "Source assumption reduces to the target assumption, so the target is no stronger.",
-      "domain": ["assumption"],
-      "range": ["assumption"],
-      "frontmatter_keys": [{ "key": "reduces_to", "direction": "forward" }]
+      "domain": [
+        "assumption"
+      ],
+      "range": [
+        "assumption"
+      ],
+      "frontmatter_keys": [
+        {
+          "key": "reduces_to",
+          "direction": "forward"
+        }
+      ]
     },
     "attacks": {
       "description": "Attack weakens or exposes a limitation of the target.",
-      "domain": ["attack"],
-      "range": ["scheme"],
+      "domain": [
+        "attack"
+      ],
+      "range": [
+        "scheme"
+      ],
       "frontmatter_keys": [
-        { "key": "attacks", "direction": "forward" },
-        { "key": "attacked_by", "direction": "reverse" }
+        {
+          "key": "attacks",
+          "direction": "forward"
+        },
+        {
+          "key": "attacked_by",
+          "direction": "reverse"
+        }
       ]
     },
     "breaks": {
       "description": "Attack fully breaks a claimed security property of the target.",
-      "domain": ["attack"],
-      "range": ["scheme"],
+      "domain": [
+        "attack"
+      ],
+      "range": [
+        "scheme"
+      ],
       "frontmatter_keys": [
-        { "key": "breaks", "direction": "forward" },
-        { "key": "broken_by", "direction": "reverse" }
+        {
+          "key": "breaks",
+          "direction": "forward"
+        },
+        {
+          "key": "broken_by",
+          "direction": "reverse"
+        }
       ]
     },
     "implements": {
       "description": "Codebase implements the scheme.",
-      "domain": ["implementation"],
-      "range": ["scheme"],
+      "domain": [
+        "implementation"
+      ],
+      "range": [
+        "scheme"
+      ],
       "frontmatter_keys": [
-        { "key": "implements", "direction": "forward" },
-        { "key": "implemented_by", "direction": "reverse" }
+        {
+          "key": "implements",
+          "direction": "forward"
+        },
+        {
+          "key": "implemented_by",
+          "direction": "reverse"
+        }
       ]
     },
     "authored": {
       "description": "Person authored the paper, scheme, or attack.",
-      "domain": ["person"],
-      "range": ["paper", "scheme", "attack"],
-      "frontmatter_keys": [{ "key": "authors", "direction": "reverse" }]
+      "domain": [
+        "person"
+      ],
+      "range": [
+        "paper",
+        "scheme",
+        "attack"
+      ],
+      "frontmatter_keys": [
+        {
+          "key": "authors",
+          "direction": "reverse"
+        }
+      ]
     },
     "resolves": {
       "description": "Paper or scheme resolves the open problem.",
-      "domain": ["paper", "scheme"],
-      "range": ["open-problem"],
+      "domain": [
+        "paper",
+        "scheme"
+      ],
+      "range": [
+        "open-problem"
+      ],
       "frontmatter_keys": [
-        { "key": "resolves", "direction": "forward" },
-        { "key": "resolved_by", "direction": "reverse" }
+        {
+          "key": "resolves",
+          "direction": "forward"
+        },
+        {
+          "key": "resolved_by",
+          "direction": "reverse"
+        }
       ]
     },
     "covers": {
       "description": "The guide explains this node. Gives every node a set of narrative entry points, so a reader who lands deep in the graph can find the story it belongs to.",
-      "domain": ["guide"],
-      "range": ["scheme", "paper", "person", "assumption", "technique", "desideratum", "open-problem", "implementation", "attack", "guide"],
-      "frontmatter_keys": [{ "key": "covers", "direction": "forward" }]
+      "domain": [
+        "guide"
+      ],
+      "range": [
+        "scheme",
+        "paper",
+        "person",
+        "assumption",
+        "technique",
+        "desideratum",
+        "open-problem",
+        "implementation",
+        "attack",
+        "guide"
+      ],
+      "frontmatter_keys": [
+        {
+          "key": "covers",
+          "direction": "forward"
+        }
+      ]
     },
     "opens": {
       "description": "Paper or scheme states the open problem.",
-      "domain": ["paper", "scheme", "attack", "implementation"],
-      "range": ["open-problem"],
+      "domain": [
+        "paper",
+        "scheme",
+        "attack",
+        "implementation"
+      ],
+      "range": [
+        "open-problem"
+      ],
       "frontmatter_keys": [
-        { "key": "opens", "direction": "forward" },
-        { "key": "opened_by", "direction": "reverse" }
+        {
+          "key": "opens",
+          "direction": "forward"
+        },
+        {
+          "key": "opened_by",
+          "direction": "reverse"
+        }
       ]
     }
   }

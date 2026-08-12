@@ -89,9 +89,17 @@ Add `--json` for machine-readable output. See `skill/SKILL.md` for worked exampl
 
 ## 3. Static site
 
-Two panes, Obsidian style: the note on the left, a force-directed graph of its
-neighbourhood on the right, with a whole-graph toggle, type and desideratum
-filters, and search. No backend, no external requests.
+Two panes, Obsidian style: the note on the left, the graph on the right. Dark by
+default, with a light theme on the toggle. No backend, no external requests, no
+libraries.
+
+The graph is drawn on canvas with a layout that runs to convergence *before* the
+first frame, so nothing animates and nothing jitters. Small neighbourhoods get a
+plain force-directed layout. The whole graph, 115 visible nodes across nine types,
+gets a **clustered** layout instead: each type is packed into its own disc with its
+hubs at the centre, the discs sit on a ring sized by population, and only
+intra-cluster edges pull. That turns what is otherwise a hairball into nine labelled
+neighbourhoods you can read in one glance, with the traffic between them visible.
 
 Build and serve locally:
 
@@ -108,9 +116,15 @@ named, so renaming the default branch later will not silently stop deployments. 
 enable it on a fork: **Settings > Pages > Source: GitHub Actions**.
 
 Graph controls: click a node to navigate, drag to pan, scroll to zoom, hover to
-isolate a node's edges, click a legend entry to show or hide a type. `person`
-nodes are hidden by default because they are 63 of the 178; re-enable them from
-the legend. Press `/` to focus search.
+isolate a node and its neighbours, click a legend entry to show or hide a type.
+**Expand** gives the graph the whole window, which is the view worth looking at.
+`person` nodes are hidden by default because they are 63 of the 178; re-enable them
+from the legend.
+
+Keyboard: `/` focuses search, `g` toggles the whole graph, `e` expands.
+
+Labels are drawn most-important-first and any that would collide is dropped, so the
+view stays readable at every zoom level rather than turning into overlapping text.
 
 ---
 
