@@ -1,1 +1,9 @@
+# Vault parsing and graph build (scripts/build_graph.py, validate.py, check_pdfs.py)
 PyYAML>=6.0
+
+# Prerendering notes to HTML at site build time (scripts/build_webapp.py)
+Markdown>=3.5
+
+# Reading source PDFs to prefill a new note (scripts/add_paper.py). Optional at
+# runtime: add_paper.py degrades gracefully if it is missing.
+pypdf>=4.0

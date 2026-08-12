@@ -9,12 +9,13 @@ they assert that the checks actually fire on malformed input.
 
 from __future__ import annotations
 
+import re
 import sys
 import tempfile
 import unittest
 from pathlib import Path
 
-from kb import build_graph, collect_notes, dump_graph, load_schema
+from kb import REPO_ROOT, build_graph, collect_notes, dump_graph, load_schema
 
 SCHEMA = load_schema()
 
@@ -420,6 +421,79 @@ class TestValidateChecks(VaultCase):
             validate.check_unreferenced_desiderata(notes, graph["edges"]),
             "desideratum 'D1' has no incoming",
         )
+
+
+class TestPackaging(unittest.TestCase):
+    """requirements.txt must cover every third-party import under scripts/ and
+    skill/. CI is the only clean environment, so a missing dependency otherwise
+    surfaces as a red build rather than a local failure."""
+
+    MODULE_TO_DIST = {"yaml": "pyyaml", "markdown": "markdown", "pypdf": "pypdf"}
+
+    def _imported_modules(self):
+        import ast
+
+        roots = [REPO_ROOT / "scripts", REPO_ROOT / "skill" / "scripts"]
+        local = {p.stem for root in roots for p in root.glob("*.py")}
+        found: set[str] = set()
+        for root in roots:
+            for path in sorted(root.glob("*.py")):
+                tree = ast.parse(path.read_text(encoding="utf-8"), str(path))
+                for node in ast.walk(tree):
+                    if isinstance(node, ast.Import):
+                        names = [a.name for a in node.names]
+                    elif isinstance(node, ast.ImportFrom):
+                        names = [node.module] if node.level == 0 and node.module else []
+                    else:
+                        continue
+                    for name in names:
+                        top = name.split(".")[0]
+                        if top in sys.stdlib_module_names or top in local:
+                            continue
+                        if top == "__future__":
+                            continue
+                        found.add(top)
+        return found
+
+    def test_every_third_party_import_is_declared(self):
+        req = (REPO_ROOT / "requirements.txt").read_text(encoding="utf-8").lower()
+        declared = {
+            re.split(r"[<>=!~\s]", line, 1)[0].strip()
+            for line in req.splitlines()
+            if line.strip() and not line.strip().startswith("#")
+        }
+        for module in sorted(self._imported_modules()):
+            dist = self.MODULE_TO_DIST.get(module)
+            self.assertIsNotNone(
+                dist,
+                f"scripts import {module!r}, which is neither stdlib nor mapped. "
+                "Add it to TestPackaging.MODULE_TO_DIST and to requirements.txt.",
+            )
+            self.assertIn(
+                dist,
+                declared,
+                f"{module!r} is imported but {dist!r} is not in requirements.txt",
+            )
+
+    def test_skill_cli_is_stdlib_only(self):
+        """query.py must run with no install step, as SKILL.md promises."""
+        import ast
+
+        path = REPO_ROOT / "skill" / "scripts" / "query.py"
+        tree = ast.parse(path.read_text(encoding="utf-8"), str(path))
+        for node in ast.walk(tree):
+            names = []
+            if isinstance(node, ast.Import):
+                names = [a.name for a in node.names]
+            elif isinstance(node, ast.ImportFrom) and node.level == 0 and node.module:
+                names = [node.module]
+            for name in names:
+                top = name.split(".")[0]
+                self.assertTrue(
+                    top in sys.stdlib_module_names or top == "__future__",
+                    f"query.py imports non-stdlib {top!r}; the skill CLI must stay "
+                    "dependency-free",
+                )
 
 
 if __name__ == "__main__":
