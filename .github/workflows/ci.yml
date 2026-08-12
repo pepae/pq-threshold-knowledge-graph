@@ -40,6 +40,11 @@ jobs:
       - name: Skill query smoke test
         run: python skill/scripts/query.py stats
 
+      - name: papers/WANTED.md is up to date
+        run: |
+          python scripts/check_pdfs.py --write
+          git diff --exit-code papers/WANTED.md
+
       - name: Build site
         run: python scripts/build_webapp.py
 
