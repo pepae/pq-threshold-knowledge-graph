@@ -107,6 +107,13 @@ def main() -> int:
         else:
             shutil.copy2(item, out / item.name)
 
+    pdf_src = REPO_ROOT / "papers" / "pdf"
+    if pdf_src.is_dir():
+        pdf_out = out / "papers" / "pdf"
+        pdf_out.mkdir(parents=True, exist_ok=True)
+        for pdf in sorted(pdf_src.glob("*.pdf")):
+            shutil.copy2(pdf, pdf_out / pdf.name)
+
     data = out / "data"
     data.mkdir(exist_ok=True)
     (data / "graph.json").write_text(dump_graph(graph), encoding="utf-8")
