@@ -2,17 +2,34 @@
   "metadata": {
     "schema_version": "1.0.0",
     "generator": "scripts/build_graph.py",
-    "node_count": 57,
-    "edge_count": 13,
+    "node_count": 166,
+    "edge_count": 449,
     "node_counts": {
       "assumption": 16,
+      "attack": 5,
       "desideratum": 15,
+      "implementation": 3,
+      "open-problem": 7,
+      "paper": 4,
+      "person": 63,
+      "scheme": 27,
       "technique": 26
     },
     "edge_counts": {
-      "assumes": 4,
+      "assumes": 39,
+      "attacks": 5,
+      "authored": 96,
+      "builds_on": 25,
+      "fails": 55,
+      "implements": 4,
+      "opens": 13,
+      "partially_satisfies": 37,
+      "presented_in": 1,
       "reduces_to": 5,
-      "uses": 4
+      "resolves": 1,
+      "satisfies": 85,
+      "supersedes": 3,
+      "uses": 80
     },
     "node_type_colors": {
       "assumption": "#2e8b57",
@@ -193,6 +210,39 @@
       }
     },
     {
+      "id": "aayush-jain",
+      "type": "person",
+      "title": "Aayush Jain",
+      "path": "vault/people/aayush-jain.md",
+      "attrs": {}
+    },
+    {
+      "id": "aayush-yadav",
+      "type": "person",
+      "title": "Aayush Yadav",
+      "path": "vault/people/aayush-yadav.md",
+      "attrs": {}
+    },
+    {
+      "id": "adam-suhl",
+      "type": "person",
+      "title": "Adam Suhl",
+      "path": "vault/people/adam-suhl.md",
+      "attrs": {
+        "affiliation": "UC San Diego"
+      }
+    },
+    {
+      "id": "adaptive-corruptions-batched-lattice",
+      "type": "open-problem",
+      "title": "Adaptive corruptions for batched lattice threshold schemes",
+      "path": "vault/open-problems/adaptive-corruptions-batched-lattice.md",
+      "attrs": {
+        "pq": true,
+        "state": "open"
+      }
+    },
+    {
       "id": "agm",
       "type": "assumption",
       "title": "Algebraic Group Model",
@@ -207,6 +257,74 @@
       }
     },
     {
+      "id": "amit-agarwal",
+      "type": "person",
+      "title": "Amit Agarwal",
+      "path": "vault/people/amit-agarwal.md",
+      "attrs": {}
+    },
+    {
+      "id": "amit-sahai",
+      "type": "person",
+      "title": "Amit Sahai",
+      "path": "vault/people/amit-sahai.md",
+      "attrs": {}
+    },
+    {
+      "id": "aptos-batched-ibe",
+      "type": "scheme",
+      "title": "APTOS batched threshold IBE",
+      "path": "vault/schemes/aptos-batched-ibe.md",
+      "attrs": {
+        "assumptions_pending": true,
+        "batched": true,
+        "eprint": "2024/1575",
+        "peer_reviewed": false,
+        "pq": false,
+        "source_depth": "abstract",
+        "status": "preprint",
+        "unverified": true,
+        "year": 2024
+      }
+    },
+    {
+      "id": "arka-rai-choudhuri",
+      "type": "person",
+      "title": "Arka Rai Choudhuri",
+      "path": "vault/people/arka-rai-choudhuri.md",
+      "attrs": {}
+    },
+    {
+      "id": "arup-mondal",
+      "type": "person",
+      "title": "Arup Mondal",
+      "path": "vault/people/arup-mondal.md",
+      "attrs": {}
+    },
+    {
+      "id": "babak-poorebrahim-gilkalaye",
+      "type": "person",
+      "title": "Babak Poorebrahim Gilkalaye",
+      "path": "vault/people/babak-poorebrahim-gilkalaye.md",
+      "attrs": {}
+    },
+    {
+      "id": "batched-abe-pairings",
+      "type": "scheme",
+      "title": "Batched attribute-based encryption from bilinear pairings",
+      "path": "vault/schemes/batched-abe-pairings.md",
+      "attrs": {
+        "assumptions_pending": true,
+        "batched": true,
+        "eprint": "2026/1454",
+        "peer_reviewed": false,
+        "pq": false,
+        "source_depth": "abstract",
+        "status": "preprint",
+        "year": 2026
+      }
+    },
+    {
       "id": "batched-threshold-encryption",
       "type": "technique",
       "title": "Batched threshold encryption",
@@ -216,6 +334,415 @@
           "BTE"
         ],
         "family": "primitive"
+      }
+    },
+    {
+      "id": "bbnrs-context-dependent",
+      "type": "scheme",
+      "title": "Context-dependent threshold decryption",
+      "path": "vault/schemes/bbnrs-context-dependent.md",
+      "attrs": {
+        "aliases": [
+          "BBNRS",
+          "context-dependent threshold decryption"
+        ],
+        "assumptions_pending": true,
+        "eprint": "2025/279",
+        "peer_reviewed": false,
+        "pq": false,
+        "source_depth": "full-text",
+        "status": "preprint",
+        "year": 2025
+      }
+    },
+    {
+      "id": "beast-mev",
+      "type": "scheme",
+      "title": "BEAST-MEV",
+      "path": "vault/schemes/beast-mev.md",
+      "attrs": {
+        "batched": true,
+        "epoch_free": true,
+        "eprint": "2025/1419",
+        "peer_reviewed": false,
+        "pq": false,
+        "silent_setup": true,
+        "source_depth": "abstract",
+        "status": "preprint",
+        "year": 2025
+      }
+    },
+    {
+      "id": "beat-mev",
+      "type": "scheme",
+      "title": "BEAT-MEV",
+      "path": "vault/schemes/beat-mev.md",
+      "attrs": {
+        "batched": true,
+        "ciphertext_size": "3 G1 elements plus 1 GT element; 722 B measured at batch 512",
+        "epoch_free": true,
+        "eprint": "2024/1533",
+        "peer_reviewed": true,
+        "pq": false,
+        "public_key_size": "quadratic in the PRF domain, reducible to linear",
+        "share_size": "pre-decryption key is a single BLS12-381 G2 element",
+        "silent_setup": false,
+        "source_depth": "full-text",
+        "status": "published",
+        "timings": "enc under 2 ms; under 440 ms to decrypt 512 transactions",
+        "venue": "USENIX Security 2025",
+        "year": 2025
+      }
+    },
+    {
+      "id": "beatmev-pq-implementation",
+      "type": "implementation",
+      "title": "PQ BEAT-MEV implementation",
+      "path": "vault/implementations/beatmev-pq-implementation.md",
+      "attrs": {
+        "language": [
+          "Python"
+        ],
+        "measured": "batch 512, lambda 128: 1250 ms enc/ct, 1.9 MB ct, 50.2 s partial dec/party, 326.5 s combine, 259 MB public key",
+        "repo": "https://github.com/pepae/beatmev-pq-implementation",
+        "runnable": true,
+        "source_depth": "repo",
+        "url": "https://github.com/pepae/beatmev-pq-implementation"
+      }
+    },
+    {
+      "id": "bendlin-damgard",
+      "type": "scheme",
+      "title": "Bendlin-Damgard threshold Regev",
+      "path": "vault/schemes/bendlin-damgard.md",
+      "attrs": {
+        "aliases": [
+          "Bendlin-Damgard",
+          "BD10"
+        ],
+        "eprint": "2009/391",
+        "peer_reviewed": true,
+        "pq": true,
+        "source_depth": "full-text",
+        "status": "published",
+        "venue": "TCC 2010",
+        "year": 2010
+      }
+    },
+    {
+      "id": "benedikt-buenz",
+      "type": "person",
+      "title": "Benedikt Bunz",
+      "path": "vault/people/benedikt-buenz.md",
+      "attrs": {}
+    },
+    {
+      "id": "benedikt-wagner",
+      "type": "person",
+      "title": "Benedikt Wagner",
+      "path": "vault/people/benedikt-wagner.md",
+      "attrs": {
+        "affiliation": "Ethereum Foundation"
+      }
+    },
+    {
+      "id": "benny-pinkas",
+      "type": "person",
+      "title": "Benny Pinkas",
+      "path": "vault/people/benny-pinkas.md",
+      "attrs": {}
+    },
+    {
+      "id": "benoit-libert",
+      "type": "person",
+      "title": "Benoit Libert",
+      "path": "vault/people/benoit-libert.md",
+      "attrs": {}
+    },
+    {
+      "id": "bgg-universal-thresholdizer",
+      "type": "scheme",
+      "title": "Universal thresholdizer from threshold FHE",
+      "path": "vault/schemes/bgg-universal-thresholdizer.md",
+      "attrs": {
+        "aliases": [
+          "BGG+18",
+          "universal thresholdizer scheme"
+        ],
+        "eprint": "2017/956",
+        "peer_reviewed": true,
+        "pq": true,
+        "source_depth": "abstract",
+        "status": "published",
+        "venue": "CRYPTO 2018",
+        "year": 2018
+      }
+    },
+    {
+      "id": "blt-batch-ibe",
+      "type": "scheme",
+      "title": "BLT threshold batch IBE without epochs",
+      "path": "vault/schemes/blt-batch-ibe.md",
+      "attrs": {
+        "aliases": [
+          "BLT",
+          "BLT25",
+          "Boneh-Laufer-Tas"
+        ],
+        "batched": true,
+        "epoch_free": true,
+        "eprint": "2025/1254",
+        "peer_reviewed": false,
+        "pq": true,
+        "share_size": "pre-decryption key polylog in batch length; about 5 orders of magnitude smaller than the batch at lambda=128, batch 4096",
+        "silent_setup": false,
+        "source_depth": "full-text",
+        "status": "preprint",
+        "year": 2025
+      }
+    },
+    {
+      "id": "blt25-implementation",
+      "type": "implementation",
+      "title": "BLT25 implementation",
+      "path": "vault/implementations/blt25-implementation.md",
+      "attrs": {
+        "language": [
+          "Python"
+        ],
+        "measured": "provably secure parameters need matrices with about 10^9 columns at lambda 128; runs only at toy parameters with no security",
+        "repo": "https://github.com/pepae/blt25-implementation",
+        "runnable": false,
+        "source_depth": "repo",
+        "url": "https://github.com/pepae/blt25-implementation"
+      }
+    },
+    {
+      "id": "boudgoust-scholl",
+      "type": "scheme",
+      "title": "Boudgoust-Scholl threshold FHE at polynomial modulus",
+      "path": "vault/schemes/boudgoust-scholl.md",
+      "attrs": {
+        "aliases": [
+          "Boudgoust-Scholl",
+          "BS23"
+        ],
+        "eprint": "2023/016",
+        "modulus": "polynomial",
+        "peer_reviewed": true,
+        "pq": true,
+        "source_depth": "full-text",
+        "status": "published",
+        "venue": "ASIACRYPT 2023",
+        "year": 2023
+      }
+    },
+    {
+      "id": "brent-waters",
+      "type": "person",
+      "title": "Brent Waters",
+      "path": "vault/people/brent-waters.md",
+      "attrs": {}
+    },
+    {
+      "id": "brzuska-klooss-woo",
+      "type": "paper",
+      "title": "Threshold Public-Key Encryption: Definitions, Relations, and CPA-to-CCA Transforms",
+      "path": "vault/papers/brzuska-klooss-woo.md",
+      "attrs": {
+        "aliases": [
+          "BKW",
+          "Brzuska-Klooss-Woo"
+        ],
+        "eprint": "2025/1665",
+        "peer_reviewed": false,
+        "source_depth": "full-text",
+        "status": "preprint",
+        "year": 2025
+      }
+    },
+    {
+      "id": "btx",
+      "type": "scheme",
+      "title": "BTX",
+      "path": "vault/schemes/btx.md",
+      "attrs": {
+        "aliases": [
+          "BTX",
+          "Batch Threshold Encryption"
+        ],
+        "batched": true,
+        "disputes": [
+          "Wagner's survey records eprint 2026/754 and 2026/760 as identical schemes. Only 2026/754 is held locally, so this note is written from it; the claim of identity is Wagner's, not verified here."
+        ],
+        "epoch_free": true,
+        "eprint": "2026/754",
+        "peer_reviewed": false,
+        "pq": false,
+        "silent_setup": false,
+        "source_depth": "abstract",
+        "status": "preprint",
+        "year": 2026
+      }
+    },
+    {
+      "id": "cgpp-bte",
+      "type": "scheme",
+      "title": "CGPP batched threshold encryption",
+      "path": "vault/schemes/cgpp-bte.md",
+      "attrs": {
+        "aliases": [
+          "CGPP",
+          "Berkeley24-1"
+        ],
+        "assumptions_pending": true,
+        "batched": true,
+        "epoch_free": false,
+        "eprint": "2024/669",
+        "peer_reviewed": true,
+        "pq": false,
+        "share_size": "80 bytes per party per batch, independent of batch size",
+        "source_depth": "abstract",
+        "status": "published",
+        "timings": "enc under 6 ms; about 2.8 s per committee member for roughly 500 transactions",
+        "venue": "USENIX Security 2024",
+        "year": 2024
+      }
+    },
+    {
+      "id": "champion-wu-dbe",
+      "type": "scheme",
+      "title": "Distributed broadcast encryption from lattices",
+      "path": "vault/schemes/champion-wu-dbe.md",
+      "attrs": {
+        "aliases": [
+          "Champion-Wu DBE",
+          "CW24"
+        ],
+        "eprint": "2024/1417",
+        "peer_reviewed": true,
+        "pq": true,
+        "silent_setup": true,
+        "source_depth": "full-text",
+        "status": "published",
+        "venue": "TCC 2024",
+        "year": 2024
+      }
+    },
+    {
+      "id": "champion-wu-monotone-dnf",
+      "type": "scheme",
+      "title": "Distributed monotone-policy encryption for DNFs from lattices",
+      "path": "vault/schemes/champion-wu-monotone-dnf.md",
+      "attrs": {
+        "aliases": [
+          "Champion-Wu DNF"
+        ],
+        "ciphertext_size": "poly(lambda, log N) for N variables in the DNF",
+        "eprint": "2026/318",
+        "peer_reviewed": false,
+        "pq": true,
+        "silent_setup": true,
+        "source_depth": "full-text",
+        "status": "preprint",
+        "year": 2026
+      }
+    },
+    {
+      "id": "champion-wu-optimal-dnf",
+      "type": "scheme",
+      "title": "Optimal distributed monotone-policy encryption for DNFs",
+      "path": "vault/schemes/champion-wu-optimal-dnf.md",
+      "attrs": {
+        "ciphertext_size": "independent of policy size in the ROM; k*L^(1/2) for k-DNF in the plain model; |S|^(2/3) for adaptive broadcast",
+        "disputes": [
+          "Records this as superseding 2026/318 and 2024/1417 on the strength of strictly better parameters by the same authors. Neither paper states the relation, so treat the supersedes edges as an editorial judgement rather than an authors' claim."
+        ],
+        "eprint": "2026/1464",
+        "peer_reviewed": false,
+        "pq": true,
+        "silent_setup": true,
+        "source_depth": "full-text",
+        "status": "preprint",
+        "year": 2026
+      }
+    },
+    {
+      "id": "choudhuri-garg-piet-policharla-2024",
+      "type": "paper",
+      "title": "Mempool Privacy via Batched Threshold Encryption: Attacks and Defenses",
+      "path": "vault/papers/choudhuri-garg-piet-policharla-2024.md",
+      "attrs": {
+        "aliases": [
+          "CGPP 2024",
+          "Choudhuri-Garg-Piet-Policharla"
+        ],
+        "eprint": "2024/669",
+        "peer_reviewed": true,
+        "pq": false,
+        "source_depth": "abstract",
+        "status": "published",
+        "venue": "USENIX Security 2024",
+        "year": 2024
+      }
+    },
+    {
+      "id": "choudhuri-garg-policharla-wang-onetime",
+      "type": "scheme",
+      "title": "One-time setup batched threshold encryption",
+      "path": "vault/schemes/choudhuri-garg-policharla-wang-onetime.md",
+      "attrs": {
+        "aliases": [
+          "CGPW",
+          "Berkeley24-2"
+        ],
+        "assumptions_pending": true,
+        "batched": true,
+        "epoch_free": false,
+        "eprint": "2024/1516",
+        "peer_reviewed": false,
+        "pq": false,
+        "share_size": "48 bytes per party for batch decryption",
+        "source_depth": "abstract",
+        "status": "preprint",
+        "timings": "enc about 8.5 ms; about 3.2 s per committee member for 500 transactions",
+        "year": 2024
+      }
+    },
+    {
+      "id": "chris-brzuska",
+      "type": "person",
+      "title": "Chris Brzuska",
+      "path": "vault/people/chris-brzuska.md",
+      "attrs": {
+        "affiliation": "Aalto University"
+      }
+    },
+    {
+      "id": "dan-boneh",
+      "type": "person",
+      "title": "Dan Boneh",
+      "path": "vault/people/dan-boneh.md",
+      "attrs": {
+        "affiliation": "Stanford University"
+      }
+    },
+    {
+      "id": "daniele-micciancio",
+      "type": "person",
+      "title": "Daniele Micciancio",
+      "path": "vault/people/daniele-micciancio.md",
+      "attrs": {
+        "affiliation": "UC San Diego"
+      }
+    },
+    {
+      "id": "david-wu",
+      "type": "person",
+      "title": "David J. Wu",
+      "path": "vault/people/david-wu.md",
+      "attrs": {
+        "affiliation": "UT Austin"
       }
     },
     {
@@ -263,6 +790,44 @@
       }
     },
     {
+      "id": "devevey-adaptive-poly-modulus",
+      "type": "open-problem",
+      "title": "Adaptive security from LWE with polynomial approximation factor",
+      "path": "vault/open-problems/devevey-adaptive-poly-modulus.md",
+      "attrs": {
+        "pq": true,
+        "state": "resolved"
+      }
+    },
+    {
+      "id": "devevey-libert-nguyen-peters-yung",
+      "type": "scheme",
+      "title": "Non-interactive CCA2 threshold cryptosystems without pairings",
+      "path": "vault/schemes/devevey-libert-nguyen-peters-yung.md",
+      "attrs": {
+        "aliases": [
+          "Devevey et al.",
+          "DLNPY21"
+        ],
+        "eprint": "2021/630",
+        "peer_reviewed": true,
+        "pq": false,
+        "source_depth": "full-text",
+        "status": "published",
+        "venue": "PKC 2021",
+        "year": 2021
+      }
+    },
+    {
+      "id": "dimitris-kolonelos",
+      "type": "person",
+      "title": "Dimitris Kolonelos",
+      "path": "vault/people/dimitris-kolonelos.md",
+      "attrs": {
+        "affiliation": "IMDEA Software Institute and Universidad Politecnica de Madrid"
+      }
+    },
+    {
       "id": "distributed-broadcast-encryption",
       "type": "technique",
       "title": "Distributed broadcast encryption",
@@ -275,6 +840,24 @@
       }
     },
     {
+      "id": "ertem-nusret-tas",
+      "type": "person",
+      "title": "Ertem Nusret Tas",
+      "path": "vault/people/ertem-nusret-tas.md",
+      "attrs": {
+        "affiliation": "Stanford University"
+      }
+    },
+    {
+      "id": "evan-laufer",
+      "type": "person",
+      "title": "Evan Laufer",
+      "path": "vault/people/evan-laufer.md",
+      "attrs": {
+        "affiliation": "Stanford University"
+      }
+    },
+    {
       "id": "fiat-shamir-nizk",
       "type": "technique",
       "title": "Fiat-Shamir NIZKs",
@@ -284,6 +867,19 @@
           "Fiat-Shamir"
         ],
         "family": "proof"
+      }
+    },
+    {
+      "id": "flooding-underestimate-ring-setting",
+      "type": "attack",
+      "title": "Flooding-noise underestimate in the ring setting",
+      "path": "vault/attacks/flooding-underestimate-ring-setting.md",
+      "attrs": {
+        "disputes": [
+          "Recorded from an unpublished project's own audit log. It is a bug found in that project's draft, fixed there, and is included as a reusable warning rather than as a result about any published scheme."
+        ],
+        "source_depth": "repo",
+        "status": "draft"
       }
     },
     {
@@ -329,6 +925,75 @@
       }
     },
     {
+      "id": "gkpw-silent-setup",
+      "type": "scheme",
+      "title": "Threshold Encryption with Silent Setup",
+      "path": "vault/schemes/gkpw-silent-setup.md",
+      "attrs": {
+        "aliases": [
+          "GKPW",
+          "GKPW24"
+        ],
+        "batched": false,
+        "ciphertext_size": "about 8x ElGamal",
+        "eprint": "2024/263",
+        "peer_reviewed": true,
+        "pq": false,
+        "silent_setup": true,
+        "source_depth": "full-text",
+        "status": "published",
+        "timings": "enc under 7 ms; partial dec under 1 ms; aggregation for 1024 parties under 200 ms",
+        "venue": "CRYPTO 2024",
+        "year": 2024
+      }
+    },
+    {
+      "id": "guru-vamsi-policharla",
+      "type": "person",
+      "title": "Guru-Vamsi Policharla",
+      "path": "vault/people/guru-vamsi-policharla.md",
+      "attrs": {
+        "affiliation": "UC Berkeley"
+      }
+    },
+    {
+      "id": "hall-andersen-simkin-wagner-silent",
+      "type": "scheme",
+      "title": "Silent threshold encryption with one-shot adaptive security",
+      "path": "vault/schemes/hall-andersen-simkin-wagner-silent.md",
+      "attrs": {
+        "aliases": [
+          "HSW25",
+          "one-shot adaptive"
+        ],
+        "assumptions_pending": true,
+        "batched": false,
+        "ciphertext_size": "1 MB message gives 1.072 MB ciphertext, or 1.431 MB post-quantum, at t < n/3",
+        "eprint": "2025/1384",
+        "peer_reviewed": false,
+        "pq": true,
+        "silent_setup": true,
+        "source_depth": "abstract",
+        "status": "preprint",
+        "year": 2025
+      }
+    },
+    {
+      "id": "harvesting-attack",
+      "type": "attack",
+      "title": "Cross-context share harvesting",
+      "path": "vault/attacks/harvesting-attack.md",
+      "attrs": {
+        "aliases": [
+          "harvesting",
+          "cross-fork share combining"
+        ],
+        "source_depth": "mixed",
+        "status": "published",
+        "unverified": true
+      }
+    },
+    {
       "id": "hint-mlwe",
       "type": "assumption",
       "title": "Hint-MLWE",
@@ -345,6 +1010,15 @@
       }
     },
     {
+      "id": "hussien-othman",
+      "type": "person",
+      "title": "Hussien Othman",
+      "path": "vault/people/hussien-othman.md",
+      "attrs": {
+        "affiliation": "TU Darmstadt"
+      }
+    },
+    {
       "id": "hybrid-encryption-associated-data",
       "type": "technique",
       "title": "Threshold KEM with associated data",
@@ -354,6 +1028,105 @@
           "thrKEM with AD"
         ],
         "family": "primitive"
+      }
+    },
+    {
+      "id": "identity-tag-replication",
+      "type": "attack",
+      "title": "Identity-tag replication against tag-based batch schemes",
+      "path": "vault/attacks/identity-tag-replication.md",
+      "attrs": {
+        "eprint": "2025/1254",
+        "source_depth": "full-text",
+        "status": "preprint",
+        "year": 2025
+      }
+    },
+    {
+      "id": "index-collision-censorship",
+      "type": "attack",
+      "title": "Index-collision censorship in index-dependent batch encryption",
+      "path": "vault/attacks/index-collision-censorship.md",
+      "attrs": {
+        "aliases": [
+          "censorship vulnerability",
+          "succinctness vulnerability"
+        ],
+        "disputes": [
+          "Wagner's survey calls this a 'succinctness vulnerability'. The source paper frames it as a censorship vulnerability arising from the succinctness trade-off, and it is not a break of confidentiality. This KB uses the paper's framing."
+        ],
+        "eprint": "2025/1254",
+        "source_depth": "full-text",
+        "status": "preprint",
+        "year": 2025
+      }
+    },
+    {
+      "id": "ivan-damgard",
+      "type": "person",
+      "title": "Ivan Damgard",
+      "path": "vault/people/ivan-damgard.md",
+      "attrs": {
+        "affiliation": "Aarhus University"
+      }
+    },
+    {
+      "id": "ivy-woo",
+      "type": "person",
+      "title": "Ivy K. Y. Woo",
+      "path": "vault/people/ivy-woo.md",
+      "attrs": {
+        "affiliation": "Aalto University"
+      }
+    },
+    {
+      "id": "jan-bormet",
+      "type": "person",
+      "title": "Jan Bormet",
+      "path": "vault/people/jan-bormet.md",
+      "attrs": {
+        "affiliation": "TU Darmstadt"
+      }
+    },
+    {
+      "id": "jeffrey-champion",
+      "type": "person",
+      "title": "Jeffrey Champion",
+      "path": "vault/people/jeffrey-champion.md",
+      "attrs": {
+        "affiliation": "UT Austin"
+      }
+    },
+    {
+      "id": "julien-devevey",
+      "type": "person",
+      "title": "Julien Devevey",
+      "path": "vault/people/julien-devevey.md",
+      "attrs": {}
+    },
+    {
+      "id": "julien-piet",
+      "type": "person",
+      "title": "Julien Piet",
+      "path": "vault/people/julien-piet.md",
+      "attrs": {
+        "affiliation": "UC Berkeley"
+      }
+    },
+    {
+      "id": "kartik-nayak",
+      "type": "person",
+      "title": "Kartik Nayak",
+      "path": "vault/people/kartik-nayak.md",
+      "attrs": {}
+    },
+    {
+      "id": "katharina-boudgoust",
+      "type": "person",
+      "title": "Katharina Boudgoust",
+      "path": "vault/people/katharina-boudgoust.md",
+      "attrs": {
+        "affiliation": "Aarhus University"
       }
     },
     {
@@ -384,6 +1157,13 @@
       }
     },
     {
+      "id": "khoa-nguyen",
+      "type": "person",
+      "title": "Khoa Nguyen",
+      "path": "vault/people/khoa-nguyen.md",
+      "attrs": {}
+    },
+    {
       "id": "klein-sampler",
       "type": "technique",
       "title": "Klein/GPV sampler",
@@ -396,6 +1176,13 @@
         "family": "lattice",
         "pq": true
       }
+    },
+    {
+      "id": "kushal-babel",
+      "type": "person",
+      "title": "Kushal Babel",
+      "path": "vault/people/kushal-babel.md",
+      "attrs": {}
     },
     {
       "id": "kzg-commitments",
@@ -439,6 +1226,26 @@
       }
     },
     {
+      "id": "linear-route-opening-impossibility",
+      "type": "attack",
+      "title": "Constant-size batch opening is impossible on the linear lattice route",
+      "path": "vault/attacks/linear-route-opening-impossibility.md",
+      "attrs": {
+        "disputes": [
+          "Recorded from an unpublished project's own audit log, not from a peer-reviewed impossibility result. The argument is elementary and reproduced here so it can be checked, but it has not been externally reviewed."
+        ],
+        "source_depth": "repo",
+        "status": "draft"
+      }
+    },
+    {
+      "id": "lior-rotem",
+      "type": "person",
+      "title": "Lior Rotem",
+      "path": "vault/people/lior-rotem.md",
+      "attrs": {}
+    },
+    {
       "id": "lnp-proofs",
       "type": "technique",
       "title": "Lyubashevsky-Nguyen-Plancon proofs",
@@ -466,6 +1273,16 @@
       }
     },
     {
+      "id": "low-norm-small-share-large-t",
+      "type": "open-problem",
+      "title": "Low-norm secret sharing with small shares at large t",
+      "path": "vault/open-problems/low-norm-small-share-large-t.md",
+      "attrs": {
+        "pq": true,
+        "state": "open"
+      }
+    },
+    {
       "id": "lwe",
       "type": "assumption",
       "title": "Learning With Errors",
@@ -477,6 +1294,24 @@
         "falsifiable": true,
         "family": "lattice",
         "pq": true
+      }
+    },
+    {
+      "id": "mark-simkin",
+      "type": "person",
+      "title": "Mark Simkin",
+      "path": "vault/people/mark-simkin.md",
+      "attrs": {
+        "affiliation": "Flashbots and Aarhus University"
+      }
+    },
+    {
+      "id": "mathias-hall-andersen",
+      "type": "person",
+      "title": "Mathias Hall-Andersen",
+      "path": "vault/people/mathias-hall-andersen.md",
+      "attrs": {
+        "affiliation": "ZKSecurity"
       }
     },
     {
@@ -492,6 +1327,58 @@
         "family": "lattice",
         "pq": true,
         "source_depth": "abstract"
+      }
+    },
+    {
+      "id": "mevade",
+      "type": "paper",
+      "title": "MEVade: An MEV-Resistant Blockchain Design",
+      "path": "vault/papers/mevade.md",
+      "attrs": {
+        "peer_reviewed": true,
+        "pq": false,
+        "source_depth": "abstract",
+        "status": "published",
+        "url": "https://ieeexplore.ieee.org/document/10174966/",
+        "venue": "IEEE ICBC 2023",
+        "year": 2023
+      }
+    },
+    {
+      "id": "micciancio-suhl",
+      "type": "scheme",
+      "title": "Micciancio-Suhl simulation-secure threshold PKE",
+      "path": "vault/schemes/micciancio-suhl.md",
+      "attrs": {
+        "aliases": [
+          "Micciancio-Suhl",
+          "MS24"
+        ],
+        "doi": "10.62056/a0zogy4e-",
+        "eprint": "2023/1728",
+        "modulus": "polynomial",
+        "peer_reviewed": true,
+        "pq": true,
+        "source_depth": "full-text",
+        "status": "published",
+        "venue": "IACR Communications in Cryptology 1(4)",
+        "year": 2025
+      }
+    },
+    {
+      "id": "michael-klooss",
+      "type": "person",
+      "title": "Michael Klooss",
+      "path": "vault/people/michael-klooss.md",
+      "attrs": {}
+    },
+    {
+      "id": "mingyuan-wang",
+      "type": "person",
+      "title": "Mingyuan Wang",
+      "path": "vault/people/mingyuan-wang.md",
+      "attrs": {
+        "affiliation": "UC Berkeley"
       }
     },
     {
@@ -536,6 +1423,20 @@
       }
     },
     {
+      "id": "moti-yung",
+      "type": "person",
+      "title": "Moti Yung",
+      "path": "vault/people/moti-yung.md",
+      "attrs": {}
+    },
+    {
+      "id": "mriganka-mandal",
+      "type": "person",
+      "title": "Mriganka Mandal",
+      "path": "vault/people/mriganka-mandal.md",
+      "attrs": {}
+    },
+    {
       "id": "naive-threshold-baseline",
       "type": "technique",
       "title": "Naive threshold baseline",
@@ -546,6 +1447,21 @@
           "naive scheme"
         ],
         "family": "baseline"
+      }
+    },
+    {
+      "id": "nguyen-adaptive-hint-mlwe",
+      "type": "scheme",
+      "title": "Threshold Regev PKE from adaptive Hint-MLWE",
+      "path": "vault/schemes/nguyen-adaptive-hint-mlwe.md",
+      "attrs": {
+        "eprint": "2026/1585",
+        "peer_reviewed": false,
+        "pq": true,
+        "source_depth": "abstract",
+        "status": "preprint",
+        "unverified": true,
+        "year": 2026
       }
     },
     {
@@ -563,6 +1479,48 @@
       }
     },
     {
+      "id": "peter-rasmussen",
+      "type": "person",
+      "title": "Peter M. R. Rasmussen",
+      "path": "vault/people/peter-rasmussen.md",
+      "attrs": {}
+    },
+    {
+      "id": "peter-rindal",
+      "type": "person",
+      "title": "Peter Rindal",
+      "path": "vault/people/peter-rindal.md",
+      "attrs": {}
+    },
+    {
+      "id": "peter-scholl",
+      "type": "person",
+      "title": "Peter Scholl",
+      "path": "vault/people/peter-scholl.md",
+      "attrs": {
+        "affiliation": "Aarhus University"
+      }
+    },
+    {
+      "id": "pilvi",
+      "type": "scheme",
+      "title": "Pilvi",
+      "path": "vault/schemes/pilvi.md",
+      "attrs": {
+        "ciphertext_size": "14 to 58 KB",
+        "doi": "10.1007/978-981-95-5119-4_17",
+        "eprint": "2025/1691",
+        "modulus": "polynomial",
+        "peer_reviewed": true,
+        "pq": true,
+        "share_size": "1 to 4 KB",
+        "source_depth": "full-text",
+        "status": "published",
+        "venue": "ASIACRYPT 2025",
+        "year": 2025
+      }
+    },
+    {
       "id": "polynomial-noise-flooding",
       "type": "technique",
       "title": "Polynomial noise flooding",
@@ -573,6 +1531,34 @@
         ],
         "family": "lattice",
         "pq": true
+      }
+    },
+    {
+      "id": "post-inclusion-ordering",
+      "type": "open-problem",
+      "title": "Post-inclusion ordering",
+      "path": "vault/open-problems/post-inclusion-ordering.md",
+      "attrs": {
+        "pq": false,
+        "state": "open"
+      }
+    },
+    {
+      "id": "pq-threshold",
+      "type": "implementation",
+      "title": "pq-threshold (TACET reference implementation)",
+      "path": "vault/implementations/pq-threshold.md",
+      "attrs": {
+        "language": [
+          "Python",
+          "Rust",
+          "Coq"
+        ],
+        "measured": "self-reported scorecard of 10 PASS / 5 PARTIAL / 0 FAIL against D1-D15, checked by runtime tests, measurements and named artifacts",
+        "repo": "https://github.com/pepae/pq-threshold",
+        "runnable": true,
+        "source_depth": "repo",
+        "url": "https://github.com/pepae/pq-threshold"
       }
     },
     {
@@ -604,6 +1590,23 @@
       }
     },
     {
+      "id": "ramprasad-sarkar",
+      "type": "person",
+      "title": "Ramprasad Sarkar",
+      "path": "vault/people/ramprasad-sarkar.md",
+      "attrs": {}
+    },
+    {
+      "id": "remove-query-bound-poly-modulus",
+      "type": "open-problem",
+      "title": "Removing the a priori query bound at polynomial modulus",
+      "path": "vault/open-problems/remove-query-bound-poly-modulus.md",
+      "attrs": {
+        "pq": true,
+        "state": "open"
+      }
+    },
+    {
       "id": "renyi-divergence-analysis",
       "type": "technique",
       "title": "Renyi divergence analysis",
@@ -626,6 +1629,31 @@
       }
     },
     {
+      "id": "rikke-bendlin",
+      "type": "person",
+      "title": "Rikke Bendlin",
+      "path": "vault/people/rikke-bendlin.md",
+      "attrs": {
+        "affiliation": "Aarhus University"
+      }
+    },
+    {
+      "id": "rishab-dme",
+      "type": "scheme",
+      "title": "Distributed monotone-policy encryption from l-decomposed LWE",
+      "path": "vault/schemes/rishab-dme.md",
+      "attrs": {
+        "eprint": "2026/372",
+        "peer_reviewed": false,
+        "pq": true,
+        "silent_setup": true,
+        "source_depth": "abstract",
+        "status": "preprint",
+        "unverified": true,
+        "year": 2026
+      }
+    },
+    {
       "id": "rom",
       "type": "assumption",
       "title": "Random Oracle Model",
@@ -637,6 +1665,47 @@
         "falsifiable": false,
         "family": "idealization",
         "pq": false
+      }
+    },
+    {
+      "id": "rosario-gennaro",
+      "type": "person",
+      "title": "Rosario Gennaro",
+      "path": "vault/people/rosario-gennaro.md",
+      "attrs": {}
+    },
+    {
+      "id": "russell-lai",
+      "type": "person",
+      "title": "Russell W. F. Lai",
+      "path": "vault/people/russell-lai.md",
+      "attrs": {
+        "affiliation": "Aalto University"
+      }
+    },
+    {
+      "id": "sam-kim",
+      "type": "person",
+      "title": "Sam Kim",
+      "path": "vault/people/sam-kim.md",
+      "attrs": {}
+    },
+    {
+      "id": "sanjam-garg",
+      "type": "person",
+      "title": "Sanjam Garg",
+      "path": "vault/people/sanjam-garg.md",
+      "attrs": {
+        "affiliation": "UC Berkeley"
+      }
+    },
+    {
+      "id": "sebastian-faust",
+      "type": "person",
+      "title": "Sebastian Faust",
+      "path": "vault/people/sebastian-faust.md",
+      "attrs": {
+        "affiliation": "TU Darmstadt"
       }
     },
     {
@@ -652,6 +1721,41 @@
       }
     },
     {
+      "id": "shayeef-murshid",
+      "type": "person",
+      "title": "Shayeef Murshid",
+      "path": "vault/people/shayeef-murshid.md",
+      "attrs": {}
+    },
+    {
+      "id": "shengli-liu",
+      "type": "person",
+      "title": "Shengli Liu",
+      "path": "vault/people/shengli-liu.md",
+      "attrs": {
+        "affiliation": "Shanghai Jiao Tong University"
+      }
+    },
+    {
+      "id": "shuai-han",
+      "type": "person",
+      "title": "Shuai Han",
+      "path": "vault/people/shuai-han.md",
+      "attrs": {
+        "affiliation": "Shanghai Jiao Tong University"
+      }
+    },
+    {
+      "id": "silent-pq-threshold-t-of-n",
+      "type": "open-problem",
+      "title": "Silent setup for post-quantum t-of-n threshold encryption",
+      "path": "vault/open-problems/silent-pq-threshold-t-of-n.md",
+      "attrs": {
+        "pq": true,
+        "state": "partially-resolved"
+      }
+    },
+    {
       "id": "silent-setup",
       "type": "technique",
       "title": "Silent setup",
@@ -662,6 +1766,117 @@
         ],
         "family": "setup"
       }
+    },
+    {
+      "id": "sjtu-adaptive-threshold-decryption",
+      "type": "scheme",
+      "title": "Adaptively secure threshold decryption at polynomial modulus",
+      "path": "vault/schemes/sjtu-adaptive-threshold-decryption.md",
+      "attrs": {
+        "aliases": [
+          "TD0",
+          "TD1",
+          "TD2",
+          "ZZHLH26"
+        ],
+        "eprint": "2026/1627",
+        "modulus": "polynomial",
+        "peer_reviewed": false,
+        "pq": true,
+        "source_depth": "full-text",
+        "status": "preprint",
+        "year": 2026
+      }
+    },
+    {
+      "id": "sourav-das",
+      "type": "person",
+      "title": "Sourav Das",
+      "path": "vault/people/sourav-das.md",
+      "attrs": {}
+    },
+    {
+      "id": "sriram-subramanian",
+      "type": "person",
+      "title": "Sriram Subramanian",
+      "path": "vault/people/sriram-subramanian.md",
+      "attrs": {}
+    },
+    {
+      "id": "steven-goldfeder",
+      "type": "person",
+      "title": "Steven Goldfeder",
+      "path": "vault/people/steven-goldfeder.md",
+      "attrs": {}
+    },
+    {
+      "id": "sublinear-pq-batch-decryption",
+      "type": "open-problem",
+      "title": "Sublinear post-quantum batch decryption",
+      "path": "vault/open-problems/sublinear-pq-batch-decryption.md",
+      "attrs": {
+        "pq": true,
+        "state": "partially-resolved"
+      }
+    },
+    {
+      "id": "tacet",
+      "type": "scheme",
+      "title": "TACET",
+      "path": "vault/schemes/tacet.md",
+      "attrs": {
+        "aliases": [
+          "TACET-Q",
+          "TACET core"
+        ],
+        "batched": true,
+        "disputes": [
+          "Not peer reviewed and not comparable in maturity to the published work in this KB. Every claim here is self-assessed by its own authors and test suite; treat it as an engineering report, not a result.",
+          "The headline (t,K)=(67,100) parameter set is declared inconsistent by the project's own README: the cited Pilvi sharing's recovery norm there is about 10^67, not 16.4. The scheme is stated to be deployable at a smaller committee with replicated sharing."
+        ],
+        "epoch_free": true,
+        "maturity": "experimental",
+        "modulus": "prime q = 2^31 - 511",
+        "peer_reviewed": false,
+        "pq": true,
+        "self_assessed": true,
+        "silent_setup": false,
+        "source_depth": "full-text",
+        "status": "draft",
+        "url": "https://github.com/pepae/pq-threshold"
+      }
+    },
+    {
+      "id": "tacet-silent",
+      "type": "scheme",
+      "title": "TACET silent variant",
+      "path": "vault/schemes/tacet-silent.md",
+      "attrs": {
+        "aliases": [
+          "TacetQSilent",
+          "TACET Stage 2"
+        ],
+        "batched": true,
+        "disputes": [
+          "Unpublished and unreviewed, same caveat as the TACET core note. Claims here are self-assessed."
+        ],
+        "epoch_free": true,
+        "maturity": "experimental",
+        "peer_reviewed": false,
+        "pq": true,
+        "self_assessed": true,
+        "silent_setup": true,
+        "source_depth": "full-text",
+        "status": "draft",
+        "url": "https://github.com/pepae/pq-threshold"
+      }
+    },
+    {
+      "id": "thomas-peters",
+      "type": "person",
+      "title": "Thomas Peters",
+      "path": "vault/people/thomas-peters.md",
+      "attrs": {}
     },
     {
       "id": "threshold-ibe",
@@ -705,6 +1920,22 @@
       }
     },
     {
+      "id": "valerio-cini",
+      "type": "person",
+      "title": "Valerio Cini",
+      "path": "vault/people/valerio-cini.md",
+      "attrs": {
+        "affiliation": "Bocconi University"
+      }
+    },
+    {
+      "id": "varun-nair",
+      "type": "person",
+      "title": "Varun Nair",
+      "path": "vault/people/varun-nair.md",
+      "attrs": {}
+    },
+    {
       "id": "vector-commitments",
       "type": "technique",
       "title": "Vector commitments",
@@ -714,6 +1945,49 @@
           "VC"
         ],
         "family": "commitment"
+      }
+    },
+    {
+      "id": "victor-shoup",
+      "type": "person",
+      "title": "Victor Shoup",
+      "path": "vault/people/victor-shoup.md",
+      "attrs": {}
+    },
+    {
+      "id": "wagner-desiderata",
+      "type": "paper",
+      "title": "Encrypted Mempool / Threshold Encryption Literature",
+      "path": "vault/papers/wagner-desiderata.md",
+      "attrs": {
+        "aliases": [
+          "Wagner's note",
+          "EF note",
+          "Wagner desiderata"
+        ],
+        "peer_reviewed": false,
+        "source_depth": "full-text",
+        "status": "draft",
+        "url": "https://notes.ethereum.org/@b-wagn/SkZxlQEYbg"
+      }
+    },
+    {
+      "id": "waters-wu-silent",
+      "type": "scheme",
+      "title": "Silent threshold cryptography from pairings",
+      "path": "vault/schemes/waters-wu-silent.md",
+      "attrs": {
+        "aliases": [
+          "Waters-Wu"
+        ],
+        "ciphertext_size": "4 group elements plus a short tag",
+        "eprint": "2025/1547",
+        "peer_reviewed": false,
+        "pq": false,
+        "silent_setup": true,
+        "source_depth": "abstract",
+        "status": "preprint",
+        "year": 2025
       }
     },
     {
@@ -731,6 +2005,26 @@
       }
     },
     {
+      "id": "weighted-bte",
+      "type": "scheme",
+      "title": "Weighted batched threshold encryption",
+      "path": "vault/schemes/weighted-bte.md",
+      "attrs": {
+        "aliases": [
+          "Weighted BTE"
+        ],
+        "assumptions_pending": true,
+        "batched": true,
+        "epoch_free": true,
+        "eprint": "2025/2115",
+        "peer_reviewed": false,
+        "pq": false,
+        "source_depth": "abstract",
+        "status": "preprint",
+        "year": 2025
+      }
+    },
+    {
       "id": "witness-encryption",
       "type": "technique",
       "title": "Witness encryption",
@@ -740,6 +2034,31 @@
           "WE"
         ],
         "family": "primitive"
+      }
+    },
+    {
+      "id": "xinyi-huang",
+      "type": "person",
+      "title": "Xinyi Huang",
+      "path": "vault/people/xinyi-huang.md",
+      "attrs": {}
+    },
+    {
+      "id": "yunxiao-zhou",
+      "type": "person",
+      "title": "Yunxiao Zhou",
+      "path": "vault/people/yunxiao-zhou.md",
+      "attrs": {
+        "affiliation": "Shanghai Jiao Tong University"
+      }
+    },
+    {
+      "id": "yuxin-zhang",
+      "type": "person",
+      "title": "Yuxin Zhang",
+      "path": "vault/people/yuxin-zhang.md",
+      "attrs": {
+        "affiliation": "Shanghai Jiao Tong University"
       }
     },
     {
@@ -755,14 +2074,1559 @@
         "family": "threshold",
         "pq": true
       }
+    },
+    {
+      "id": "ziyan-qu",
+      "type": "person",
+      "title": "Ziyan Qu",
+      "path": "vault/people/ziyan-qu.md",
+      "attrs": {
+        "affiliation": "TU Darmstadt"
+      }
     }
   ],
   "edges": [
+    {
+      "source": "aayush-jain",
+      "type": "authored",
+      "target": "bgg-universal-thresholdizer",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "aayush-yadav",
+      "type": "authored",
+      "target": "weighted-bte",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "adam-suhl",
+      "type": "authored",
+      "target": "micciancio-suhl",
+      "declared_in": "micciancio-suhl"
+    },
+    {
+      "source": "amit-agarwal",
+      "type": "authored",
+      "target": "btx",
+      "declared_in": "btx"
+    },
+    {
+      "source": "amit-agarwal",
+      "type": "authored",
+      "target": "weighted-bte",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "amit-sahai",
+      "type": "authored",
+      "target": "bgg-universal-thresholdizer",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "aptos-batched-ibe",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "aptos-batched-ibe"
+    },
+    {
+      "source": "aptos-batched-ibe",
+      "type": "fails",
+      "target": "D8",
+      "declared_in": "aptos-batched-ibe"
+    },
+    {
+      "source": "aptos-batched-ibe",
+      "type": "satisfies",
+      "target": "D12",
+      "declared_in": "aptos-batched-ibe"
+    },
+    {
+      "source": "aptos-batched-ibe",
+      "type": "satisfies",
+      "target": "D14",
+      "declared_in": "aptos-batched-ibe"
+    },
+    {
+      "source": "aptos-batched-ibe",
+      "type": "uses",
+      "target": "batched-threshold-encryption",
+      "declared_in": "aptos-batched-ibe"
+    },
+    {
+      "source": "aptos-batched-ibe",
+      "type": "uses",
+      "target": "threshold-ibe",
+      "declared_in": "aptos-batched-ibe"
+    },
+    {
+      "source": "arka-rai-choudhuri",
+      "type": "authored",
+      "target": "beast-mev",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "arka-rai-choudhuri",
+      "type": "authored",
+      "target": "cgpp-bte",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "arka-rai-choudhuri",
+      "type": "authored",
+      "target": "choudhuri-garg-piet-policharla-2024",
+      "declared_in": "choudhuri-garg-piet-policharla-2024"
+    },
+    {
+      "source": "arka-rai-choudhuri",
+      "type": "authored",
+      "target": "choudhuri-garg-policharla-wang-onetime",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "arup-mondal",
+      "type": "authored",
+      "target": "weighted-bte",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "babak-poorebrahim-gilkalaye",
+      "type": "authored",
+      "target": "btx",
+      "declared_in": "btx"
+    },
+    {
+      "source": "babak-poorebrahim-gilkalaye",
+      "type": "authored",
+      "target": "weighted-bte",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "batched-abe-pairings",
+      "type": "fails",
+      "target": "D8",
+      "declared_in": "batched-abe-pairings"
+    },
+    {
+      "source": "batched-abe-pairings",
+      "type": "satisfies",
+      "target": "D14",
+      "declared_in": "batched-abe-pairings"
+    },
+    {
+      "source": "batched-abe-pairings",
+      "type": "uses",
+      "target": "batched-threshold-encryption",
+      "declared_in": "batched-abe-pairings"
+    },
+    {
+      "source": "bbnrs-context-dependent",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "bbnrs-context-dependent"
+    },
+    {
+      "source": "bbnrs-context-dependent",
+      "type": "fails",
+      "target": "D8",
+      "declared_in": "bbnrs-context-dependent"
+    },
+    {
+      "source": "bbnrs-context-dependent",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "bbnrs-context-dependent"
+    },
+    {
+      "source": "bbnrs-context-dependent",
+      "type": "satisfies",
+      "target": "D4",
+      "declared_in": "bbnrs-context-dependent"
+    },
+    {
+      "source": "bbnrs-context-dependent",
+      "type": "satisfies",
+      "target": "D9",
+      "declared_in": "bbnrs-context-dependent"
+    },
+    {
+      "source": "bbnrs-context-dependent",
+      "type": "uses",
+      "target": "hybrid-encryption-associated-data",
+      "declared_in": "bbnrs-context-dependent"
+    },
+    {
+      "source": "beast-mev",
+      "type": "assumes",
+      "target": "ggm",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "builds_on",
+      "target": "beat-mev",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "builds_on",
+      "target": "cgpp-bte",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "builds_on",
+      "target": "gkpw-silent-setup",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "fails",
+      "target": "D1",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "fails",
+      "target": "D10",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "fails",
+      "target": "D8",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "partially_satisfies",
+      "target": "D15",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "partially_satisfies",
+      "target": "D7",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "satisfies",
+      "target": "D14",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "satisfies",
+      "target": "D2",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "satisfies",
+      "target": "D4",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "supersedes",
+      "target": "beat-mev",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "uses",
+      "target": "batched-threshold-encryption",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beast-mev",
+      "type": "uses",
+      "target": "silent-setup",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "assumes",
+      "target": "agm",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "assumes",
+      "target": "ddh",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "builds_on",
+      "target": "cgpp-bte",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "builds_on",
+      "target": "choudhuri-garg-piet-policharla-2024",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "fails",
+      "target": "D10",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "fails",
+      "target": "D8",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "partially_satisfies",
+      "target": "D15",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "partially_satisfies",
+      "target": "D4",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "satisfies",
+      "target": "D11",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "satisfies",
+      "target": "D13",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "satisfies",
+      "target": "D14",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "satisfies",
+      "target": "D7",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "uses",
+      "target": "batched-threshold-encryption",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "uses",
+      "target": "fiat-shamir-nizk",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beat-mev",
+      "type": "uses",
+      "target": "kh-pprf",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "beatmev-pq-implementation",
+      "type": "implements",
+      "target": "beat-mev",
+      "declared_in": "beatmev-pq-implementation"
+    },
+    {
+      "source": "beatmev-pq-implementation",
+      "type": "uses",
+      "target": "kh-pprf",
+      "declared_in": "beatmev-pq-implementation"
+    },
+    {
+      "source": "beatmev-pq-implementation",
+      "type": "uses",
+      "target": "noise-flooding",
+      "declared_in": "beatmev-pq-implementation"
+    },
+    {
+      "source": "beatmev-pq-implementation",
+      "type": "uses",
+      "target": "shamir-secret-sharing",
+      "declared_in": "beatmev-pq-implementation"
+    },
+    {
+      "source": "bendlin-damgard",
+      "type": "assumes",
+      "target": "gapsvp",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "bendlin-damgard",
+      "type": "assumes",
+      "target": "lwe",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "bendlin-damgard",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "bendlin-damgard",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "bendlin-damgard",
+      "type": "fails",
+      "target": "D4",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "bendlin-damgard",
+      "type": "partially_satisfies",
+      "target": "D6",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "bendlin-damgard",
+      "type": "satisfies",
+      "target": "D1",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "bendlin-damgard",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "bendlin-damgard",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "bendlin-damgard",
+      "type": "uses",
+      "target": "noise-flooding",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "bendlin-damgard",
+      "type": "uses",
+      "target": "shamir-secret-sharing",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "benedikt-buenz",
+      "type": "authored",
+      "target": "bbnrs-context-dependent",
+      "declared_in": "bbnrs-context-dependent"
+    },
+    {
+      "source": "benedikt-wagner",
+      "type": "authored",
+      "target": "hall-andersen-simkin-wagner-silent",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
+      "source": "benedikt-wagner",
+      "type": "authored",
+      "target": "wagner-desiderata",
+      "declared_in": "wagner-desiderata"
+    },
+    {
+      "source": "benny-pinkas",
+      "type": "authored",
+      "target": "weighted-bte",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "benoit-libert",
+      "type": "authored",
+      "target": "devevey-libert-nguyen-peters-yung",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
+      "source": "bgg-universal-thresholdizer",
+      "type": "assumes",
+      "target": "lwe",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "bgg-universal-thresholdizer",
+      "type": "fails",
+      "target": "D1",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "bgg-universal-thresholdizer",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "bgg-universal-thresholdizer",
+      "type": "fails",
+      "target": "D15",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "bgg-universal-thresholdizer",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "bgg-universal-thresholdizer",
+      "type": "partially_satisfies",
+      "target": "D4",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "bgg-universal-thresholdizer",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "bgg-universal-thresholdizer",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "bgg-universal-thresholdizer",
+      "type": "uses",
+      "target": "noise-flooding",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "bgg-universal-thresholdizer",
+      "type": "uses",
+      "target": "universal-thresholdizer",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "assumes",
+      "target": "l-succinct-lwe",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "assumes",
+      "target": "lwe",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "assumes",
+      "target": "rom",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "opens",
+      "target": "sublinear-pq-batch-decryption",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "partially_satisfies",
+      "target": "D3",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "satisfies",
+      "target": "D12",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "satisfies",
+      "target": "D13",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "satisfies",
+      "target": "D14",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "uses",
+      "target": "batched-threshold-encryption",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "uses",
+      "target": "gaussian-preimage-sampling",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "uses",
+      "target": "klein-sampler",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt-batch-ibe",
+      "type": "uses",
+      "target": "threshold-ibe",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "blt25-implementation",
+      "type": "implements",
+      "target": "blt-batch-ibe",
+      "declared_in": "blt25-implementation"
+    },
+    {
+      "source": "blt25-implementation",
+      "type": "opens",
+      "target": "sublinear-pq-batch-decryption",
+      "declared_in": "blt25-implementation"
+    },
+    {
+      "source": "blt25-implementation",
+      "type": "uses",
+      "target": "gaussian-preimage-sampling",
+      "declared_in": "blt25-implementation"
+    },
+    {
+      "source": "blt25-implementation",
+      "type": "uses",
+      "target": "klein-sampler",
+      "declared_in": "blt25-implementation"
+    },
+    {
+      "source": "blt25-implementation",
+      "type": "uses",
+      "target": "threshold-ibe",
+      "declared_in": "blt25-implementation"
+    },
+    {
+      "source": "boudgoust-scholl",
+      "type": "assumes",
+      "target": "lwe",
+      "declared_in": "boudgoust-scholl"
+    },
+    {
+      "source": "boudgoust-scholl",
+      "type": "builds_on",
+      "target": "bendlin-damgard",
+      "declared_in": "boudgoust-scholl"
+    },
+    {
+      "source": "boudgoust-scholl",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "boudgoust-scholl"
+    },
+    {
+      "source": "boudgoust-scholl",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "boudgoust-scholl"
+    },
+    {
+      "source": "boudgoust-scholl",
+      "type": "partially_satisfies",
+      "target": "D5",
+      "declared_in": "boudgoust-scholl"
+    },
+    {
+      "source": "boudgoust-scholl",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "boudgoust-scholl"
+    },
+    {
+      "source": "boudgoust-scholl",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "boudgoust-scholl"
+    },
+    {
+      "source": "boudgoust-scholl",
+      "type": "uses",
+      "target": "noise-flooding",
+      "declared_in": "boudgoust-scholl"
+    },
+    {
+      "source": "boudgoust-scholl",
+      "type": "uses",
+      "target": "polynomial-noise-flooding",
+      "declared_in": "boudgoust-scholl"
+    },
+    {
+      "source": "boudgoust-scholl",
+      "type": "uses",
+      "target": "renyi-divergence-analysis",
+      "declared_in": "boudgoust-scholl"
+    },
+    {
+      "source": "brent-waters",
+      "type": "authored",
+      "target": "waters-wu-silent",
+      "declared_in": "waters-wu-silent"
+    },
+    {
+      "source": "brzuska-klooss-woo",
+      "type": "uses",
+      "target": "hybrid-encryption-associated-data",
+      "declared_in": "brzuska-klooss-woo"
+    },
+    {
+      "source": "btx",
+      "type": "assumes",
+      "target": "q-type-pairing",
+      "declared_in": "btx"
+    },
+    {
+      "source": "btx",
+      "type": "fails",
+      "target": "D1",
+      "declared_in": "btx"
+    },
+    {
+      "source": "btx",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "btx"
+    },
+    {
+      "source": "btx",
+      "type": "fails",
+      "target": "D8",
+      "declared_in": "btx"
+    },
+    {
+      "source": "btx",
+      "type": "partially_satisfies",
+      "target": "D4",
+      "declared_in": "btx"
+    },
+    {
+      "source": "btx",
+      "type": "satisfies",
+      "target": "D11",
+      "declared_in": "btx"
+    },
+    {
+      "source": "btx",
+      "type": "satisfies",
+      "target": "D14",
+      "declared_in": "btx"
+    },
+    {
+      "source": "btx",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "btx"
+    },
+    {
+      "source": "btx",
+      "type": "uses",
+      "target": "batched-threshold-encryption",
+      "declared_in": "btx"
+    },
+    {
+      "source": "btx",
+      "type": "uses",
+      "target": "fiat-shamir-nizk",
+      "declared_in": "btx"
+    },
+    {
+      "source": "cgpp-bte",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "cgpp-bte",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "cgpp-bte",
+      "type": "fails",
+      "target": "D8",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "cgpp-bte",
+      "type": "partially_satisfies",
+      "target": "D15",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "cgpp-bte",
+      "type": "presented_in",
+      "target": "choudhuri-garg-piet-policharla-2024",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "cgpp-bte",
+      "type": "satisfies",
+      "target": "D13",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "cgpp-bte",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "cgpp-bte",
+      "type": "uses",
+      "target": "batched-threshold-encryption",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "cgpp-bte",
+      "type": "uses",
+      "target": "kzg-commitments",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "cgpp-bte",
+      "type": "uses",
+      "target": "witness-encryption",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "champion-wu-dbe",
+      "type": "assumes",
+      "target": "l-succinct-lwe",
+      "declared_in": "champion-wu-dbe"
+    },
+    {
+      "source": "champion-wu-dbe",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "champion-wu-dbe"
+    },
+    {
+      "source": "champion-wu-dbe",
+      "type": "partially_satisfies",
+      "target": "D5",
+      "declared_in": "champion-wu-dbe"
+    },
+    {
+      "source": "champion-wu-dbe",
+      "type": "satisfies",
+      "target": "D2",
+      "declared_in": "champion-wu-dbe"
+    },
+    {
+      "source": "champion-wu-dbe",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "champion-wu-dbe"
+    },
+    {
+      "source": "champion-wu-dbe",
+      "type": "uses",
+      "target": "distributed-broadcast-encryption",
+      "declared_in": "champion-wu-dbe"
+    },
+    {
+      "source": "champion-wu-dbe",
+      "type": "uses",
+      "target": "silent-setup",
+      "declared_in": "champion-wu-dbe"
+    },
+    {
+      "source": "champion-wu-dbe",
+      "type": "uses",
+      "target": "wee-matrix-commitment",
+      "declared_in": "champion-wu-dbe"
+    },
+    {
+      "source": "champion-wu-monotone-dnf",
+      "type": "assumes",
+      "target": "decomposed-lwe",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "champion-wu-monotone-dnf",
+      "type": "assumes",
+      "target": "rom",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "champion-wu-monotone-dnf",
+      "type": "builds_on",
+      "target": "champion-wu-dbe",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "champion-wu-monotone-dnf",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "champion-wu-monotone-dnf",
+      "type": "partially_satisfies",
+      "target": "D5",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "champion-wu-monotone-dnf",
+      "type": "satisfies",
+      "target": "D1",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "champion-wu-monotone-dnf",
+      "type": "satisfies",
+      "target": "D11",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "champion-wu-monotone-dnf",
+      "type": "satisfies",
+      "target": "D2",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "champion-wu-monotone-dnf",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "champion-wu-monotone-dnf",
+      "type": "uses",
+      "target": "monotone-policy-encryption",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "champion-wu-monotone-dnf",
+      "type": "uses",
+      "target": "silent-setup",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "assumes",
+      "target": "decomposed-lwe",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "assumes",
+      "target": "rom",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "builds_on",
+      "target": "champion-wu-dbe",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "builds_on",
+      "target": "champion-wu-monotone-dnf",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "partially_satisfies",
+      "target": "D5",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "partially_satisfies",
+      "target": "D6",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "satisfies",
+      "target": "D1",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "satisfies",
+      "target": "D11",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "satisfies",
+      "target": "D2",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "supersedes",
+      "target": "champion-wu-dbe",
+      "declared_in": "champion-wu-dbe"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "supersedes",
+      "target": "champion-wu-monotone-dnf",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "uses",
+      "target": "distributed-broadcast-encryption",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "uses",
+      "target": "monotone-policy-encryption",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "champion-wu-optimal-dnf",
+      "type": "uses",
+      "target": "silent-setup",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "choudhuri-garg-policharla-wang-onetime",
+      "type": "builds_on",
+      "target": "cgpp-bte",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "choudhuri-garg-policharla-wang-onetime",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "choudhuri-garg-policharla-wang-onetime",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "choudhuri-garg-policharla-wang-onetime",
+      "type": "fails",
+      "target": "D8",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "choudhuri-garg-policharla-wang-onetime",
+      "type": "partially_satisfies",
+      "target": "D15",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "choudhuri-garg-policharla-wang-onetime",
+      "type": "satisfies",
+      "target": "D13",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "choudhuri-garg-policharla-wang-onetime",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "choudhuri-garg-policharla-wang-onetime",
+      "type": "uses",
+      "target": "batched-threshold-encryption",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "chris-brzuska",
+      "type": "authored",
+      "target": "brzuska-klooss-woo",
+      "declared_in": "brzuska-klooss-woo"
+    },
+    {
+      "source": "dan-boneh",
+      "type": "authored",
+      "target": "bbnrs-context-dependent",
+      "declared_in": "bbnrs-context-dependent"
+    },
+    {
+      "source": "dan-boneh",
+      "type": "authored",
+      "target": "bgg-universal-thresholdizer",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "dan-boneh",
+      "type": "authored",
+      "target": "blt-batch-ibe",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "daniele-micciancio",
+      "type": "authored",
+      "target": "micciancio-suhl",
+      "declared_in": "micciancio-suhl"
+    },
+    {
+      "source": "david-wu",
+      "type": "authored",
+      "target": "champion-wu-dbe",
+      "declared_in": "champion-wu-dbe"
+    },
+    {
+      "source": "david-wu",
+      "type": "authored",
+      "target": "champion-wu-monotone-dnf",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "david-wu",
+      "type": "authored",
+      "target": "champion-wu-optimal-dnf",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "david-wu",
+      "type": "authored",
+      "target": "waters-wu-silent",
+      "declared_in": "waters-wu-silent"
+    },
+    {
+      "source": "devevey-libert-nguyen-peters-yung",
+      "type": "assumes",
+      "target": "dcr",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
+      "source": "devevey-libert-nguyen-peters-yung",
+      "type": "assumes",
+      "target": "lwe",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
+      "source": "devevey-libert-nguyen-peters-yung",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
+      "source": "devevey-libert-nguyen-peters-yung",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
+      "source": "devevey-libert-nguyen-peters-yung",
+      "type": "opens",
+      "target": "devevey-adaptive-poly-modulus",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
+      "source": "devevey-libert-nguyen-peters-yung",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
+      "source": "devevey-libert-nguyen-peters-yung",
+      "type": "satisfies",
+      "target": "D4",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
+      "source": "devevey-libert-nguyen-peters-yung",
+      "type": "satisfies",
+      "target": "D6",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
+      "source": "devevey-libert-nguyen-peters-yung",
+      "type": "uses",
+      "target": "shamir-secret-sharing",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
+      "source": "dimitris-kolonelos",
+      "type": "authored",
+      "target": "gkpw-silent-setup",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "ertem-nusret-tas",
+      "type": "authored",
+      "target": "blt-batch-ibe",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "evan-laufer",
+      "type": "authored",
+      "target": "blt-batch-ibe",
+      "declared_in": "blt-batch-ibe"
+    },
+    {
+      "source": "flooding-underestimate-ring-setting",
+      "type": "attacks",
+      "target": "tacet",
+      "declared_in": "flooding-underestimate-ring-setting"
+    },
+    {
+      "source": "gkpw-silent-setup",
+      "type": "assumes",
+      "target": "ggm",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "gkpw-silent-setup",
+      "type": "fails",
+      "target": "D1",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "gkpw-silent-setup",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "gkpw-silent-setup",
+      "type": "fails",
+      "target": "D8",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "gkpw-silent-setup",
+      "type": "partially_satisfies",
+      "target": "D10",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "gkpw-silent-setup",
+      "type": "satisfies",
+      "target": "D11",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "gkpw-silent-setup",
+      "type": "satisfies",
+      "target": "D13",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "gkpw-silent-setup",
+      "type": "satisfies",
+      "target": "D15",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "gkpw-silent-setup",
+      "type": "satisfies",
+      "target": "D2",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "gkpw-silent-setup",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "gkpw-silent-setup",
+      "type": "uses",
+      "target": "silent-setup",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "gkpw-silent-setup",
+      "type": "uses",
+      "target": "witness-encryption",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "guru-vamsi-policharla",
+      "type": "authored",
+      "target": "beast-mev",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "guru-vamsi-policharla",
+      "type": "authored",
+      "target": "cgpp-bte",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "guru-vamsi-policharla",
+      "type": "authored",
+      "target": "choudhuri-garg-piet-policharla-2024",
+      "declared_in": "choudhuri-garg-piet-policharla-2024"
+    },
+    {
+      "source": "guru-vamsi-policharla",
+      "type": "authored",
+      "target": "choudhuri-garg-policharla-wang-onetime",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "guru-vamsi-policharla",
+      "type": "authored",
+      "target": "gkpw-silent-setup",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "hall-andersen-simkin-wagner-silent",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
+      "source": "hall-andersen-simkin-wagner-silent",
+      "type": "partially_satisfies",
+      "target": "D6",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
+      "source": "hall-andersen-simkin-wagner-silent",
+      "type": "partially_satisfies",
+      "target": "D8",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
+      "source": "hall-andersen-simkin-wagner-silent",
+      "type": "satisfies",
+      "target": "D10",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
+      "source": "hall-andersen-simkin-wagner-silent",
+      "type": "satisfies",
+      "target": "D11",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
+      "source": "hall-andersen-simkin-wagner-silent",
+      "type": "satisfies",
+      "target": "D2",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
+      "source": "hall-andersen-simkin-wagner-silent",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
+      "source": "hall-andersen-simkin-wagner-silent",
+      "type": "uses",
+      "target": "naive-threshold-baseline",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
+      "source": "hall-andersen-simkin-wagner-silent",
+      "type": "uses",
+      "target": "silent-setup",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
+      "source": "harvesting-attack",
+      "type": "attacks",
+      "target": "tacet",
+      "declared_in": "harvesting-attack"
+    },
+    {
+      "source": "harvesting-attack",
+      "type": "builds_on",
+      "target": "bbnrs-context-dependent",
+      "declared_in": "harvesting-attack"
+    },
     {
       "source": "hint-mlwe",
       "type": "reduces_to",
       "target": "mlwe",
       "declared_in": "hint-mlwe"
+    },
+    {
+      "source": "hussien-othman",
+      "type": "authored",
+      "target": "beast-mev",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "hussien-othman",
+      "type": "authored",
+      "target": "beat-mev",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "identity-tag-replication",
+      "type": "builds_on",
+      "target": "blt-batch-ibe",
+      "declared_in": "identity-tag-replication"
+    },
+    {
+      "source": "index-collision-censorship",
+      "type": "attacks",
+      "target": "beat-mev",
+      "declared_in": "index-collision-censorship"
+    },
+    {
+      "source": "index-collision-censorship",
+      "type": "attacks",
+      "target": "weighted-bte",
+      "declared_in": "index-collision-censorship"
+    },
+    {
+      "source": "index-collision-censorship",
+      "type": "builds_on",
+      "target": "blt-batch-ibe",
+      "declared_in": "index-collision-censorship"
+    },
+    {
+      "source": "index-collision-censorship",
+      "type": "opens",
+      "target": "sublinear-pq-batch-decryption",
+      "declared_in": "index-collision-censorship"
+    },
+    {
+      "source": "ivan-damgard",
+      "type": "authored",
+      "target": "bendlin-damgard",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "ivy-woo",
+      "type": "authored",
+      "target": "brzuska-klooss-woo",
+      "declared_in": "brzuska-klooss-woo"
+    },
+    {
+      "source": "ivy-woo",
+      "type": "authored",
+      "target": "pilvi",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "jan-bormet",
+      "type": "authored",
+      "target": "beast-mev",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "jan-bormet",
+      "type": "authored",
+      "target": "beat-mev",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "jeffrey-champion",
+      "type": "authored",
+      "target": "champion-wu-dbe",
+      "declared_in": "champion-wu-dbe"
+    },
+    {
+      "source": "jeffrey-champion",
+      "type": "authored",
+      "target": "champion-wu-monotone-dnf",
+      "declared_in": "champion-wu-monotone-dnf"
+    },
+    {
+      "source": "jeffrey-champion",
+      "type": "authored",
+      "target": "champion-wu-optimal-dnf",
+      "declared_in": "champion-wu-optimal-dnf"
+    },
+    {
+      "source": "julien-devevey",
+      "type": "authored",
+      "target": "devevey-libert-nguyen-peters-yung",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
+      "source": "julien-piet",
+      "type": "authored",
+      "target": "cgpp-bte",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "julien-piet",
+      "type": "authored",
+      "target": "choudhuri-garg-piet-policharla-2024",
+      "declared_in": "choudhuri-garg-piet-policharla-2024"
+    },
+    {
+      "source": "julien-piet",
+      "type": "authored",
+      "target": "mevade",
+      "declared_in": "mevade"
+    },
+    {
+      "source": "kartik-nayak",
+      "type": "authored",
+      "target": "bbnrs-context-dependent",
+      "declared_in": "bbnrs-context-dependent"
+    },
+    {
+      "source": "katharina-boudgoust",
+      "type": "authored",
+      "target": "boudgoust-scholl",
+      "declared_in": "boudgoust-scholl"
     },
     {
       "source": "katsumata-transform",
@@ -771,10 +3635,22 @@
       "declared_in": "katsumata-transform"
     },
     {
+      "source": "khoa-nguyen",
+      "type": "authored",
+      "target": "devevey-libert-nguyen-peters-yung",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
       "source": "klein-sampler",
       "type": "uses",
       "target": "gaussian-preimage-sampling",
       "declared_in": "klein-sampler"
+    },
+    {
+      "source": "kushal-babel",
+      "type": "authored",
+      "target": "weighted-bte",
+      "declared_in": "weighted-bte"
     },
     {
       "source": "labrador",
@@ -783,16 +3659,130 @@
       "declared_in": "labrador"
     },
     {
+      "source": "linear-route-opening-impossibility",
+      "type": "attacks",
+      "target": "tacet",
+      "declared_in": "linear-route-opening-impossibility"
+    },
+    {
+      "source": "linear-route-opening-impossibility",
+      "type": "opens",
+      "target": "sublinear-pq-batch-decryption",
+      "declared_in": "linear-route-opening-impossibility"
+    },
+    {
+      "source": "lior-rotem",
+      "type": "authored",
+      "target": "bbnrs-context-dependent",
+      "declared_in": "bbnrs-context-dependent"
+    },
+    {
       "source": "lnp-proofs",
       "type": "assumes",
       "target": "module-sis",
       "declared_in": "lnp-proofs"
     },
     {
+      "source": "mark-simkin",
+      "type": "authored",
+      "target": "hall-andersen-simkin-wagner-silent",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
+      "source": "mathias-hall-andersen",
+      "type": "authored",
+      "target": "hall-andersen-simkin-wagner-silent",
+      "declared_in": "hall-andersen-simkin-wagner-silent"
+    },
+    {
       "source": "matrix-hint-lwe",
       "type": "reduces_to",
       "target": "lwe",
       "declared_in": "matrix-hint-lwe"
+    },
+    {
+      "source": "mevade",
+      "type": "opens",
+      "target": "post-inclusion-ordering",
+      "declared_in": "post-inclusion-ordering"
+    },
+    {
+      "source": "micciancio-suhl",
+      "type": "assumes",
+      "target": "lwe",
+      "declared_in": "micciancio-suhl"
+    },
+    {
+      "source": "micciancio-suhl",
+      "type": "builds_on",
+      "target": "bendlin-damgard",
+      "declared_in": "micciancio-suhl"
+    },
+    {
+      "source": "micciancio-suhl",
+      "type": "builds_on",
+      "target": "boudgoust-scholl",
+      "declared_in": "micciancio-suhl"
+    },
+    {
+      "source": "micciancio-suhl",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "micciancio-suhl"
+    },
+    {
+      "source": "micciancio-suhl",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "micciancio-suhl"
+    },
+    {
+      "source": "micciancio-suhl",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "micciancio-suhl"
+    },
+    {
+      "source": "micciancio-suhl",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "micciancio-suhl"
+    },
+    {
+      "source": "micciancio-suhl",
+      "type": "uses",
+      "target": "noise-flooding",
+      "declared_in": "micciancio-suhl"
+    },
+    {
+      "source": "micciancio-suhl",
+      "type": "uses",
+      "target": "polynomial-noise-flooding",
+      "declared_in": "micciancio-suhl"
+    },
+    {
+      "source": "michael-klooss",
+      "type": "authored",
+      "target": "brzuska-klooss-woo",
+      "declared_in": "brzuska-klooss-woo"
+    },
+    {
+      "source": "mingyuan-wang",
+      "type": "authored",
+      "target": "beast-mev",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "mingyuan-wang",
+      "type": "authored",
+      "target": "choudhuri-garg-policharla-wang-onetime",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "mingyuan-wang",
+      "type": "authored",
+      "target": "gkpw-silent-setup",
+      "declared_in": "gkpw-silent-setup"
     },
     {
       "source": "mlwe",
@@ -807,10 +3797,214 @@
       "declared_in": "monotone-policy-encryption"
     },
     {
+      "source": "moti-yung",
+      "type": "authored",
+      "target": "devevey-libert-nguyen-peters-yung",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
+    },
+    {
+      "source": "mriganka-mandal",
+      "type": "authored",
+      "target": "batched-abe-pairings",
+      "declared_in": "batched-abe-pairings"
+    },
+    {
+      "source": "nguyen-adaptive-hint-mlwe",
+      "type": "assumes",
+      "target": "hint-mlwe",
+      "declared_in": "nguyen-adaptive-hint-mlwe"
+    },
+    {
+      "source": "nguyen-adaptive-hint-mlwe",
+      "type": "assumes",
+      "target": "mlwe",
+      "declared_in": "nguyen-adaptive-hint-mlwe"
+    },
+    {
+      "source": "nguyen-adaptive-hint-mlwe",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "nguyen-adaptive-hint-mlwe"
+    },
+    {
+      "source": "nguyen-adaptive-hint-mlwe",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "nguyen-adaptive-hint-mlwe"
+    },
+    {
+      "source": "nguyen-adaptive-hint-mlwe",
+      "type": "partially_satisfies",
+      "target": "D6",
+      "declared_in": "nguyen-adaptive-hint-mlwe"
+    },
+    {
+      "source": "nguyen-adaptive-hint-mlwe",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "nguyen-adaptive-hint-mlwe"
+    },
+    {
+      "source": "nguyen-adaptive-hint-mlwe",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "nguyen-adaptive-hint-mlwe"
+    },
+    {
+      "source": "nguyen-adaptive-hint-mlwe",
+      "type": "uses",
+      "target": "shamir-secret-sharing",
+      "declared_in": "nguyen-adaptive-hint-mlwe"
+    },
+    {
+      "source": "peter-rasmussen",
+      "type": "authored",
+      "target": "bgg-universal-thresholdizer",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "peter-rindal",
+      "type": "authored",
+      "target": "btx",
+      "declared_in": "btx"
+    },
+    {
+      "source": "peter-rindal",
+      "type": "authored",
+      "target": "weighted-bte",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "peter-scholl",
+      "type": "authored",
+      "target": "boudgoust-scholl",
+      "declared_in": "boudgoust-scholl"
+    },
+    {
+      "source": "pilvi",
+      "type": "assumes",
+      "target": "lwe",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "pilvi",
+      "type": "assumes",
+      "target": "threshold-lwe",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "pilvi",
+      "type": "builds_on",
+      "target": "boudgoust-scholl",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "pilvi",
+      "type": "builds_on",
+      "target": "micciancio-suhl",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "pilvi",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "pilvi",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "pilvi",
+      "type": "partially_satisfies",
+      "target": "D13",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "pilvi",
+      "type": "partially_satisfies",
+      "target": "D5",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "pilvi",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "pilvi",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "pilvi",
+      "type": "uses",
+      "target": "low-norm-secret-sharing",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "pilvi",
+      "type": "uses",
+      "target": "polynomial-noise-flooding",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "pilvi",
+      "type": "uses",
+      "target": "shamir-secret-sharing",
+      "declared_in": "pilvi"
+    },
+    {
       "source": "polynomial-noise-flooding",
       "type": "uses",
       "target": "noise-flooding",
       "declared_in": "polynomial-noise-flooding"
+    },
+    {
+      "source": "pq-threshold",
+      "type": "implements",
+      "target": "tacet",
+      "declared_in": "pq-threshold"
+    },
+    {
+      "source": "pq-threshold",
+      "type": "implements",
+      "target": "tacet-silent",
+      "declared_in": "pq-threshold"
+    },
+    {
+      "source": "pq-threshold",
+      "type": "uses",
+      "target": "low-norm-secret-sharing",
+      "declared_in": "pq-threshold"
+    },
+    {
+      "source": "pq-threshold",
+      "type": "uses",
+      "target": "replicated-secret-sharing",
+      "declared_in": "pq-threshold"
+    },
+    {
+      "source": "pq-threshold",
+      "type": "uses",
+      "target": "vector-commitments",
+      "declared_in": "pq-threshold"
+    },
+    {
+      "source": "pq-threshold",
+      "type": "uses",
+      "target": "wee-matrix-commitment",
+      "declared_in": "pq-threshold"
+    },
+    {
+      "source": "pq-threshold",
+      "type": "uses",
+      "target": "zero-sharing-masks",
+      "declared_in": "pq-threshold"
     },
     {
       "source": "qrom",
@@ -819,10 +4013,550 @@
       "declared_in": "qrom"
     },
     {
+      "source": "ramprasad-sarkar",
+      "type": "authored",
+      "target": "batched-abe-pairings",
+      "declared_in": "batched-abe-pairings"
+    },
+    {
       "source": "replicated-secret-sharing",
       "type": "uses",
       "target": "low-norm-secret-sharing",
       "declared_in": "replicated-secret-sharing"
+    },
+    {
+      "source": "rikke-bendlin",
+      "type": "authored",
+      "target": "bendlin-damgard",
+      "declared_in": "bendlin-damgard"
+    },
+    {
+      "source": "rishab-dme",
+      "type": "assumes",
+      "target": "decomposed-lwe",
+      "declared_in": "rishab-dme"
+    },
+    {
+      "source": "rishab-dme",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "rishab-dme"
+    },
+    {
+      "source": "rishab-dme",
+      "type": "partially_satisfies",
+      "target": "D5",
+      "declared_in": "rishab-dme"
+    },
+    {
+      "source": "rishab-dme",
+      "type": "satisfies",
+      "target": "D1",
+      "declared_in": "rishab-dme"
+    },
+    {
+      "source": "rishab-dme",
+      "type": "satisfies",
+      "target": "D2",
+      "declared_in": "rishab-dme"
+    },
+    {
+      "source": "rishab-dme",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "rishab-dme"
+    },
+    {
+      "source": "rishab-dme",
+      "type": "uses",
+      "target": "monotone-policy-encryption",
+      "declared_in": "rishab-dme"
+    },
+    {
+      "source": "rishab-dme",
+      "type": "uses",
+      "target": "silent-setup",
+      "declared_in": "rishab-dme"
+    },
+    {
+      "source": "rosario-gennaro",
+      "type": "authored",
+      "target": "bgg-universal-thresholdizer",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "russell-lai",
+      "type": "authored",
+      "target": "pilvi",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "sam-kim",
+      "type": "authored",
+      "target": "bgg-universal-thresholdizer",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "sanjam-garg",
+      "type": "authored",
+      "target": "beast-mev",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "sanjam-garg",
+      "type": "authored",
+      "target": "cgpp-bte",
+      "declared_in": "cgpp-bte"
+    },
+    {
+      "source": "sanjam-garg",
+      "type": "authored",
+      "target": "choudhuri-garg-piet-policharla-2024",
+      "declared_in": "choudhuri-garg-piet-policharla-2024"
+    },
+    {
+      "source": "sanjam-garg",
+      "type": "authored",
+      "target": "choudhuri-garg-policharla-wang-onetime",
+      "declared_in": "choudhuri-garg-policharla-wang-onetime"
+    },
+    {
+      "source": "sanjam-garg",
+      "type": "authored",
+      "target": "gkpw-silent-setup",
+      "declared_in": "gkpw-silent-setup"
+    },
+    {
+      "source": "sebastian-faust",
+      "type": "authored",
+      "target": "beast-mev",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "sebastian-faust",
+      "type": "authored",
+      "target": "beat-mev",
+      "declared_in": "beat-mev"
+    },
+    {
+      "source": "shayeef-murshid",
+      "type": "authored",
+      "target": "batched-abe-pairings",
+      "declared_in": "batched-abe-pairings"
+    },
+    {
+      "source": "shengli-liu",
+      "type": "authored",
+      "target": "sjtu-adaptive-threshold-decryption",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "shuai-han",
+      "type": "authored",
+      "target": "sjtu-adaptive-threshold-decryption",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "assumes",
+      "target": "lwe",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "assumes",
+      "target": "matrix-hint-lwe",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "assumes",
+      "target": "rom",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "builds_on",
+      "target": "boudgoust-scholl",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "builds_on",
+      "target": "devevey-libert-nguyen-peters-yung",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "builds_on",
+      "target": "micciancio-suhl",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "partially_satisfies",
+      "target": "D4",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "partially_satisfies",
+      "target": "D5",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "partially_satisfies",
+      "target": "D6",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "resolves",
+      "target": "devevey-adaptive-poly-modulus",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "uses",
+      "target": "polynomial-noise-flooding",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "uses",
+      "target": "shamir-secret-sharing",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sjtu-adaptive-threshold-decryption",
+      "type": "uses",
+      "target": "zero-sharing-masks",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "sourav-das",
+      "type": "authored",
+      "target": "btx",
+      "declared_in": "btx"
+    },
+    {
+      "source": "sourav-das",
+      "type": "authored",
+      "target": "weighted-bte",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "sriram-subramanian",
+      "type": "authored",
+      "target": "mevade",
+      "declared_in": "mevade"
+    },
+    {
+      "source": "steven-goldfeder",
+      "type": "authored",
+      "target": "bgg-universal-thresholdizer",
+      "declared_in": "bgg-universal-thresholdizer"
+    },
+    {
+      "source": "tacet",
+      "type": "assumes",
+      "target": "mlwe",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "assumes",
+      "target": "module-sis",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "builds_on",
+      "target": "bbnrs-context-dependent",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "builds_on",
+      "target": "bendlin-damgard",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "opens",
+      "target": "low-norm-small-share-large-t",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "partially_satisfies",
+      "target": "D10",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "partially_satisfies",
+      "target": "D11",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "partially_satisfies",
+      "target": "D13",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "partially_satisfies",
+      "target": "D4",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "partially_satisfies",
+      "target": "D5",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "partially_satisfies",
+      "target": "D6",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "partially_satisfies",
+      "target": "D8",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "satisfies",
+      "target": "D1",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "satisfies",
+      "target": "D12",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "satisfies",
+      "target": "D14",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "satisfies",
+      "target": "D15",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "satisfies",
+      "target": "D9",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "uses",
+      "target": "fiat-shamir-nizk",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "uses",
+      "target": "low-norm-secret-sharing",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "uses",
+      "target": "noise-flooding",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "uses",
+      "target": "replicated-secret-sharing",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "uses",
+      "target": "vector-commitments",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet",
+      "type": "uses",
+      "target": "zero-sharing-masks",
+      "declared_in": "tacet"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "assumes",
+      "target": "decomposed-lwe",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "assumes",
+      "target": "l-succinct-lwe",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "assumes",
+      "target": "mlwe",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "assumes",
+      "target": "qrom",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "builds_on",
+      "target": "champion-wu-dbe",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "builds_on",
+      "target": "tacet",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "partially_satisfies",
+      "target": "D13",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "partially_satisfies",
+      "target": "D5",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "partially_satisfies",
+      "target": "D6",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "satisfies",
+      "target": "D1",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "satisfies",
+      "target": "D11",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "satisfies",
+      "target": "D14",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "satisfies",
+      "target": "D2",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "satisfies",
+      "target": "D8",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "satisfies",
+      "target": "D9",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "uses",
+      "target": "distributed-broadcast-encryption",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "uses",
+      "target": "silent-setup",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "uses",
+      "target": "wee-matrix-commitment",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "tacet-silent",
+      "type": "uses",
+      "target": "zero-sharing-masks",
+      "declared_in": "tacet-silent"
+    },
+    {
+      "source": "thomas-peters",
+      "type": "authored",
+      "target": "devevey-libert-nguyen-peters-yung",
+      "declared_in": "devevey-libert-nguyen-peters-yung"
     },
     {
       "source": "threshold-lwe",
@@ -831,10 +4565,220 @@
       "declared_in": "threshold-lwe"
     },
     {
+      "source": "valerio-cini",
+      "type": "authored",
+      "target": "pilvi",
+      "declared_in": "pilvi"
+    },
+    {
+      "source": "varun-nair",
+      "type": "authored",
+      "target": "mevade",
+      "declared_in": "mevade"
+    },
+    {
+      "source": "victor-shoup",
+      "type": "authored",
+      "target": "bbnrs-context-dependent",
+      "declared_in": "bbnrs-context-dependent"
+    },
+    {
+      "source": "victor-shoup",
+      "type": "authored",
+      "target": "btx",
+      "declared_in": "btx"
+    },
+    {
+      "source": "wagner-desiderata",
+      "type": "opens",
+      "target": "adaptive-corruptions-batched-lattice",
+      "declared_in": "adaptive-corruptions-batched-lattice"
+    },
+    {
+      "source": "wagner-desiderata",
+      "type": "opens",
+      "target": "low-norm-small-share-large-t",
+      "declared_in": "low-norm-small-share-large-t"
+    },
+    {
+      "source": "wagner-desiderata",
+      "type": "opens",
+      "target": "post-inclusion-ordering",
+      "declared_in": "post-inclusion-ordering"
+    },
+    {
+      "source": "wagner-desiderata",
+      "type": "opens",
+      "target": "remove-query-bound-poly-modulus",
+      "declared_in": "remove-query-bound-poly-modulus"
+    },
+    {
+      "source": "wagner-desiderata",
+      "type": "opens",
+      "target": "silent-pq-threshold-t-of-n",
+      "declared_in": "silent-pq-threshold-t-of-n"
+    },
+    {
+      "source": "wagner-desiderata",
+      "type": "opens",
+      "target": "sublinear-pq-batch-decryption",
+      "declared_in": "sublinear-pq-batch-decryption"
+    },
+    {
+      "source": "waters-wu-silent",
+      "type": "assumes",
+      "target": "q-type-pairing",
+      "declared_in": "waters-wu-silent"
+    },
+    {
+      "source": "waters-wu-silent",
+      "type": "fails",
+      "target": "D1",
+      "declared_in": "waters-wu-silent"
+    },
+    {
+      "source": "waters-wu-silent",
+      "type": "fails",
+      "target": "D10",
+      "declared_in": "waters-wu-silent"
+    },
+    {
+      "source": "waters-wu-silent",
+      "type": "fails",
+      "target": "D14",
+      "declared_in": "waters-wu-silent"
+    },
+    {
+      "source": "waters-wu-silent",
+      "type": "fails",
+      "target": "D8",
+      "declared_in": "waters-wu-silent"
+    },
+    {
+      "source": "waters-wu-silent",
+      "type": "partially_satisfies",
+      "target": "D4",
+      "declared_in": "waters-wu-silent"
+    },
+    {
+      "source": "waters-wu-silent",
+      "type": "satisfies",
+      "target": "D11",
+      "declared_in": "waters-wu-silent"
+    },
+    {
+      "source": "waters-wu-silent",
+      "type": "satisfies",
+      "target": "D2",
+      "declared_in": "waters-wu-silent"
+    },
+    {
+      "source": "waters-wu-silent",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "waters-wu-silent"
+    },
+    {
+      "source": "waters-wu-silent",
+      "type": "uses",
+      "target": "monotone-policy-encryption",
+      "declared_in": "waters-wu-silent"
+    },
+    {
+      "source": "waters-wu-silent",
+      "type": "uses",
+      "target": "silent-setup",
+      "declared_in": "waters-wu-silent"
+    },
+    {
       "source": "wee-matrix-commitment",
       "type": "assumes",
       "target": "l-succinct-lwe",
       "declared_in": "wee-matrix-commitment"
+    },
+    {
+      "source": "weighted-bte",
+      "type": "builds_on",
+      "target": "beat-mev",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "weighted-bte",
+      "type": "fails",
+      "target": "D2",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "weighted-bte",
+      "type": "fails",
+      "target": "D8",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "weighted-bte",
+      "type": "partially_satisfies",
+      "target": "D15",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "weighted-bte",
+      "type": "satisfies",
+      "target": "D13",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "weighted-bte",
+      "type": "satisfies",
+      "target": "D14",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "weighted-bte",
+      "type": "satisfies",
+      "target": "D3",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "weighted-bte",
+      "type": "uses",
+      "target": "batched-threshold-encryption",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "weighted-bte",
+      "type": "uses",
+      "target": "kh-pprf",
+      "declared_in": "weighted-bte"
+    },
+    {
+      "source": "xinyi-huang",
+      "type": "authored",
+      "target": "sjtu-adaptive-threshold-decryption",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "yunxiao-zhou",
+      "type": "authored",
+      "target": "sjtu-adaptive-threshold-decryption",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "yuxin-zhang",
+      "type": "authored",
+      "target": "sjtu-adaptive-threshold-decryption",
+      "declared_in": "sjtu-adaptive-threshold-decryption"
+    },
+    {
+      "source": "ziyan-qu",
+      "type": "authored",
+      "target": "beast-mev",
+      "declared_in": "beast-mev"
+    },
+    {
+      "source": "ziyan-qu",
+      "type": "authored",
+      "target": "beat-mev",
+      "declared_in": "beat-mev"
     }
   ]
 }

@@ -12,7 +12,19 @@ eprint submissions are CC BY or author-retained, publisher PDFs are not.
 
 ## Cited by a vault note, PDF missing
 
-None. Every paper cited by a vault note has its PDF.
+These are the sharpest gaps: a note already makes claims about the paper.
+
+| eprint | save as | cited by | link |
+|---|---|---|---|
+| `2017/956` | `2017-956.pdf` | `bgg-universal-thresholdizer` | [pdf](https://eprint.iacr.org/2017/956.pdf) |
+| `2024/1516` | `2024-1516.pdf` | `choudhuri-garg-policharla-wang-onetime` | [pdf](https://eprint.iacr.org/2024/1516.pdf) |
+| `2024/1575` | `2024-1575.pdf` | `aptos-batched-ibe` | [pdf](https://eprint.iacr.org/2024/1575.pdf) |
+| `2024/669` | `2024-669.pdf` | `cgpp-bte`, `choudhuri-garg-piet-policharla-2024` | [pdf](https://eprint.iacr.org/2024/669.pdf) |
+| `2025/1384` | `2025-1384.pdf` | `hall-andersen-simkin-wagner-silent` | [pdf](https://eprint.iacr.org/2025/1384.pdf) |
+| `2025/1547` | `2025-1547.pdf` | `waters-wu-silent` | [pdf](https://eprint.iacr.org/2025/1547.pdf) |
+| `2025/2115` | `2025-2115.pdf` | `weighted-bte` | [pdf](https://eprint.iacr.org/2025/2115.pdf) |
+| `2026/1585` | `2026-1585.pdf` | `nguyen-adaptive-hint-mlwe` | [pdf](https://eprint.iacr.org/2026/1585.pdf) |
+| `2026/372` | `2026-372.pdf` | `rishab-dme` | [pdf](https://eprint.iacr.org/2026/372.pdf) |
 
 ## Curated wishlist
 
@@ -104,21 +116,4 @@ None. Every paper cited by a vault note has its PDF.
 
 Either the note is still to be written, or the file is misnamed.
 
-- `2009-391.pdf`
-- `2021-630.pdf`
-- `2023-016.pdf`
-- `2023-1728.pdf`
-- `2024-1417.pdf`
-- `2024-1533.pdf`
-- `2024-263.pdf`
-- `2025-1254.pdf`
-- `2025-1419.pdf`
-- `2025-1665.pdf`
-- `2025-1691.pdf`
-- `2025-279.pdf`
-- `2026-1454.pdf`
-- `2026-1464.pdf`
-- `2026-1627.pdf`
-- `2026-318.pdf`
-- `2026-754.pdf`
 - `TACET.pdf`
