@@ -8,6 +8,12 @@ requirements each one meets, what has been measured, and what is still open.
 
 <img width="1697" height="1314" alt="image" src="https://github.com/user-attachments/assets/4543ec6f-7f23-4675-9824-eccc248536be" />
 
+![The whole graph: 178 nodes across ten types, clustered and labelled](docs/demo.gif)
+
+*The whole graph, all 178 nodes. **[Watch the full 80-second tour](docs/demo.mp4)**:
+reading a guide, searching, following edges, the whole graph, then narrowing to
+post-quantum-only and to a single desideratum.*
+
 
 **New here? Read [`vault/guides/start-here.md`](vault/guides/start-here.md).** It
 explains the problem in plain language with no cryptography assumed, then hands you
@@ -268,6 +274,9 @@ python3 scripts/validate.py           # links, schema, quality bar, orphans
 python3 scripts/check_pdfs.py --write # reconcile PDFs, regenerate WANTED.md
 python3 scripts/build_webapp.py       # -> dist/
 ```
+
+Regenerating the demo media in `docs/` needs the extra tools in
+`requirements-dev.txt`; see [`docs/README.md`](docs/README.md).
 
 `build_graph.py` hard-fails on unknown ids, edges to nonexistent nodes, unknown
 types, unknown frontmatter keys, domain or range violations, and duplicate ids.

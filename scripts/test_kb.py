@@ -478,7 +478,9 @@ class TestPackaging(unittest.TestCase):
     skill/. CI is the only clean environment, so a missing dependency otherwise
     surfaces as a red build rather than a local failure."""
 
-    MODULE_TO_DIST = {"yaml": "pyyaml", "markdown": "markdown", "pypdf": "pypdf"}
+    MODULE_TO_DIST = {"yaml": "pyyaml", "markdown": "markdown", "pypdf": "pypdf",
+                      "playwright": "playwright", "imageio_ffmpeg": "imageio-ffmpeg"}
+    REQ_FILES = ("requirements.txt", "requirements-dev.txt")
 
     def _imported_modules(self):
         import ast
@@ -506,7 +508,11 @@ class TestPackaging(unittest.TestCase):
         return found
 
     def test_every_third_party_import_is_declared(self):
-        req = (REPO_ROOT / "requirements.txt").read_text(encoding="utf-8").lower()
+        req = "\n".join(
+            (REPO_ROOT / f).read_text(encoding="utf-8").lower()
+            for f in self.REQ_FILES
+            if (REPO_ROOT / f).exists()
+        )
         declared = {
             re.split(r"[<>=!~\s]", line, 1)[0].strip()
             for line in req.splitlines()
@@ -522,7 +528,8 @@ class TestPackaging(unittest.TestCase):
             self.assertIn(
                 dist,
                 declared,
-                f"{module!r} is imported but {dist!r} is not in requirements.txt",
+                f"{module!r} is imported but {dist!r} is in none of "
+                f"{', '.join(self.REQ_FILES)}",
             )
 
     def test_skill_cli_is_stdlib_only(self):

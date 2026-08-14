@@ -1,0 +1,5 @@
+# Only needed to regenerate the demo media in docs/ (scripts/record_demo.py).
+# Nothing in the build, validation or site pipeline depends on these, so they are
+# deliberately kept out of requirements.txt.
+playwright>=1.40
+imageio-ffmpeg>=0.4
