@@ -10,9 +10,9 @@ requirements each one meets, what has been measured, and what is still open.
 
 ![The whole graph: 178 nodes across ten types, clustered and labelled](docs/demo.gif)
 
-*The whole graph, all 178 nodes. **[Watch the full 80-second tour](docs/demo.mp4)**:
-reading a guide, searching, following edges, the whole graph, then narrowing to
-post-quantum-only and to a single desideratum.*
+*All 178 nodes, then narrowed to the 45 that are post-quantum.
+**[Watch the full 80-second tour](docs/demo.mp4)** for the rest: reading a guide,
+searching, following edges, and filtering down to a single desideratum.*
 
 
 **New here? Read [`vault/guides/start-here.md`](vault/guides/start-here.md).** It

@@ -1,7 +1,9 @@
 # Demo media
 
-`demo.mp4` is an 80-second tour of the webapp; `demo.gif` is a 17-second loop of
-the whole-graph view, used inline in the top-level README.
+`demo.mp4` is an 80-second tour of the webapp. `demo.gif` is a 7-second loop of
+the whole-graph view at 640px, sped up 2x, used inline in the top-level README and
+for social posts. It is deliberately a thumbnail: node labels are not legible at
+that size, and the mp4 and the live site are where the detail lives.
 
 Both are recorded from the real site, not mocked up. To regenerate after a UI
 change:

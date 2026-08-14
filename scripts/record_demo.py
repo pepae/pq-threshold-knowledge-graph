@@ -192,9 +192,13 @@ subprocess.run([ff, "-hide_banner", "-loglevel", "error", "-i", path,
                 "-vf", "fps=24,scale=1280:-2", "-c:v", "libx264", "-pix_fmt", "yuv420p",
                 "-crf", "29", "-preset", "veryslow", "-movflags", "+faststart", "-an",
                 str(docs / "demo.mp4"), "-y"], check=True)
-subprocess.run([ff, "-hide_banner", "-loglevel", "error", "-ss", "43", "-t", "17",
+# The GIF is a thumbnail, not a document: short, small and sped up 2x so it
+# loops before a reader scrolls past. Labels are illegible at 640px by design;
+# the mp4 and the live site carry the detail.
+subprocess.run([ff, "-hide_banner", "-loglevel", "error", "-ss", "44", "-t", "14",
                 "-i", path, "-vf",
-                "fps=9,scale=880:-2:flags=lanczos,split[a][b];"
-                "[a]palettegen=max_colors=96[p];[b][p]paletteuse=dither=bayer:bayer_scale=4",
+                "setpts=PTS/2.0,fps=11,scale=640:-2:flags=lanczos,split[a][b];"
+                "[a]palettegen=max_colors=48:stats_mode=diff[p];"
+                "[b][p]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle",
                 "-loop", "0", str(docs / "demo.gif"), "-y"], check=True)
 print("wrote docs/demo.mp4 and docs/demo.gif")
