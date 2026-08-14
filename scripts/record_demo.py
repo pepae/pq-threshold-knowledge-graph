@@ -188,9 +188,12 @@ except ImportError:
 
 docs = pathlib.Path(__file__).resolve().parent.parent / "docs"
 docs.mkdir(exist_ok=True)
+# 2.2x speed: the raw capture has deliberate dwell time so the scripted hovers
+# register, which is too slow to watch. 37s is a postable length.
 subprocess.run([ff, "-hide_banner", "-loglevel", "error", "-i", path,
-                "-vf", "fps=24,scale=1280:-2", "-c:v", "libx264", "-pix_fmt", "yuv420p",
-                "-crf", "29", "-preset", "veryslow", "-movflags", "+faststart", "-an",
+                "-vf", "setpts=PTS/2.2,fps=25,scale=1280:-2",
+                "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                "-crf", "31", "-preset", "veryslow", "-movflags", "+faststart", "-an",
                 str(docs / "demo.mp4"), "-y"], check=True)
 # The GIF is a thumbnail, not a document: short, small and sped up 2x so it
 # loops before a reader scrolls past. Labels are illegible at 640px by design;

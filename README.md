@@ -11,7 +11,7 @@ requirements each one meets, what has been measured, and what is still open.
 ![The whole graph: 178 nodes across ten types, clustered and labelled](docs/demo.gif)
 
 *All 178 nodes, then narrowed to the 45 that are post-quantum.
-**[Watch the full 80-second tour](docs/demo.mp4)** for the rest: reading a guide,
+**[Watch the 37-second tour](docs/demo.mp4)** for the rest: reading a guide,
 searching, following edges, and filtering down to a single desideratum.*
 
 

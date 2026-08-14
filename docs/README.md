@@ -1,6 +1,6 @@
 # Demo media
 
-`demo.mp4` is an 80-second tour of the webapp. `demo.gif` is a 7-second loop of
+`demo.mp4` is a 37-second tour of the webapp, the raw capture sped up 2.2x. `demo.gif` is a 7-second loop of
 the whole-graph view at 640px, sped up 2x, used inline in the top-level README and
 for social posts. It is deliberately a thumbnail: node labels are not legible at
 that size, and the mp4 and the live site are where the detail lives.
@@ -15,6 +15,10 @@ python3 -m http.server 8770 -d dist &
 
 python3 scripts/record_demo.py            # writes docs/demo.mp4 and docs/demo.gif
 ```
+
+Both are sped up on encode rather than recorded fast. The capture has deliberate
+dwell time so each scripted hover registers and the tooltip appears; played at 1x
+that is 82 seconds and too slow to watch.
 
 The tour script drives every pan, zoom and hover in many small steps, because the
 app deliberately has no animated transitions: the layout is solved to convergence
